@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= yield :title %></title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <div class="page">
+    <div class="row gutters">
+      <div class="col col-1"></div>
+      <div class="col col-7">
+        <%= yield %>
+      </div>
+      <div class="col col-3">
+        <h1 class="h3 hide-sm">&nbsp;</h1>
+        <div class="small">
+          <%= yield :sidebar %>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

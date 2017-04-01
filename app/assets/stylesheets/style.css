@@ -1,0 +1,50 @@
+.button, body, button, h1, h1.title, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+.page {
+  width: 90%;
+  margin: 3em auto;
+  color: #0d0d0e;
+}
+
+ol {
+  color: #c0c0c0;
+}
+
+ol p {
+  color: #0d0d0e;
+}
+
+ol.hanging {
+  padding-left: 16px;
+  margin-left: -16px;
+}
+
+ol.hanging li {
+  padding-left: 4px;
+  margin-left: -4px;
+}
+
+@media (min-width: 1200px) {
+  .page {
+    max-width: 1080px;
+  }
+}
+
+@media (max-width: 768px) {
+  ol.hanging li {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .page {
+    margin-left: 24px;
+  }
+}
+
+pre {
+  border-radius: 8px;
+}
