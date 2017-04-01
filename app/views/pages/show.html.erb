@@ -1,35 +1,29 @@
+<% content_for :title do %>
+  <%= @project.title %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1 class="h3">
   <%= @page.title %>
-</p>
+  <%= link_to fa_icon('pencil'), edit_project_page_path(@project, @page), class: 'small' %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Source</th>
-      <th>Html</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @page.blocks.each do |block| %>
+  <div class="block">
+    <div class="block-body">
+      <%= block.html.html_safe %>
+    </div>
+    <div class="block-controls">
+      <%= link_to fa_icon('pencil'), edit_project_page_block_path(@project, @page, block) %>
+    </div>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @page.blocks.each do |block| %>
-      <tr>
-        <td><%= block.source %></td>
-        <td><%= block.html %></td>
-        <td><%= link_to 'Show', project_page_block_path(@project, @page, block) %></td>
-        <td><%= link_to 'Edit', edit_project_page_block_path(@project, @page, block) %></td>
-        <td><%= link_to 'Destroy', project_page_block_path(@project, @page, block), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'New Block', new_project_page_block_path(@project, @page), class: 'button' %>
 
-<br>
-
-<%= link_to 'New Block', new_project_page_block_path(@project, @page) %>
-
-<%= link_to 'Edit', edit_project_page_path(@project, @page) %> |
-<%= link_to 'Back', project_pages_path(@project) %>
+<% content_for :sidebar do %>
+  <% @project.pages.each do |page| %>
+    <p><%= link_to page.title, project_page_path(@project, page) %></p>
+  <% end %>
+<% end %>

@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to project_pages_path(@project), notice: 'Page was successfully updated.' }
+        format.html { redirect_to project_page_path(@project, @page), notice: 'Page was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -56,6 +56,6 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:title, :project_id)
+    params.require(:page).permit(:title)
   end
 end

@@ -2,5 +2,4 @@
 
 <%= render 'form', block: @block %>
 
-<%= link_to 'Show', @block %> |
-<%= link_to 'Back', blocks_path %>
+<%= link_to 'Back', project_page_blocks_path(@project, @page) %> | <%= link_to fa_icon('trash-o'), project_page_block_path(@project, @page, @block), method: :delete, data: { confirm: 'Are you sure?' } %>

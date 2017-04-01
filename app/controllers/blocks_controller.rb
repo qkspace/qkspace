@@ -21,7 +21,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to project_page_blocks_path(@project, @page), notice: 'Block was successfully created.' }
+        format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,8 +30,8 @@ class BlocksController < ApplicationController
 
   def update
     respond_to do |format|
-      if @block.save
-        format.html { redirect_to project_page_blocks_path(@project, @page), notice: 'Block was successfully updated.' }
+      if @block.update(block_params)
+        format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -41,7 +41,7 @@ class BlocksController < ApplicationController
   def destroy
     @block.destroy
     respond_to do |format|
-      format.html { redirect_to project_page_blocks_path(@project, @page), notice: 'Block was successfully destroyed.' }
+      format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully destroyed.' }
     end
   end
 
@@ -60,6 +60,6 @@ class BlocksController < ApplicationController
   end
 
   def block_params
-    params.require(:block).permit(:source, :html, :page_id)
+    params.require(:block).permit(:source)
   end
 end
