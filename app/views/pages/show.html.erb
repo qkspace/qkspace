@@ -22,7 +22,12 @@
 
 <% content_for :sidebar do %>
   <% @project.pages.each do |page| %>
-    <p><%= link_to page.title, project_page_path(@project, page) %></p>
+    <% if page == @page %>
+      <p class="muted"><%= page.title %></p>
+    <% else %>
+      <p><%= link_to page.title, project_page_path(@project, page) %></p>
+    <% end %>
   <% end %>
-  <%= link_to fa_icon('plus'), new_project_page_path(@project) %>
+
+  <%= link_to fa_icon('plus'), new_project_page_path(@project), title: 'Новая страница' %>
 <% end %>

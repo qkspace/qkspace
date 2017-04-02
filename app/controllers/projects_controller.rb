@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Проект создан' }
+        format.html { redirect_to project_page_path(@project, @project.pages.first), notice: 'Проект создан' }
       else
         format.html { render :new }
       end
