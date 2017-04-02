@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'projects#index'
+  root to: 'projects#index', constraints: {subdomain: ''}
+  root to: 'projects#show', constraints: {subdomain: /.+/}
 
   devise_for :users
 
-  resources :projects do
-    resources :pages, param: :slug, path: 'p' do
-      resources :blocks
-    end
+  resources :projects, only: [:new, :create, :edit, :update, :destroy]
+
+  resources :pages, param: :slug, path: '' do
+    resources :blocks
   end
 end

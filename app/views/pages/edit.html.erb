@@ -2,4 +2,4 @@
 
 <%= render 'form', page: @page %>
 
-<%= link_to fa_icon('trash-o'), project_page_path(@project, @page), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<%= link_to fa_icon('trash-o'), page_path(@page), method: :delete, data: { confirm: 'Вы уверены?' } %>

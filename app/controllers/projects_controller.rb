@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to project_page_path(@project, @project.pages.first), notice: 'Проект создан' }
+        format.html { redirect_to page_path(@project, @project.pages.first), notice: 'Проект создан' }
       else
         format.html { render :new }
       end
@@ -32,7 +32,8 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Проект переименован' }
+        byebug
+        format.html { redirect_to project_url(@project), notice: 'Проект переименован' }
       else
         format.html { render :edit }
       end
@@ -47,10 +48,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-  def set_project
-    @project = current_user.projects.find(params[:id])
-  end
 
   def project_params
     params.require(:project).permit(:title, :slug)

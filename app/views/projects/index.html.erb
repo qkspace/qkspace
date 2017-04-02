@@ -4,7 +4,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.title, project %></td>
+        <td><%= link_to project.title, project_url(project) %></td>
         <td><%= link_to fa_icon('pencil'), edit_project_path(project) %></td>
         <td><%= link_to fa_icon('trash-o'), project, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>

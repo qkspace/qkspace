@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_project, only: [:show]
-  before_action :set_project_from_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_project_from_current_user, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to project_page_path(@project, @page), notice: 'Страница создана' }
+        format.html { redirect_to page_path(@page), notice: 'Страница создана' }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to project_page_path(@project, @page), notice: 'Страница обновлена' }
+        format.html { redirect_to page_path(@page), notice: 'Страница обновлена' }
       else
         format.html { render :edit }
       end
@@ -41,19 +41,11 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to project_path(@project), notice: 'Страница удалена' }
+      format.html { redirect_to project_url(@project), notice: 'Страница удалена' }
     end
   end
 
   private
-
-  def set_project
-    @project = Project.find(params[:project_id])
-  end
-
-  def set_project_from_user
-    @project = current_user.projects.find(params[:project_id])
-  end
 
   def set_page
     @page = @project.pages.find_by(slug: params[:slug])
