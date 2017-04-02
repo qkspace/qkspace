@@ -11,12 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :source %>
-    <%= f.text_area :source %>
+  <div class="form-item">
+    <%= f.label :source, 'Текст' %>
+    <%= f.text_area :source, rows: 10 %>
+    <div class="desc">
+      <%= link_to "Подсказка", '#', data: {
+        component: 'modal',
+        target: '#block-source-help'
+      } %>
+    по оформлению</div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-item">
+    <%= f.submit 'Сохранить', class: 'button outline small' %> или <%= link_to 'назад', :back %>
   </div>
 <% end %>
+
+<div id="block-source-help" class="modal-box hide">
+  <div class="modal">
+    <span class="close"></span>
+    <div class="modal-header">Подсказка по оформлению текста</div>
+    <div class="modal-body">
+      <%= render partial: 'partials/md_help' %>
+    </div>
+  </div>
+</div>

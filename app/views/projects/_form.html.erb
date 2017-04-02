@@ -1,22 +1,25 @@
-<%= form_for(project) do |f| %>
+<%= form_for(project, html: {class: 'form'}) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <h2>
+        <%= pluralize(project.errors.count, "error") %>
+        prohibited this project from being saved:
+      </h2>
 
       <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
+  <div class="form-item">
+    <%= f.label :title, 'Название проекта' %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-item small">
+    <%= f.submit 'Сохранить', class: 'button outline small' %> или <%= link_to 'назад', :back %>
   </div>
 <% end %>

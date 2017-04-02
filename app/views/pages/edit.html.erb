@@ -1,6 +1,5 @@
-<h1>Editing Page</h1>
+<% content_for :title do 'Редактирование страницы' end %>
 
 <%= render 'form', page: @page %>
 
-<%= link_to 'Show', project_page_path(@project, @page) %> |
-<%= link_to 'Back', project_pages_path(@project) %>
+<%= link_to fa_icon('trash-o'), project_page_path(@project, @page), method: :delete, data: { confirm: 'Вы уверены?' } %>

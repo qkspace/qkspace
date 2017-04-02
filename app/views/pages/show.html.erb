@@ -2,8 +2,6 @@
   <%= @project.title %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-
 <h1 class="h3">
   <%= @page.title %>
   <%= link_to fa_icon('pencil'), edit_project_page_path(@project, @page), class: 'small' %>
@@ -20,10 +18,11 @@
   </div>
 <% end %>
 
-<%= link_to 'New Block', new_project_page_block_path(@project, @page), class: 'button' %>
+<%= link_to 'Новый блок', new_project_page_block_path(@project, @page), class: 'button outline' %>
 
 <% content_for :sidebar do %>
   <% @project.pages.each do |page| %>
     <p><%= link_to page.title, project_page_path(@project, page) %></p>
   <% end %>
+  <%= link_to fa_icon('plus'), new_project_page_path(@project) %>
 <% end %>

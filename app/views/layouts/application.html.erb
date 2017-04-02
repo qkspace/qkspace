@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= yield :title %></title>
-
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,6 +14,12 @@
       <div class="col col-1"></div>
       <div class="col col-10">
         <h1><%= yield :title %></h1>
+        <% unless notice.blank? %>
+          <div class="message" data-component="message">
+            <%= notice %>
+            <span class="close small"></span>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="row gutters">

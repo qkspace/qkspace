@@ -1,6 +1,5 @@
-<h1>Editing Project</h1>
+<% content_for :title do %>
+  Редактирование проекта
+<% end %>
 
 <%= render 'form', project: @project %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>

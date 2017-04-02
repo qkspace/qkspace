@@ -1,5 +1,5 @@
-<h1>Editing Block</h1>
+<% content_for :title do 'Редактирование блока' end %>
 
 <%= render 'form', block: @block %>
 
-<%= link_to 'Back', project_page_blocks_path(@project, @page) %> | <%= link_to fa_icon('trash-o'), project_page_block_path(@project, @page, @block), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to fa_icon('trash-o'), project_page_block_path(@project, @page, @block), method: :delete, data: { confirm: 'Вы уверены?' } %>

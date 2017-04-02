@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
+<% content_for :title do %>
   <%= @project.title %>
   <%= link_to fa_icon('pencil'), edit_project_path(@project), class: 'small' %>
-</h1>
-
-<% @project.pages.each do |page| %>
-  <p><%= link_to page.title, project_page_path(@project, page) %></p>
 <% end %>
 
-<%= link_to 'New Page', new_project_page_path(@project), class: 'button' %>
+<% if @project.pages.any? %>
+  <% @project.pages.each do |page| %>
+    <p><%= link_to page.title, project_page_path(@project, page) %></p>
+  <% end %>
+  <%= link_to 'Новая страница', new_project_page_path(@project), class: 'button outline' %>
+<% else %>
+  В этом проект нет содержимого
+  <%= link_to "cоздайте страницу", new_project_page_path(@project) %>
+  для начала.
+<% end %>

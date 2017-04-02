@@ -21,7 +21,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully created.' }
+        format.html { redirect_to project_page_path(@project, @page), notice: 'Блок создан' }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class BlocksController < ApplicationController
   def update
     respond_to do |format|
       if @block.update(block_params)
-        format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully updated.' }
+        format.html { redirect_to project_page_path(@project, @page), notice: 'Блок обновлен' }
       else
         format.html { render :edit }
       end
@@ -41,7 +41,7 @@ class BlocksController < ApplicationController
   def destroy
     @block.destroy
     respond_to do |format|
-      format.html { redirect_to project_page_path(@project, @page), notice: 'Block was successfully destroyed.' }
+      format.html { redirect_to project_page_path(@project, @page), notice: 'Блок удален' }
     end
   end
 

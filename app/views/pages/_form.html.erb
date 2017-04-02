@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
+  <div class="form-item">
+    <%= f.label :title, 'Название страницы' %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-item">
+    <%= f.submit 'Сохранить', class: 'button outline small' %> или <%= link_to 'назад', :back %>
   </div>
 <% end %>

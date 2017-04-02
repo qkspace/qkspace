@@ -1,5 +1,3 @@
-<h1>New Block</h1>
+<% content_for :title do 'Новый блок' end  %>
 
 <%= render 'form', block: @block %>
-
-<%= link_to 'Back', project_page_blocks_path(@project, @page) %>
