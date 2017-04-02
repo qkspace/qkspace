@@ -8,6 +8,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @page = @project.pages.first
+
+    render 'pages/show'
   end
 
   def new

@@ -27,21 +27,5 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <% @project.pages.each do |page| %>
-    <% if page == @page %>
-      <p class="muted"><%= page.title %></p>
-    <% else %>
-      <p><%= link_to page.title, page_path(page) %></p>
-    <% end %>
-  <% end %>
-
-  <% if current_user_owns?(@project) %>
-    <p><%= link_to fa_icon('plus'), new_page_path, title: 'Новая страница' %></p>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <p><%= current_user.email %> (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)</p>
-  <% else %>
-    <p><%= link_to 'Регистрация', new_user_registration_path %> или <%= link_to 'вход', new_user_session_path %></p>
-  <% end %>
+  <%= render partial: 'partials/sidebar' %>
 <% end %>

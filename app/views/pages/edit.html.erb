@@ -2,4 +2,8 @@
 
 <%= render 'form', page: @page %>
 
-<%= link_to fa_icon('trash-o'), page_path(@page), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% if @page.only_page? %>
+  <%= fa_icon('trash-o', title: 'Нельзя удалить последнюю страницу', class: 'muted') %>
+<% else %>
+  <%= link_to fa_icon('trash-o'), page_path(@page), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% end %>
