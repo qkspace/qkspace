@@ -1,7 +1,8 @@
 <% content_for :title do %>
   <%= @project.title %>
-  <%= link_to fa_icon('pencil'), edit_project_path(@project), class: 'small' %>
 <% end %>
+
+<p><%= link_to fa_icon('pencil', text: 'Редактировать проект'), edit_project_path(@project), class: 'small' %></p>
 
 <% if @project.pages.any? %>
   <% @project.pages.each do |page| %>

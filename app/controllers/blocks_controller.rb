@@ -1,13 +1,8 @@
 class BlocksController < ApplicationController
-  before_action :set_page, :set_project
-  before_action :set_block, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
-  def index
-    @blocks = Block.all
-  end
-
-  def show
-  end
+  before_action :set_project, :set_page
+  before_action :set_block, only: [:edit, :update, :destroy]
 
   def new
     @block = Block.new
@@ -48,15 +43,15 @@ class BlocksController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:project_id])
+    @project = current_user.projects.find(params[:project_id])
   end
 
   def set_page
-    @page = Page.find_by(slug: params[:page_slug])
+    @page = @project.pages.find_by(slug: params[:page_slug])
   end
 
   def set_block
-    @block = Block.find(params[:id])
+    @block = @page.blocks.find(params[:id])
   end
 
   def block_params

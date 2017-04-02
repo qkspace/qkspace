@@ -4,7 +4,9 @@
 
 <h1 class="h3">
   <%= @page.title %>
-  <%= link_to fa_icon('pencil'), edit_project_page_path(@project, @page), class: 'small' %>
+  <% if current_user_owns?(@project) %>
+    <%= link_to fa_icon('pencil'), edit_project_page_path(@project, @page), class: 'small' %>
+  <% end %>
 </h1>
 
 <% @page.blocks.each do |block| %>
@@ -12,13 +14,17 @@
     <div class="block-body">
       <%= block.html.html_safe %>
     </div>
-    <div class="block-controls">
-      <%= link_to fa_icon('pencil'), edit_project_page_block_path(@project, @page, block) %>
-    </div>
+    <% if current_user_owns?(@project) %>
+      <div class="block-controls">
+        <%= link_to fa_icon('pencil'), edit_project_page_block_path(@project, @page, block) %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
-<%= link_to 'Новый блок', new_project_page_block_path(@project, @page), class: 'button outline' %>
+<% if current_user_owns?(@project) %>
+  <%= link_to 'Новый блок', new_project_page_block_path(@project, @page), class: 'button outline' %>
+<% end %>
 
 <% content_for :sidebar do %>
   <% @project.pages.each do |page| %>
@@ -29,5 +35,13 @@
     <% end %>
   <% end %>
 
-  <%= link_to fa_icon('plus'), new_project_page_path(@project), title: 'Новая страница' %>
+  <% if current_user_owns?(@project) %>
+    <p><%= link_to fa_icon('plus'), new_project_page_path(@project), title: 'Новая страница' %></p>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <p><%= current_user.email %> (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)</p>
+  <% else %>
+    <p><%= link_to 'Регистрация', new_user_registration_path %> или <%= link_to 'вход', new_user_session_path %></p>
+  <% end %>
 <% end %>

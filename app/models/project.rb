@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  belongs_to :user
   has_many :pages, dependent: :destroy
 
   validates :title, :slug, presence: true

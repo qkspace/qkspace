@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
-  before_action :set_project
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
-  def index
-    @pages = @project.pages
-  end
+  before_action :set_project, only: [:show]
+  before_action :set_project_from_user, only: [:new, :edit, :create, :update, :destroy]
+
+  before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -51,8 +51,12 @@ class PagesController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def set_project_from_user
+    @project = current_user.projects.find(params[:project_id])
+  end
+
   def set_page
-    @page = Page.find_by(slug: params[:slug])
+    @page = @project.pages.find_by(slug: params[:slug])
   end
 
   def page_params

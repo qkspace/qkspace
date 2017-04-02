@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'commonmarker'
+gem 'devise'
+gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'github-markup'
 gem 'jbuilder', '~> 2.5'
