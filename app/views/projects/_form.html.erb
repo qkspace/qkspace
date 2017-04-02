@@ -19,6 +19,12 @@
     <%= f.text_field :title %>
   </div>
 
+  <div class="form-item">
+    <%= f.label :slug, 'Слаг' %>
+    <%= f.text_field :slug %>
+    <div class="desc">Часть URL проекта</div>
+  </div>
+
   <div class="form-item small">
     <%= f.submit 'Сохранить', class: 'button outline small' %> или <%= link_to 'назад', :back %>
   </div>

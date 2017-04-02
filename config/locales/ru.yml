@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      project: 'Проект'
+      page: 'Страница'
+      block: 'Блок'
+    attributes:
+      project:
+        title: 'Название'
+        slug: 'Слаг'
+      page:
+        title: 'Заголовок'
+      block:
+        source: 'Текст'

@@ -52,7 +52,7 @@ class PagesController < ApplicationController
   end
 
   def set_page
-    @page = Page.find(params[:id])
+    @page = Page.find_by(slug: params[:slug])
   end
 
   def page_params

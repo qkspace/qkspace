@@ -52,7 +52,7 @@ class BlocksController < ApplicationController
   end
 
   def set_page
-    @page = Page.find(params[:page_id])
+    @page = Page.find_by(slug: params[:page_slug])
   end
 
   def set_block
