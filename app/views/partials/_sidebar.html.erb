@@ -9,12 +9,19 @@
 
   <% if current_user_owns?(@project) %>
     <p><%= link_to fa_icon('plus', text: 'Новая страница'), new_page_path %></p>
-    <p><%= link_to fa_icon('pencil', text: 'Редактировать проект'), edit_project_path(@project), class: 'small' %></p>
+    <p><%= link_to fa_icon('pencil', text: 'Редактировать проект'),
+      edit_project_path(@project), class: 'small' %></p>
   <% end %>
 <% end %>
 
 <% if user_signed_in? %>
-  <p><%= current_user.email %> (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)</p>
+  <p>
+  <%= current_user.email %>
+  (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)
+  </p>
 <% else %>
-  <p><%= link_to 'Регистрация', new_user_registration_path %> или <%= link_to 'вход', new_user_session_path %></p>
+  <p>
+  <%= link_to fa_icon('unlock-alt'), new_user_session_path,
+    class: 'muted smaller', title: 'Вход с паролем для редактирования сайта' %>
+  </p>
 <% end %>
