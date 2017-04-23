@@ -1,5 +1,5 @@
 <% if @project %>
-  <ul class="unstyled sidebar-pages"
+  <ul class="unstyled <%= 'sidebar-pages' if current_user_owns?(@project)%>"
   <% if current_user_owns?(@project) %>
     data-role="activerecord_sortable"
   <% end %>
