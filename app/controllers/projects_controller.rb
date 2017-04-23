@@ -1,7 +1,9 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show]
+
+  before_action :set_project_from_current_user, only: [:edit, :update, :destroy]
 
   def index
     @projects = current_user.projects
@@ -25,7 +27,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to page_path(@project, @project.pages.first), notice: 'Проект создан' }
+        format.html { redirect_to projects_url, notice: 'Проект создан' }
       else
         format.html { render :new }
       end
@@ -35,7 +37,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to project_url(@project), notice: 'Проект переименован' }
+        format.html { redirect_to projects_url, notice: 'Проект переименован' }
       else
         format.html { render :edit }
       end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :projects, only: [:new, :create, :edit, :update, :destroy]
+  resources :projects, only: [:new, :index, :create, :edit, :update, :destroy]
 
   resources :pages, param: :slug, path: '' do
     resources :blocks

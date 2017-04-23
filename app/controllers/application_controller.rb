@@ -13,5 +13,6 @@ class ApplicationController < ActionController::Base
 
   def set_project_from_current_user
     @project = current_user.projects.find_by(slug: request.subdomain)
+    @project ||= current_user.projects.find(params[:id])
   end
 end
