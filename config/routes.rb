@@ -8,5 +8,9 @@ Rails.application.routes.draw do
 
   resources :pages, param: :slug, path: '' do
     resources :blocks
+
+    member do
+      post :move
+    end
   end
 end

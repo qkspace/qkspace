@@ -12,9 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require sortable
 //= require turbolinks
 //= require kube.min
 //= require highlight.min
 //= require_self
 
 hljs.initHighlightingOnLoad();
+
+$(document).on('turbolinks:load', function() {
+  $('*[data-role=activerecord_sortable]').activerecord_sortable();
+});

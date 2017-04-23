@@ -1,8 +1,13 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [
+    :new, :edit, :create, :update, :destroy
+  ]
 
   before_action :set_project, only: [:show]
-  before_action :set_project_from_current_user, only: [:new, :edit, :create, :update, :destroy]
+
+  before_action :set_project_from_current_user, only: [
+    :new, :edit, :move, :create, :update, :destroy
+  ]
 
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
@@ -36,6 +41,11 @@ class PagesController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+
+  def move
+    @page = @project.pages.find_by(slug: params[:slug])
+    @page.move_to! params[:position]
   end
 
   def destroy

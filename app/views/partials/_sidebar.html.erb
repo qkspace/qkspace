@@ -1,11 +1,11 @@
 <% if @project %>
-  <% @project.pages.each do |page| %>
-    <% if page == @page %>
-      <p class="muted"><%= page.title %></p>
-    <% else %>
-      <p><%= link_to page.title, page_path(page) %></p>
-    <% end %>
+  <ul class="unstyled sidebar-pages"
+  <% if current_user_owns?(@project) %>
+    data-role="activerecord_sortable"
   <% end %>
+  >
+    <%= render partial: 'pages/page', collection: @project.pages.order(:position) %>
+  </ul>
 
   <% if current_user_owns?(@project) %>
     <p><%= link_to fa_icon('plus', text: 'Новая страница'), new_page_path %></p>

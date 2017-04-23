@@ -70,3 +70,7 @@ pre {
 .block:hover .block-controls {
   visibility: visible;
 }
+
+.sidebar-pages {
+  margin-bottom: 1em;
+}

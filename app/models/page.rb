@@ -9,6 +9,8 @@ class Page < ApplicationRecord
 
   before_destroy :validate_onliness
 
+  acts_as_sortable
+
   def generate_slug
     self.slug = I18n.transliterate(title).parameterize
   end

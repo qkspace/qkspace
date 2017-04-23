@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402173513) do
+ActiveRecord::Schema.define(version: 20170423093756) do
 
   create_table "blocks", force: :cascade do |t|
     t.text     "source"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170402173513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.integer  "position",   null: false
+    t.index ["position"], name: "index_pages_on_position"
     t.index ["project_id"], name: "index_pages_on_project_id"
   end
 

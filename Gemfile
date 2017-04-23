@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'activerecord-sortable'
 gem 'commonmarker'
 gem 'devise'
 gem 'devise-i18n'
@@ -12,6 +13,7 @@ gem 'font-awesome-rails'
 gem 'github-markup'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails-i18n'
