@@ -4,4 +4,8 @@ module ApplicationHelper
 
     current_user.owns?(project)
   end
+
+  def title
+    t "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}.title"
+  end
 end

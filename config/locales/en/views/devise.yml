@@ -2,4 +2,9 @@ en:
   devise:
     sessions:
       new:
-        title: 'Sign in'
+        title: Sign in
+    registrations:
+      new:
+        title: Sign up
+      edit:
+        title: Account

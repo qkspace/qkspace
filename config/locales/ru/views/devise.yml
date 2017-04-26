@@ -2,4 +2,9 @@ ru:
   devise:
     sessions:
       new:
-        title: 'Вход'
+        title: Вход
+    registrations:
+      new:
+        title: Регистрация
+      edit:
+        title: Аккаунт
