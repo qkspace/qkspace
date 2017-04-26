@@ -1,0 +1,15 @@
+en:
+  pages:
+    new:
+      title: New Page
+    show:
+      new_block: Add block
+    edit:
+      title: Edit Page
+      cant_delete_last_page: Can't delete last page of project
+    create:
+      notice: Page was created
+    update:
+      notice: Page was saved
+    destroy:
+      notice: Page was deleted

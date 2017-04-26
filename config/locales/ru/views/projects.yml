@@ -1,0 +1,15 @@
+ru:
+  projects:
+    new:
+      title: Новый проект
+    index:
+      title: Все проекты
+      create: Создать проект
+    edit:
+      title: Редактирование проекта
+    create:
+      notice: Проект создан
+    update:
+      notice: Проект изменён
+    destroy:
+      notice: Проект был удалён

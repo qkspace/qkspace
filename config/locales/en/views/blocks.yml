@@ -1,0 +1,14 @@
+en:
+  blocks:
+    markdown_hint_link: Markdown %{href}
+    markdown_hint_a: hint
+    new:
+      title: New Block
+    edit:
+      title: Edit Block
+    create:
+      notice: Block was created
+    update:
+      notice: Block was saved
+    destroy:
+      notice: Block was deleted

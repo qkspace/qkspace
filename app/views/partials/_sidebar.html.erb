@@ -8,8 +8,8 @@
   </ul>
 
   <% if current_user_owns?(@project) %>
-    <p><%= link_to fa_icon('plus', text: 'Новая страница'), new_page_path %></p>
-    <p><%= link_to fa_icon('pencil', text: 'Редактировать проект'),
+    <p><%= link_to fa_icon('plus', text: t('views.sidebar.new_page')), new_page_path %></p>
+    <p><%= link_to fa_icon('pencil', text: t('views.sidebar.edit_project')),
       edit_project_path(@project), class: 'small' %></p>
   <% end %>
 <% end %>
@@ -17,11 +17,11 @@
 <% if user_signed_in? %>
   <p>
   <%= current_user.email %>
-  (<%= link_to "выйти", destroy_user_session_path, method: :delete %>)
+  (<%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>)
   </p>
 <% else %>
   <p>
   <%= link_to fa_icon('unlock-alt'), new_user_session_path,
-    class: 'muted smaller', title: 'Вход с паролем для редактирования сайта' %>
+    class: 'muted smaller', title: t('views.sidebar.sign_in') %>
   </p>
 <% end %>

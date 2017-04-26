@@ -1,0 +1,15 @@
+ru:
+  pages:
+    new:
+      title: Новая страница
+    show:
+      new_block: Добавить блок
+    edit:
+      title: Редактирование страницы
+      cant_delete_last_page: Нельзя удалить последнюю страницу проекта
+    create:
+      notice: Страница создана
+    update:
+      notice: Страница изменена
+    destroy:
+      notice: Страница удалена
