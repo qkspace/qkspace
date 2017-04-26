@@ -1,0 +1,5 @@
+ru:
+  devise:
+    sessions:
+      new:
+        title: 'Вход'

@@ -1,4 +1,4 @@
-<% content_for :title do 'Вход' end %>
+<% content_for :title do t('.title') end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-item">

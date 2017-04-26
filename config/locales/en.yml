@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      project: Project
+      page: Page
+      block: Block
+    attributes:
+      project:
+        title: Title
+        slug: Slug
+      page:
+        title: Title
+      block:
+        source: Text

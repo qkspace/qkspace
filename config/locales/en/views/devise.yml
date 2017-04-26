@@ -1,0 +1,5 @@
+en:
+  devise:
+    sessions:
+      new:
+        title: 'Sign in'
