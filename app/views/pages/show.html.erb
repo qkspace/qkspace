@@ -23,7 +23,7 @@
 <% end %>
 
 <% if current_user_owns?(@project) %>
-  <%= link_to 'Новый блок', new_page_block_path(@page), class: 'button outline' %>
+  <%= link_to t('.new_block'), new_page_block_path(@page), class: 'button outline' %>
 <% end %>
 
 <% content_for :sidebar do %>

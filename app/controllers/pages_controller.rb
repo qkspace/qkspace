@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to page_path(@page), notice: 'Страница создана' }
+        format.html { redirect_to page_path(@page), notice: t('.notice') }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to page_path(@page), notice: 'Страница обновлена' }
+        format.html { redirect_to page_path(@page), notice: t('.notice') }
       else
         format.html { render :edit }
       end
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to project_url(@project), notice: 'Страница удалена' }
+      format.html { redirect_to project_url(@project), notice: t('.notice') }
     end
   end
 

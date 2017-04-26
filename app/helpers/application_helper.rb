@@ -6,6 +6,16 @@ module ApplicationHelper
   end
 
   def title
-    t "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}.title"
+    key = "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}"
+    case key
+    when "projects.show", "pages.show"
+      @project.title
+    else
+      t "#{key}.title"
+    end
+  end
+
+  def or_back_link
+    t('views.or_back_link', href: link_to(t('views.back'), :back)).html_safe
   end
 end

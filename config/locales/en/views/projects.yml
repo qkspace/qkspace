@@ -1,0 +1,15 @@
+en:
+  projects:
+    new:
+      title: New Project
+    index:
+      title: All Projects
+      create: Create project
+    edit:
+      title: Edit Project
+    create:
+      notice: Project was created
+    update:
+      notice: Project was saved
+    destroy:
+      notice: Project was deleted

@@ -7,8 +7,21 @@ ru:
     attributes:
       project:
         title: Название
-        slug: Слаг
+        slug: Поддомен
       page:
         title: Заголовок
       block:
         source: Текст
+  helpers:
+    submit:
+      create: Создать
+      update: Сохранить
+  views:
+    sidebar:
+      new_page: Добавить страницу
+      edit_project: Редактировать проект
+      sign_out: выйти
+      sign_in: Вход с паролем для редактирования сайта
+    are_you_sure: Вы уверены?
+    back: назад
+    or_back_link: или %{href}

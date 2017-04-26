@@ -1,0 +1,14 @@
+ru:
+  blocks:
+    markdown_hint_link: "%{href} по оформлению"
+    markdown_hint_a: Подсказка
+    new:
+      title: Новый блок
+    edit:
+      title: Редактирование блока
+    create:
+      notice: Блок создан
+    update:
+      notice: Блок сохранён
+    destroy:
+      notice: Блок удалён

@@ -7,8 +7,21 @@ en:
     attributes:
       project:
         title: Title
-        slug: Slug
+        slug: Subdomain
       page:
         title: Title
       block:
         source: Text
+  helpers:
+    submit:
+      create: Create
+      update: Save
+  views:
+    sidebar:
+      new_page: Add page
+      edit_project: Edit project
+      sign_out: sign out
+      sign_in: Sign in with password to edit site
+    are_you_sure: Are you sure?
+    back: back
+    or_back_link: or %{href}

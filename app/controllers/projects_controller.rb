@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to projects_url, notice: 'Проект создан' }
+        format.html { redirect_to projects_url, notice: t('.notice') }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to projects_url, notice: 'Проект переименован' }
+        format.html { redirect_to projects_url, notice: t('.notice') }
       else
         format.html { render :edit }
       end
@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Проект удален' }
+      format.html { redirect_to projects_url, notice: t('.notice') }
     end
   end
 

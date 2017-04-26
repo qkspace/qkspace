@@ -1,5 +1,3 @@
-<% content_for :title do 'Редактирование блока' end %>
-
 <%= render 'form', block: @block %>
 
-<%= link_to fa_icon('trash-o'), page_block_path(@page, @block), method: :delete, data: { confirm: 'Вы уверены?' } %>
+<%= link_to fa_icon('trash-o'), page_block_path(@page, @block), method: :delete, data: { confirm: t('views.are_you_sure') } %>

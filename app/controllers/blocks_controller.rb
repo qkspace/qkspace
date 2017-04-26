@@ -16,7 +16,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to page_path(@page), notice: 'Блок создан' }
+        format.html { redirect_to page_path(@page), notice: t('.notice') }
       else
         format.html { render :new }
       end
@@ -26,7 +26,7 @@ class BlocksController < ApplicationController
   def update
     respond_to do |format|
       if @block.update(block_params)
-        format.html { redirect_to page_path(@page), notice: 'Блок обновлен' }
+        format.html { redirect_to page_path(@page), notice: t('.notice') }
       else
         format.html { render :edit }
       end
@@ -36,7 +36,7 @@ class BlocksController < ApplicationController
   def destroy
     @block.destroy
     respond_to do |format|
-      format.html { redirect_to page_path(@page), notice: 'Блок удален' }
+      format.html { redirect_to page_path(@page), notice: t('.notice') }
     end
   end
 

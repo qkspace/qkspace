@@ -1,15 +1,13 @@
-<% content_for :title do 'Все проекты' end %>
-
 <table>
   <tbody>
     <% @projects.each do |project| %>
       <tr>
         <td><%= link_to project.title, project_url(project) %></td>
         <td><%= link_to fa_icon('pencil'), edit_project_path(project) %></td>
-        <td><%= link_to fa_icon('trash-o'), project, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to fa_icon('trash-o'), project, method: :delete, data: { confirm: t('views.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Новый проект', new_project_path, class: 'button secondary outline' %>
+<%= link_to t('.create'), new_project_path, class: 'button secondary outline' %>
