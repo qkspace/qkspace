@@ -75,3 +75,7 @@ pre {
   margin-bottom: 1em;
   border-bottom: 1px solid #d0d0d0;
 }
+
+details {
+  margin-bottom: 16px;
+}
