@@ -1,3 +1,5 @@
+require 'github/markup'
+
 class Page < ApplicationRecord
   belongs_to :project
   has_many :blocks, dependent: :destroy
@@ -9,10 +11,16 @@ class Page < ApplicationRecord
 
   before_destroy :validate_onliness
 
+  before_save :markup
+
   acts_as_sortable
 
   def generate_slug
     self.slug = I18n.transliterate(title).parameterize
+  end
+
+  def markup
+    self.html = GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, source)
   end
 
   def to_param
