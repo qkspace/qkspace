@@ -24,7 +24,6 @@ gem 'http_accept_language', '~> 2.1.0'
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 group :development, :test do
