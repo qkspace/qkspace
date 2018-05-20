@@ -17,6 +17,12 @@
   </div>
 
   <div class="form-item">
+    <%= f.label :source %>
+    <%= f.text_area :source, rows: 10 %>
+    <div class="desc"><%= markdown_hint_link %></div>
+  </div>
+
+  <div class="form-item">
     <%= f.submit class: 'button outline small' %> <%= or_back_link %>
   </div>
 <% end %>

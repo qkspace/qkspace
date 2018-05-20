@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :projects, only: [:new, :index, :create, :edit, :update, :destroy]
 
   resources :pages, param: :slug, path: '' do
-    resources :blocks
-
     member do
       post :move
     end

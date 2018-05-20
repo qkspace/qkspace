@@ -3,20 +3,19 @@ ru:
     models:
       project: Проект
       page: Страница
-      block: Блок
     attributes:
       project:
         title: Название
         slug: Поддомен
       page:
         title: Заголовок
-      block:
-        source: Текст
   helpers:
     submit:
       create: Создать
       update: Сохранить
   views:
+    pages:
+      edit_page: Редактировать страницу
     sidebar:
       new_page: Добавить страницу
       edit_project: Редактировать проект

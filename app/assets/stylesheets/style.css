@@ -53,24 +53,6 @@ pre {
   border-radius: 8px;
 }
 
-.block {
-  position: relative;
-}
-
-.block-controls {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 2px;
-  padding: 2px;
-  background: white;
-  visibility: hidden;
-}
-
-.block:hover .block-controls {
-  visibility: visible;
-}
-
 .sidebar-pages {
   margin-bottom: 1em;
   border-bottom: 1px solid #d0d0d0;
