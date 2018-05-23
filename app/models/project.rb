@@ -8,6 +8,6 @@ class Project < ApplicationRecord
   before_create :generate_first_page
 
   def generate_first_page
-    pages.build(title: title)
+    pages.build(title: title, source: '')
   end
 end

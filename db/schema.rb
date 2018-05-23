@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520164442) do
-
-  create_table "blocks", force: :cascade do |t|
-    t.text     "source"
-    t.text     "html"
-    t.integer  "page_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["page_id"], name: "index_blocks_on_page_id"
-  end
+ActiveRecord::Schema.define(version: 20180523150109) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

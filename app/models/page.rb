@@ -2,7 +2,6 @@ require 'github/markup'
 
 class Page < ApplicationRecord
   belongs_to :project
-  has_many :blocks, dependent: :destroy
 
   validates :title, presence: true
   validates :slug, uniqueness: true
