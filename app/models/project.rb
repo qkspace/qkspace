@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :pages, dependent: :delete_all
+  has_many :pages, -> { ordered }, dependent: :delete_all
 
   validates :title, :slug, presence: true
   validates :slug, format: { with: /\A[a-z0-9-]+\z/ }, uniqueness: true

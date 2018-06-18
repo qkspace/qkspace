@@ -3,6 +3,8 @@ require 'github/markup'
 class Page < ApplicationRecord
   belongs_to :project
 
+  scope :ordered, -> { order(:position) }
+
   validates :title, presence: true
   validates :slug, uniqueness: true
 
