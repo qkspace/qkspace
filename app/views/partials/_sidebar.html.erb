@@ -4,7 +4,7 @@
     data-role="activerecord_sortable"
   <% end %>
   >
-    <%= render partial: 'pages/page', collection: @project.pages.order(:position) %>
+    <%= render partial: 'pages/page', collection: @project.pages %>
   </ul>
 
   <% if current_user_owns?(@project) %>
