@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui/widgets/sortable
 //= require sortable
+//= require froala_editor.min.js
 //= require turbolinks
 //= require kube.min
 //= require highlight.min
@@ -23,4 +24,8 @@ hljs.initHighlightingOnLoad();
 
 $(document).on('turbolinks:load', function() {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
+  $(function() { $('.froala').froalaEditor({
+        heightMin: 200,
+        heightMax: 200
+  }) });
 });

@@ -59,6 +59,8 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
+    font-awesome-sass (5.0.13)
+      sassc (>= 1.11)
     github-markup (1.5.0)
       rinku
     globalid (0.3.7)
@@ -140,6 +142,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (1.12.1)
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -163,6 +168,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wysiwyg-rails (2.8.4)
+      font-awesome-sass (>= 4.4.0)
+      railties (>= 3.2, < 6.0)
 
 PLATFORMS
   ruby
@@ -188,6 +196,7 @@ DEPENDENCIES
   sqlite3
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
+  wysiwyg-rails
 
 RUBY VERSION
    ruby 2.4.1p111
