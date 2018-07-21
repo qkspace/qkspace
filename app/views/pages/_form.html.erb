@@ -1,8 +1,7 @@
-<%= form_for(page) do |f| %>
+<%= form_for(page, html: {id: 'form_for'}) do |f| %>
   <% if page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
       <ul>
       <% page.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -18,7 +17,8 @@
 
   <div class="form-item">
     <%= f.label :source %>
-    <%= f.text_area :source, rows: 10 %>
+    <div id="editSection"></div>
+    <%= f.text_area :source, rows: 10, style: 'display:none', id: 'toast_textarea'%>
     <div class="desc"><%= markdown_hint_link %></div>
   </div>
 

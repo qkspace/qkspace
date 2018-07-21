@@ -14,9 +14,12 @@
 //= require jquery_ujs
 //= require jquery-ui/widgets/sortable
 //= require sortable
-//= require turbolinks
 //= require kube.min
-//= require highlight.min
+//= require turbolinks
+
+// Toast UI
+//= require toast
+
 //= require_self
 
 hljs.initHighlightingOnLoad();
