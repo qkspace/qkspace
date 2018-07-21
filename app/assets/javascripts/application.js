@@ -15,6 +15,7 @@
 //= require jquery-ui/widgets/sortable
 //= require sortable
 //= require kube.min
+//= require highlight.min
 //= require turbolinks
 
 // Toast UI
