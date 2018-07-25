@@ -9,20 +9,23 @@
 //= require tui-editor/dist/tui-editor-extScrollSync.min
 
 // ToastUI load on specific page by "form_for" ID and submit text to textarea
-$(document).on('turbolinks:load', function() {
-    if ($("#form_for").length > 0) {
-        var form = document.getElementById('form_for');
-        var textarea = document.getElementById('toast_textarea');
-        var editorElement = document.getElementById('editSection');
+$(document).on('turbolinks:load', function () {
+  var toastform = $(".js-toast-form");
 
-        var editor = new tui.Editor({
-            el: editorElement,
-            initialEditType: 'wysiwyg',
-            previewStyle: 'tab',
-            height: '320px'
-        });
-        form.addEventListener('submit', function () {
-            textarea.value = editor.getValue();
-        });
-    }
+  if (toastform.length > 0) {
+    var form = toastform[0];
+    var textarea = $(".toast-textarea")[0];
+    var editorElement = $(".edit-section")[0];
+
+    var editor = new tui.Editor({
+      el: editorElement,
+      initialEditType: 'wysiwyg',
+      previewStyle: 'tab',
+      height: '320px'
+    });
+
+    form.addEventListener('submit', function () {
+      textarea.value = editor.getValue();
+    });
+  }
 });

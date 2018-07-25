@@ -1,4 +1,4 @@
-<%= form_for(page, html: {id: 'form_for'}) do |f| %>
+<%= form_for(page, html: {class: 'js-toast-form'}) do |f| %>
   <% if page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -17,8 +17,8 @@
 
   <div class="form-item">
     <%= f.label :source %>
-    <div id="editSection"></div>
-    <%= f.text_area :source, rows: 10, style: 'display:none', id: 'toast_textarea'%>
+    <div class="edit-section"></div>
+    <%= f.text_area :source, rows: 10, style: 'display:none', class: 'toast-textarea'%>
     <div class="desc"><%= markdown_hint_link %></div>
   </div>
 
