@@ -1,5 +1,6 @@
-<% content_for :title do %>
-  <%= @project.title %>
+<% content_for :analytics do %>
+  <%= render partial: 'partials/google_analytics_tracker',
+    locals: {tracker_id: @project.google_analytics_tracker_id} %>
 <% end %>
 
 <h1 class="h3">
