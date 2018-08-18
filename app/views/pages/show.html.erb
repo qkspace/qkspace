@@ -17,7 +17,7 @@
 
 <% if @project.google_analytics_tracker_id.present? %>
   <% content_for :analytics do %>
-    <%= render partial: 'partials/google_analytics_tracker',
-      locals: {tracker_id: @project.google_analytics_tracker_id} %>
+    <%= render 'partials/google_analytics_tracker',
+      tracker_id: @project.google_analytics_tracker_id %>
   <% end %>
 <% end %>

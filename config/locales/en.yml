@@ -7,7 +7,7 @@ en:
       project:
         title: Title
         slug: Subdomain
-        google_analytics_tracker_id: Google Analytics Tracker Id
+        google_analytics_tracker_id: Google Analytics Tracker ID
       page:
         title: Title
   helpers:
@@ -25,4 +25,4 @@ en:
     are_you_sure: Are you sure?
     back: back
     or_back_link: or %{href}
-    for_example: "%{text}, for example"
+    for_example: %{text}, for example
