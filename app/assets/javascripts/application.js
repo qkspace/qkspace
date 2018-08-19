@@ -17,6 +17,10 @@
 //= require turbolinks
 //= require kube.min
 //= require highlight.min
+
+// Toast UI
+//= require toast
+
 //= require_self
 
 hljs.initHighlightingOnLoad();

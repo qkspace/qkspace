@@ -23,6 +23,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'http_accept_language', '~> 2.1.0'
+gem 'tui_editor-rails'
 
 group :production do
   gem 'pg'
