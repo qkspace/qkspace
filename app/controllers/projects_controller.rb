@@ -54,6 +54,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :slug)
+    params.require(:project).permit(:title, :slug, :google_analytics_tracker_id)
   end
 end

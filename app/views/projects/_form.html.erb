@@ -22,7 +22,12 @@
   <div class="form-item">
     <%= f.label :slug %>
     <%= f.text_field :slug %>
-    <div class="desc"></div>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :google_analytics_tracker_id %>
+    <%= f.text_field :google_analytics_tracker_id %>
+    <div class="desc"><%= t('views.for_example', text: 'UA-124200793-1') %></div>
   </div>
 
   <div class="form-item small">

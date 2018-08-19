@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523150109) do
+ActiveRecord::Schema.define(version: 20180817115040) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20180523150109) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "slug"
     t.integer  "user_id"
+    t.string   "google_analytics_tracker_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

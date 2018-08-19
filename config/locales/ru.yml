@@ -7,6 +7,7 @@ ru:
       project:
         title: Название
         slug: Поддомен
+        google_analytics_tracker_id: Идентификатор счетчика Google Analytics
       page:
         title: Заголовок
   helpers:
@@ -24,3 +25,4 @@ ru:
     are_you_sure: Вы уверены?
     back: назад
     or_back_link: или %{href}
+    for_example: Например, «%{text}»
