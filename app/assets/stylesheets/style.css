@@ -61,3 +61,16 @@ pre {
 details {
   margin-bottom: 16px;
 }
+
+/* fix toast and cube buttons conflict */
+.tui-editor-defaultUI .te-mode-switch-section,
+.tui-editor-defaultUI .te-mode-switch {
+    box-sizing: content-box;
+    height: 20px !important;
+    line-height: 18px;;
+}
+
+.tui-editor-defaultUI .te-markdown-tab-section button {
+    height: 32px;
+}
+/* end */
