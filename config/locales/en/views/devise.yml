@@ -3,8 +3,12 @@ en:
     sessions:
       new:
         title: Sign in
+      create:
+        title: Sign in
     registrations:
       new:
         title: Sign up
       edit:
         title: Account
+    failure:
+      invalid: "Invalid email or password"
