@@ -11,4 +11,4 @@ ru:
       edit:
         title: Аккаунт
     failure:
-      invalid: "Неверный email или пароль"
+      invalid: Неверный email или пароль

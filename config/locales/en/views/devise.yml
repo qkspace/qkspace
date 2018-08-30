@@ -11,4 +11,4 @@ en:
       edit:
         title: Account
     failure:
-      invalid: "Invalid email or password"
+      invalid: Invalid email or password
