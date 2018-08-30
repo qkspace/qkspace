@@ -25,6 +25,14 @@
     </div>
     <div class="row gutters">
       <div class="col col-1"></div>
+      <div class="col col-10">
+        <% unless alert.blank? %>
+          <h4 class="alert error"><%= alert %></h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="row gutters">
+      <div class="col col-1"></div>
       <div class="col col-7">
         <%= yield %>
       </div>
