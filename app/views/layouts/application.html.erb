@@ -21,6 +21,12 @@
             <span class="close small"></span>
           </div>
         <% end %>
+        <% unless alert.blank? %>
+          <div class="message error" data-component="message">
+            <%= alert %>
+            <span class="close small"></span>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="row gutters">

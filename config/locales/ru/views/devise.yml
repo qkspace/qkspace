@@ -3,8 +3,12 @@ ru:
     sessions:
       new:
         title: Вход
+      create:
+        title: Вход
     registrations:
       new:
         title: Регистрация
       edit:
         title: Аккаунт
+    failure:
+      invalid: Неверный email или пароль
