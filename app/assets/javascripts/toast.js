@@ -19,7 +19,8 @@ $(document).on('turbolinks:load', function () {
 
     var editor = new tui.Editor({
       el: editorElement,
-      initialEditType: 'wysiwyg',
+      initialValue: textarea.value,
+      initialEditType: 'markdown',
       previewStyle: 'tab',
       height: '320px'
     });
