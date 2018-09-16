@@ -47,6 +47,8 @@ GEM
       ruby-enum (~> 0.5)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    data_migrate (5.1.0)
+      rails (>= 4.2)
     devise (4.2.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -172,6 +174,7 @@ DEPENDENCIES
   activerecord-sortable
   byebug
   commonmarker
+  data_migrate
   devise
   devise-i18n
   font-awesome-rails
@@ -195,4 +198,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.2
+   1.16.4
