@@ -12,6 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20180817115040) do
 
+  create_table "data_migrations", id: false, force: :cascade do |t|
+    t.string "version", null: false
+    t.index ["version"], name: "unique_data_migrations", unique: true
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.integer  "project_id"
