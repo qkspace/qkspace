@@ -1,27 +1,25 @@
 <%= form_for(project, html: {class: 'form'}) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4>
         <%= pluralize(project.errors.count, "error") %>
         prohibited this project from being saved:
-      </h2>
+      </h4>
 
-      <ul>
-        <% project.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <li class="error" style="list-style: none;"><%= project.errors.full_messages_for(:pages).to_s.tr('[]', '').tr('""', '') %></li>
     </div>
   <% end %>
 
   <div class="form-item">
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <li class="error" style="list-style: none;"><%= project.errors.full_messages_for(:title).to_s.tr('[]', '').tr('""', '') if project.errors.any? %></li>
   </div>
 
   <div class="form-item">
     <%= f.label :slug %>
     <%= f.text_field :slug %>
+    <li class="error" style="list-style: none;"><%= project.errors.full_messages_for(:slug).to_s.tr('[]', '').tr('""', '') if project.errors.any? %></li>
   </div>
 
   <div class="form-item">
