@@ -2,13 +2,13 @@
   <div class="form-item">
     <%= f.label :title %>
     <%= f.text_field :title %>
-    <p class="error"><%= errors(:title) %></p>
+    <p class="error"><%= errors(project, :title) %></p>
   </div>
 
   <div class="form-item">
     <%= f.label :slug %>
     <%= f.text_field :slug %>
-    <p class="error"><%= errors(:slug) %></p>
+    <p class="error"><%= errors(project, :slug) %></p>
   </div>
 
   <div class="form-item">

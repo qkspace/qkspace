@@ -35,8 +35,8 @@ module ApplicationHelper
     render partial: 'partials/md_help'
   end
 
-  def errors(lab)
-    @project.errors.full_messages_for(lab).to_s.tr('[]', '').tr('""', '') if
-                                           @project.errors.any?
+  def errors(object, key)
+    object.errors.full_messages_for(key).to_s.tr('[]', '').tr('""', '') if
+                                         object.errors.any?
   end
 end
