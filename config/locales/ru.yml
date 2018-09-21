@@ -10,6 +10,7 @@ ru:
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
       page:
         title: Заголовок
+        source: Содержание
   helpers:
     submit:
       create: Создать
@@ -23,6 +24,6 @@ ru:
       sign_out: выйти
       sign_in: Вход с паролем для редактирования сайта
     are_you_sure: Вы уверены?
-    back: назад
+    back: вернуться
     or_back_link: или %{href}
     for_example: Например, «%{text}»

@@ -62,6 +62,13 @@ details {
   margin-bottom: 16px;
 }
 
+.form-item .error {
+  font-size: 0.8em;
+}
+
+input[type=checkbox] {
+  margin-right: 10px !important;
+
 /* fix toast and cube buttons conflict */
 .tui-editor-defaultUI .te-mode-switch-section,
 .tui-editor-defaultUI .te-mode-switch {
