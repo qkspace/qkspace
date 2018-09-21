@@ -10,6 +10,7 @@ en:
         google_analytics_tracker_id: Google Analytics Tracker ID
       page:
         title: Title
+        source: Content
   helpers:
     submit:
       create: Create

@@ -6,6 +6,8 @@ en:
       create:
         title: Sign in
     registrations:
+      create:
+        title: Sign up
       new:
         title: Sign up
       edit:

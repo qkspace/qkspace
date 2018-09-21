@@ -6,6 +6,8 @@ ru:
       create:
         title: Вход
     registrations:
+      create:
+        title: Регистрация
       new:
         title: Регистрация
       edit:
