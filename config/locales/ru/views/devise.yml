@@ -8,6 +8,8 @@ ru:
     registrations:
       new:
         title: Регистрация
+      create:
+        title: Регистрация
       edit:
         title: Аккаунт
     failure:

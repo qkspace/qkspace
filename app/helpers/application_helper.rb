@@ -34,4 +34,9 @@ module ApplicationHelper
   def markdown_partial
     render partial: 'partials/md_help'
   end
+
+  def errors(object, key)
+    object.errors.full_messages_for(key).to_s.tr('[]', '').tr('""', '') if
+                                         object.errors.any?
+  end
 end

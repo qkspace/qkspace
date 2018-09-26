@@ -8,6 +8,7 @@ ru:
     edit:
       title: Редактирование проекта
     create:
+      title: Новый проект
       notice: Проект создан
     update:
       notice: Проект изменён

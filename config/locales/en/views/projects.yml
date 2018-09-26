@@ -8,6 +8,7 @@ en:
     edit:
       title: Edit Project
     create:
+      title: Create project
       notice: Project was created
     update:
       notice: Project was saved

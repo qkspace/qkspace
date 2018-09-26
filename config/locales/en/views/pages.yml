@@ -8,6 +8,7 @@ en:
       title: Edit Page
       cant_delete_last_page: Can't delete last page of project
     create:
+      title: New Page
       notice: Page was created
     update:
       notice: Page was saved

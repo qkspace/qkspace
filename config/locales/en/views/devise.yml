@@ -8,6 +8,8 @@ en:
     registrations:
       new:
         title: Sign up
+      create:
+        title: Sign up
       edit:
         title: Account
     failure:
