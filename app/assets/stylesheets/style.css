@@ -68,6 +68,7 @@ details {
 
 input[type=checkbox] {
   margin-right: 10px !important;
+}
 
 /* fix toast and cube buttons conflict */
 .tui-editor-defaultUI .te-mode-switch-section,
