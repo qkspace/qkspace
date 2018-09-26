@@ -18,17 +18,23 @@ SimpleForm.setup do |config|
 
     b.use :label
     b.use :input, error_class: 'error'
-    b.use :hint, wrap_with: {tag: :span, class: 'desc'}
-    b.use :error, wrap_with: {tag: :span, class: 'error'}
+    b.use :hint, wrap_with: {tag: :div, class: 'desc'}
+    b.use :error, wrap_with: {tag: :div, class: 'error'}
   end
 
-  config.wrappers :boolean, class: 'form-item form-checkboxes', error_class: 'error' do |b|
+  config.wrappers :boolean, tag: :div, class: 'form-item galochka', error_class: 'error' do |b|
     b.use :html5
     b.optional :readonly
 
-    b.use :input
-    b.use :label, class: 'checkbox'
-    b.use :hint, class: 'desc'
+    b.wrapper :label_tag, tag: :label do |bb|
+      bb.use :label_text
+      bb.use :input
+      bb.wrapper :galochka, tag: :span, class: 'v' do
+      end
+    end
+
+    b.use :hint, wrap_with: {tag: :div, class: 'desc'}
+    b.use :error, wrap_with: {tag: :div, class: 'error'}
   end
 
   config.default_wrapper = :default
