@@ -1,36 +1,7 @@
-<%= form_for(project, html: {class: 'form'}) do |f| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(project.errors.count, "error") %>
-        prohibited this project from being saved:
-      </h2>
+<%= simple_form_for(project, html: {class: 'form'}) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :slug %>
+  <%= f.input :google_analytics_tracker_id, hint: t('views.for_example', text: 'UA-124200793-1') %>
 
-      <ul>
-        <% project.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-item">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="form-item">
-    <%= f.label :slug %>
-    <%= f.text_field :slug %>
-  </div>
-
-  <div class="form-item">
-    <%= f.label :google_analytics_tracker_id %>
-    <%= f.text_field :google_analytics_tracker_id %>
-    <div class="desc"><%= t('views.for_example', text: 'UA-124200793-1') %></div>
-  </div>
-
-  <div class="form-item small">
-    <%= f.submit class: 'button outline small' %> <%= or_back_link %>
-  </div>
+  <%= f.submit class: 'button outline small' %> <%= or_back_link %>
 <% end %>

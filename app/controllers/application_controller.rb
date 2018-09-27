@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_project
-    @project = Project.find_by(slug: request.subdomain)
+    @project = Project.find_by!(slug: request.subdomain)
   end
 
   def set_project_from_current_user
