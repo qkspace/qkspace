@@ -12,5 +12,7 @@ ru:
         title: Регистрация
       edit:
         title: Аккаунт
+      update:
+        title: Аккаунт
     failure:
       invalid: Неверный email или пароль

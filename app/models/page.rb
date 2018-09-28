@@ -17,10 +17,6 @@ class Page < ApplicationRecord
 
   acts_as_sortable
 
-  def to_param
-    slug_was
-  end
-
   def only_page?
     project.pages.count == 1
   end

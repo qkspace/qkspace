@@ -1,10 +1,13 @@
 en:
-  projects:
+  projects: &projects
     new:
       title: New Project
     index:
       title: All Projects
       create: Create project
+      edit_hint: Edit
+      destroy_hint: Delete
+      public_hint: Go to public page
     edit:
       title: Edit Project
     create:
@@ -13,3 +16,7 @@ en:
       notice: Project was saved
     destroy:
       notice: Project was deleted
+  private:
+    projects: *projects
+  public:
+    projects: *projects

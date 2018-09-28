@@ -1,9 +1,10 @@
 en:
-  pages:
+  pages: &pages
     new:
       title: New Page
     show:
       new_block: Add block
+      public_hint: Public link
     edit:
       title: Edit Page
       cant_delete_last_page: Can't delete last page of project
@@ -15,3 +16,7 @@ en:
       notice: Page was saved
     destroy:
       notice: Page was deleted
+  private:
+    pages: *pages
+  public:
+    pages: *pages

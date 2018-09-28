@@ -12,5 +12,7 @@ en:
         title: Sign up
       edit:
         title: Account
+      update:
+        title: Account
     failure:
       invalid: Invalid email or password
