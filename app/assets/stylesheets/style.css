@@ -34,6 +34,10 @@ ol.hanging li {
   margin-left: -4px;
 }
 
+.buffer-top {
+  margin-top: 1em;
+}
+
 .buffer-bottom {
   margin-bottom: 1em;
 }
