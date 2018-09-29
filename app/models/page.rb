@@ -15,7 +15,9 @@ class Page < ApplicationRecord
 
   before_save :markup
 
-  acts_as_sortable
+  acts_as_sortable do |config|
+    config[:relation] = ->(instance) { instance.project.pages }
+  end
 
   def only_page?
     project.pages.count == 1
