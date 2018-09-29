@@ -29,4 +29,5 @@ en:
     back: back
     or_back_link: or %{href}
     for_example: "%{text}, for example"
+    back_to_edit: Return to editing
     projects: projects

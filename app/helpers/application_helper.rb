@@ -8,8 +8,10 @@ module ApplicationHelper
   def title
     key = "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}"
     case key
-    when "private.projects.show", "private.pages.show", "public.projects.show", "public.pages.show"
+    when "private.projects.show", "public.projects.show"
       @project.title
+    when "private.pages.show", "public.pages.show"
+      @page.title
     else
       t "#{key}.title"
     end

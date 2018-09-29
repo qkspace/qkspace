@@ -1,11 +1,8 @@
-<h3 class="h3">
-  <%= @page.title %>
-  <div class="desc">
-    <%= link_to public_project_page_url(@project, @page), title: t('.public_hint') do %>
-      <%= fa_icon('desktop') %> <%= public_project_page_url(@project, @page) %>
-    <% end %>
-  </div>
-</h3>
+<div class="buffer-bottom">
+  <%= link_to public_project_page_url(@project, @page), title: t('.public_hint'), class: 'desc' do %>
+    <%= fa_icon('desktop') %> <%= public_project_page_url(@project, @page) %>
+  <% end %>
+</div>
 
 <div class="page-content">
   <%= @page.html.html_safe %>

@@ -37,7 +37,7 @@ class Private::PagesController < PrivateController
 
   def destroy
     @page.destroy
-    redirect_to project_url(@project), notice: t('.notice')
+    redirect_to private_project_path(@project), notice: t('.notice')
   end
 
   private

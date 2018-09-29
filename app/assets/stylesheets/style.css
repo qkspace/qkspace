@@ -34,6 +34,14 @@ ol.hanging li {
   margin-left: -4px;
 }
 
+.buffer-bottom {
+  margin-bottom: 1em;
+}
+
+.buffer-bottom-sm {
+  margin-bottom: .025em;
+}
+
 @media (min-width: 1200px) {
   .page {
     max-width: 1080px;
