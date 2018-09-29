@@ -50,6 +50,6 @@ module ApplicationHelper
 
     link_to %{<span class="flag-icon flag-icon-#{country_code}"></span>}.html_safe,
       {locale: next_locale},
-      title: t('views.switch_locale')
+      title: t('views.switch_locale', locale: next_locale)
   end
 end
