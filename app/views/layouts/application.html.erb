@@ -22,6 +22,7 @@
             <% else %>
               <%= link_to_unless_current current_user.email, edit_user_registration_path %> |
               <%= link_to_unless_current t('views.projects'), private_projects_path %> |
+              <%= link_to_switch_locale %> |
               <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>
             <% end %>
           </div>
