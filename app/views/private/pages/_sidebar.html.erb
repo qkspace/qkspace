@@ -1,0 +1,9 @@
+<h4><%= @project.title %></h4>
+
+<ul class="unstyled sidebar-pages" data-role="activerecord_sortable">
+  <%= render @project.pages %>
+</ul>
+
+<p><%= link_to fa_icon('plus', text: t('views.sidebar.new_page')), new_private_project_page_path(@project) %></p>
+<p><%= link_to fa_icon('pencil', text: t('views.sidebar.edit_project')),
+  edit_private_project_path(@project), class: 'small' %></p>

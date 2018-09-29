@@ -34,6 +34,16 @@
   background-color: #2196F3;
 }
 
+/* Show the checkmark focus checked */
+.galochka label input:focus ~ .v {
+  border: #2196F3 1px solid;
+}
+
+.galochka label input:focus ~ .v:after {
+  left: 6px;
+  top: 3px;
+}
+
 /* Create the checkmark/indicator (hidden when not checked) */
 .v:after {
   content: "";
