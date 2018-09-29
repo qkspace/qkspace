@@ -15,6 +15,7 @@
  *= require style
  *= require highlight
  *= require font-awesome
+ *= require flag-icon.min.css
  *= require toast
  *= require galochka
  */
