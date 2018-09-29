@@ -34,12 +34,6 @@ ol.hanging li {
   margin-left: -4px;
 }
 
-.sign-area {
-  text-align: right;
-  margin-right: 10px;
-  margin-top: 5px;
-}
-
 @media (min-width: 1200px) {
   .page {
     max-width: 1080px;

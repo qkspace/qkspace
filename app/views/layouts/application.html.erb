@@ -11,14 +11,21 @@
   </head>
 
   <% if signed_in? %>
-    <div class="sign-area">
-      <% if public_controller? && current_user_owns_project? %>
-        <%= link_to t('views.back_to_edit'), private_project_page_url(@project, @page, host: private_domain) %>
-      <% else %>
-        <%= link_to_unless_current current_user.email, edit_user_registration_path %>
-        (<%= link_to_unless_current t('views.projects'), private_projects_path %> |
-        <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>)
-      <% end %>
+    <div class="page">
+      <div class="row gutters">
+        <div class="col col-1"></div>
+        <div class="col col-10">
+          <div class="float-right small">
+            <% if public_controller? && current_user_owns_project? %>
+              <%= link_to t('views.back_to_edit'), private_project_page_url(@project, @page, host: private_domain) %>
+            <% else %>
+              <%= link_to_unless_current current_user.email, edit_user_registration_path %> |
+              <%= link_to_unless_current t('views.projects'), private_projects_path %> |
+              <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 
