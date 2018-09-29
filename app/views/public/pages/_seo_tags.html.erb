@@ -1,0 +1,9 @@
+<meta name="description" content="<%= page_brief(@page) %>">
+
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="<%= @page.title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<%# <meta property="og:image" content="{{meta_image}}" /> %>
+<meta property="og:description" content="<%= page_brief(@page) %>" />
+<meta property="og:site_name" content="<%= @project.title %>" />

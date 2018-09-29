@@ -12,10 +12,3 @@
 <% content_for :sidebar do %>
   <%= render partial: 'sidebar' %>
 <% end %>
-
-<% if @project.google_analytics_tracker_id.present? %>
-  <% content_for :analytics do %>
-    <%= render 'shared/google_analytics_tracker',
-      tracker_id: @project.google_analytics_tracker_id %>
-  <% end %>
-<% end %>

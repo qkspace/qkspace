@@ -1,9 +1,9 @@
 <div id="markdown-modal-window" class="modal-box hide">
   <div class="modal">
     <span class="close"></span>
-    <div class="modal-header"><%= markdown_hint %></div>
+    <div class="modal-header"><%= t('views.markdown.hint_link', href: t('views.markdown.hint_a')) %></div>
     <div class="modal-body">
-      <%= markdown_partial %>
+      <%= render 'md_help' %>
     </div>
   </div>
 </div>

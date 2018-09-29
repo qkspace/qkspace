@@ -7,8 +7,12 @@
 <% end %>
 
 <% if @project.google_analytics_tracker_id.present? %>
-  <% content_for :analytics do %>
-    <%= render 'shared/google_analytics_tracker',
+  <% content_for :head do %>
+    <%= render 'google_analytics_tracker',
       tracker_id: @project.google_analytics_tracker_id %>
   <% end %>
+<% end %>
+
+<% content_for :head do %>
+ <%= render 'seo_tags' %>
 <% end %>
