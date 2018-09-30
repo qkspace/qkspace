@@ -5,6 +5,10 @@ module ApplicationHelper
     current_user.owns?(@project)
   end
 
+  def show_header?
+    signed_in? && (private_controller? || current_user_owns_project?)
+  end
+
   def title
     key = "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}"
     case key

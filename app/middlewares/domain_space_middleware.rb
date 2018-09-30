@@ -34,6 +34,15 @@ class DomainSpaceMiddleware < Struct.new(:app, :options)
 
     return nil if parts.length < 2
 
+    if parts.length == 2 && parts.last == "localhost"
+      return {
+        kind: :public,
+        public_type: :subdomain,
+        public_name: parts.first,
+        private_domain: "localhost"
+      }
+    end
+
     domain =
       own_domains.find do |d|
         host =~ /\.#{d}\Z/
