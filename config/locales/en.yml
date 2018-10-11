@@ -16,14 +16,19 @@ en:
       create: Create
       update: Save
   views:
+    markdown:
+      hint_link: Markdown %{href}
+      hint_a: hint
     pages:
       edit_page: Edit page
     sidebar:
       new_page: Add page
       edit_project: Edit project
       sign_out: sign out
-      sign_in: Sign in with password to edit site
     are_you_sure: Are you sure?
     back: back
     or_back_link: or %{href}
     for_example: "%{text}, for example"
+    back_to_edit: Return to editing
+    projects: projects
+    switch_locale: In English

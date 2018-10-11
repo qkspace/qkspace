@@ -1,0 +1,9 @@
+<% if page == @page %>
+  <li class="muted">
+    <p><%= page.title %></p>
+  </li>
+<% else %>
+  <li>
+    <p><%= link_to page.title, public_page_path(page.slug) %></p>
+  </li>
+<% end %>

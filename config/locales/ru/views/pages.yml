@@ -1,9 +1,10 @@
 ru:
-  pages:
+  pages: &pages
     new:
       title: Новая страница
     show:
       new_block: Добавить блок
+      public_hint: Публичная ссылка
     edit:
       title: Редактирование страницы
       cant_delete_last_page: Нельзя удалить последнюю страницу проекта
@@ -15,3 +16,7 @@ ru:
       notice: Страница изменена
     destroy:
       notice: Страница удалена
+  private:
+    pages: *pages
+  public:
+    pages: *pages

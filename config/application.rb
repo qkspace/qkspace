@@ -16,6 +16,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative "../app/middlewares/domain_space_middleware"
+
 module Dostoevsky
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,5 +25,7 @@ module Dostoevsky
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.available_locales = %w(en ru)
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
+    config.middleware.use DomainSpaceMiddleware, own_domains: ["qkspace.localhost", "qkspace.com"]
   end
 end

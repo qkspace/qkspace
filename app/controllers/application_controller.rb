@@ -1,20 +1,46 @@
 class ApplicationController < ActionController::Base
-  include HttpAcceptLanguage::AutoLocale
+  before_action :set_locale
 
   protect_from_forgery with: :reset_session
 
-  helper_method :project_url
+  helper_method :private_controller?, :public_controller?,
+                :public_project_url, :public_project_page_url
 
-  def project_url(project)
-    root_url(subdomain: project.slug)
+  private
+
+  def public_controller?
+    false
   end
 
-  def set_project
-    @project = Project.find_by!(slug: request.subdomain)
+  def private_controller?
+    !public_controller?
   end
 
-  def set_project_from_current_user
-    @project = current_user.projects.find_by(slug: request.subdomain)
-    @project ||= current_user.projects.find(params[:id])
+  def public_project_page_uri(project)
+    URI::HTTP.build(host: (project.slug + '.' + request.host), port: request.port)
+  end
+
+  def public_project_url(project)
+    public_project_page_uri(project).to_s
+  end
+
+  def public_project_page_url(project, page)
+    uri = public_project_page_uri(project)
+    uri.path = "/" << page.slug
+    uri.to_s
+  end
+
+  def set_locale
+    new_locale =
+      if I18n.available_locales.map(&:to_s).include?(params[:locale])
+        params[:locale]
+      elsif session[:locale].present?
+        session[:locale]
+      else
+        http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale
+      end
+
+    session[:locale] = new_locale
+    I18n.locale = new_locale
   end
 end

@@ -1,10 +1,13 @@
 ru:
-  projects:
+  projects: &projects
     new:
       title: Новый проект
     index:
       title: Все проекты
       create: Создать проект
+      edit_hint: Редактировать
+      destroy_hint: Удалить
+      public_hint: Перейти на публичную страницу
     edit:
       title: Редактирование проекта
     create:
@@ -13,3 +16,7 @@ ru:
       notice: Проект изменён
     destroy:
       notice: Проект был удалён
+  private:
+    projects: *projects
+  public:
+    projects: *projects

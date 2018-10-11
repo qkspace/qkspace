@@ -1,4 +1,4 @@
-<%= simple_form_for(project, html: {class: 'form'}) do |f| %>
+<%= simple_form_for([:private, project], html: {class: 'form'}) do |f| %>
   <%= f.input :title %>
   <%= f.input :slug %>
   <%= f.input :google_analytics_tracker_id, hint: t('views.for_example', text: 'UA-124200793-1') %>

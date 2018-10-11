@@ -1,8 +1,8 @@
-<%= simple_form_for(page, html: {class: 'js-toast-form'}) do |f| %>
+<%= simple_form_for([:private, @project, page], html: {class: 'js-toast-form'}) do |f| %>
   <%= f.input :title %>
   <%= f.input :source, as: :markdown, hint: markdown_hint_link %>
 
   <%= f.submit class: 'button outline small' %> <%= or_back_link %>
 <% end %>
 
-<%= render '/partials/markdown_modal_window' %>
+<%= render 'markdown_modal_window' %>

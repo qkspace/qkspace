@@ -5,7 +5,7 @@ class Page < ApplicationRecord
 
   scope :ordered, -> { order(:position) }
 
-  validates :title, presence: true
+  validates :title, :slug, presence: true
   validates :slug, uniqueness: { scope: :project_id }
 
   before_validation :generate_slug
@@ -15,10 +15,8 @@ class Page < ApplicationRecord
 
   before_save :markup
 
-  acts_as_sortable
-
-  def to_param
-    slug_was
+  acts_as_sortable do |config|
+    config[:relation] = ->(instance) { instance.project.pages }
   end
 
   def only_page?

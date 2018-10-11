@@ -34,7 +34,8 @@ end
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
-  gem 'i18n-debug'
+  # gem 'i18n-tasks'
+  # gem 'i18n-debug'
 end
 
 group :development do
