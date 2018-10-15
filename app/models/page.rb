@@ -1,7 +1,7 @@
 require 'github/markup'
 
 class Page < ApplicationRecord
-  belongs_to :project
+  belongs_to :project, optional: true
 
   scope :ordered, -> { order(:position) }
 
