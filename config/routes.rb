@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       root to: 'projects#index'
 
       resources :projects do
+        get :slug, on: :collection
+
         resources :pages do
           member do
             post :move

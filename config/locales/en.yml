@@ -32,3 +32,7 @@ en:
     back_to_edit: Return to editing
     projects: projects
     switch_locale: In English
+  api:
+    projects:
+      slug_available: " is available"
+      slug_not_available: " is not available"

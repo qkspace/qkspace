@@ -26,7 +26,7 @@ class Page < ApplicationRecord
   private
 
   def generate_slug
-    self.slug = I18n.transliterate(title).parameterize
+    self.slug = I18n.transliterate(title)&.parameterize
   end
 
   def markup

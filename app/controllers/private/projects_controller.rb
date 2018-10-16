@@ -41,6 +41,15 @@ class Private::ProjectsController < PrivateController
     redirect_to private_projects_url, notice: t('.notice')
   end
 
+  def slug
+    response = SlugChecker.call(
+      slug: params[:slug],
+      domain: request.env['qkspace.area'][:private_domain]
+    )
+
+    render json: { data: response }
+  end
+
   private
 
   def project_params

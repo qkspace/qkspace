@@ -32,3 +32,7 @@ ru:
     back_to_edit: Вернуться к редактированию
     projects: проекты
     switch_locale: По-русски
+  api:
+    projects:
+      slug_available: " свободен"
+      slug_not_available: " недоступен"
