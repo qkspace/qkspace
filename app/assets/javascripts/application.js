@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function() {
       $.ajax({
         dataType: 'json',
         cache: false,
-        url: '/projects/slug?locale=' + locale + '&slug=' + slug,
+        url: '/projects/check_slug?locale=' + locale + '&slug=' + slug,
         timeout: 5000,
         success: function(xhr) {
           var data = xhr.data;

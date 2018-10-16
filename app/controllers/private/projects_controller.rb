@@ -41,7 +41,7 @@ class Private::ProjectsController < PrivateController
     redirect_to private_projects_url, notice: t('.notice')
   end
 
-  def slug
+  def check_slug
     response =
       SlugChecker.call(
         slug: params[:slug],
