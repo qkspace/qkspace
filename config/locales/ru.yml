@@ -15,6 +15,9 @@ ru:
     submit:
       create: Создать
       update: Сохранить
+    projects:
+      slug_available: " свободен"
+      slug_not_available: " недоступен"
   views:
     markdown:
       hint_link: "%{href} по оформлению"

@@ -11,8 +11,10 @@ en:
     edit:
       title: Edit Project
     create:
+      title: New Project
       notice: Project was created
     update:
+      title: Edit Project
       notice: Project was saved
     destroy:
       notice: Project was deleted
