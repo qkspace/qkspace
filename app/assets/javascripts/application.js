@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function() {
 
           var span = hint.children('span');
 
-          if(xhr.data.availability) {
+          if (data.availability) {
             span.addClass("success");
           }
           else {

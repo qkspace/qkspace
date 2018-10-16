@@ -42,10 +42,11 @@ class Private::ProjectsController < PrivateController
   end
 
   def slug
-    response = SlugChecker.call(
-      slug: params[:slug],
-      domain: request.env['qkspace.area'][:private_domain]
-    )
+    response =
+      SlugChecker.call(
+        slug: params[:slug],
+        domain: request.env['qkspace.area'][:private_domain]
+      )
 
     render json: { data: response }
   end

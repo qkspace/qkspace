@@ -4,7 +4,7 @@ class SlugChecker
     project.validate
 
     slug_available = project.errors[:slug].empty?
-    translation_key = "api.projects.slug_#{slug_available ? 'available' : 'not_available'}"
+    translation_key = "helpers.projects.slug_#{slug_available ? 'available' : 'not_available'}"
     message = I18n.t(translation_key)
 
     {
