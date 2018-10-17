@@ -43,7 +43,7 @@ ol.hanging li {
 }
 
 .buffer-bottom-sm {
-  margin-bottom: .025em;
+  margin-bottom: .25em;
 }
 
 @media (min-width: 1200px) {
