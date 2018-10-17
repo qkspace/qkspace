@@ -12,7 +12,7 @@ class Project < ApplicationRecord
 
   validates :title, :slug, presence: true
   validates :slug, format: { with: /\A[a-z0-9-]+\z/ }, uniqueness: true,
-                   length: { minimum: 5 }, exclusion: { in: SLUG_BLACK_LIST }
+                   length: { minimum: 4 }, exclusion: { in: SLUG_BLACK_LIST }
 
   validates :google_analytics_tracker_id,
     format: { with: /\AUA-\d*-\d*\z/, allow_blank: true }
