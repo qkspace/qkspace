@@ -11,8 +11,10 @@ ru:
     edit:
       title: Редактирование проекта
     create:
+      title: Новый проект
       notice: Проект создан
     update:
+      title: Редактирование проекта
       notice: Проект изменён
     destroy:
       notice: Проект был удалён

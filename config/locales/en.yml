@@ -15,6 +15,9 @@ en:
     submit:
       create: Create
       update: Save
+    projects:
+      slug_available: " is available"
+      slug_not_available: " is not available"
   views:
     markdown:
       hint_link: Markdown %{href}

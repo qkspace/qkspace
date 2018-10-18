@@ -10,5 +10,7 @@
   class: 'button outline' %>
 
 <% content_for :sidebar do %>
-  <%= render partial: 'sidebar' %>
+  <div class="buffer-top">
+    <%= render partial: 'sidebar' %>
+  </div>
 <% end %>
