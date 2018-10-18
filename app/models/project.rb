@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :pages, -> { ordered }, dependent: :delete_all
+  has_many :project_collaborations, dependent: :destroy
 
   SLUG_BLACK_LIST = %w[about admin api billing blog buy demo dev download email faq ftp help
                        imap mail me my pop pop3 pricing sftp shop smtp staging support wiki
