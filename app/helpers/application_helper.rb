@@ -1,12 +1,12 @@
 module ApplicationHelper
-  def current_user_owns_project?
+  def current_user_can_edit_project?
     return false unless user_signed_in?
 
-    current_user.owns?(@project)
+    current_user.can_edit?(@project)
   end
 
   def show_header?
-    signed_in? && (private_controller? || current_user_owns_project?)
+    signed_in? && (private_controller? || current_user_can_edit_project?)
   end
 
   def title
