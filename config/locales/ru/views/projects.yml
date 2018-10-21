@@ -8,6 +8,9 @@ ru:
       edit_hint: Редактировать
       destroy_hint: Удалить
       public_hint: Перейти на публичную страницу
+      collaborators_hint: Список участников
+      stop_collaborating_hint: Выйти из проекта
+      cant_edit_collaborated_project: Вы не можете редактировать этот проект
     edit:
       title: Редактирование проекта
     create:

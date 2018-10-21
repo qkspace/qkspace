@@ -1,0 +1,15 @@
+en:
+  project_collaborations: &project_collaborations
+    index:
+      title: "%{project_title} - collaborators"
+      create: Add collaborator
+      destroy_hint: Delete
+    create:
+      title: "%{project_title} - collaborators"
+      notice: Collaborator was added
+    destroy:
+      notice: Collaborator was removed
+  private:
+    project_collaborations: *project_collaborations
+  public:
+    project_collaborations: *project_collaborations
