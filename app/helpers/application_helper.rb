@@ -1,12 +1,18 @@
 module ApplicationHelper
-  def current_user_can_edit_project?
+  def current_user_collaborates_project?
     return false unless user_signed_in?
 
-    current_user.can_edit?(@project)
+    current_user.collaborates?(@project)
+  end
+
+  def current_user_owns_project?
+    return false unless user_signed_in?
+
+    current_user.owns?(@project)
   end
 
   def show_header?
-    signed_in? && (private_controller? || current_user_can_edit_project?)
+    signed_in? && (private_controller? || current_user_collaborates_project?)
   end
 
   def title
@@ -16,6 +22,8 @@ module ApplicationHelper
       @project.title
     when "private.pages.show", "public.pages.show"
       @page.title
+    when "private.project_collaborations.index"
+      t "#{key}.title", project_title: @project.title
     else
       t "#{key}.title"
     end

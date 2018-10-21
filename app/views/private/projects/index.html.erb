@@ -1,10 +1,20 @@
 <table>
   <tbody>
-    <% @projects.each do |project| %>
+    <% @owned_projects.each do |project| %>
       <tr>
         <td><%= link_to project.title, private_project_url(project) %></td>
         <td title="<%= t('.edit_hint') %>"><%= link_to fa_icon('pencil'), edit_private_project_path(project) %></td>
         <td title="<%= t('.destroy_hint') %>"><%= link_to fa_icon('trash-o'), private_project_path(project), method: :delete, data: { confirm: t('views.are_you_sure') } %></td>
+        <td title="<%= t('.collaborators_hint') %>"><%= link_to fa_icon('list'), private_project_collaborators_path(project) %></td>
+        <td title="<%= t('.public_hint') %>"><%= link_to fa_icon('desktop'), public_project_url(project) %></td>
+      </tr>
+    <% end %>
+    <% @collaborated_projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.title, private_project_url(project) %></td>
+        <td title="<%= t('.cant_edit_collaborated_project') %>"><%= fa_icon('pencil', class: 'muted') %></td>
+        <td title="<%= t('.stop_collaborating_hint') %>"><%= link_to fa_icon('times'), private_project_collaborator_path(project, current_user), method: :delete, data: { confirm: t('views.are_you_sure') } %></td>
+        <td title="<%= t('.collaborators_hint') %>"><%= link_to fa_icon('list'), private_project_collaborators_path(project) %></td>
         <td title="<%= t('.public_hint') %>"><%= link_to fa_icon('desktop'), public_project_url(project) %></td>
       </tr>
     <% end %>

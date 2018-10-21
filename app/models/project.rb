@@ -1,11 +1,11 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :pages, -> { ordered }, dependent: :delete_all
-  has_many :project_collaborations, dependent: :destroy
-  has_many :collaborators, through: :project_collaborations, source: :user
+  has_many :collaborations, class_name: "ProjectCollaboration", dependent: :destroy
+  has_many :collaborators, through: :collaborations, source: :user
 
   scope :editable_by, -> (user_id) {
-    left_joins(:project_collaborations)
+    left_joins(:collaborations)
     .where("projects.user_id = :id OR project_collaborations.user_id = :id", id: user_id)
   }
 
