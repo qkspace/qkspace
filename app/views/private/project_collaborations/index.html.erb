@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+  <% @collaborations.each do |collaboration| %>
+    <tr>
+      <td><%= collaboration.email %></td>
+      <% if current_user_owns_project? || current_user == collaboration.user %>
+        <td title="<%= t('.destroy_hint') %>"><%= link_to fa_icon('times'), private_project_collaborator_path(collaboration.project, collaboration), method: :delete, data: {confirm: t('views.are_you_sure')} %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% if current_user_owns_project? %>
+  <%= simple_form_for([:private, @project, @collaboration], url: private_project_collaborators_path, html: {class: 'form'}) do |f| %>
+    <%= f.input :collaborator_email %>
+
+    <%= f.submit class: 'button outline small' %>
+  <% end %>
+<% end %>

@@ -22,7 +22,7 @@ module ApplicationHelper
       @project.title
     when "private.pages.show", "public.pages.show"
       @page.title
-    when "private.project_collaborations.index"
+    when "private.project_collaborations.index", "private.project_collaborations.create"
       t "#{key}.title", project_title: @project.title
     else
       t "#{key}.title"
