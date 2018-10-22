@@ -6,7 +6,7 @@ class Project < ApplicationRecord
 
   scope :editable_by, -> (user_id) {
     left_joins(:collaborations)
-    .where("projects.user_id = :id OR project_collaborations.user_id = :id", id: user_id)
+      .where("projects.user_id = :id OR project_collaborations.user_id = :id", id: user_id)
   }
 
   SLUG_BLACK_LIST = %w[about admin api billing blog buy demo dev download email faq ftp help

@@ -7,7 +7,6 @@ class CreateProjectCollaborations < ActiveRecord::Migration[5.2]
       t.timestamps
 
       t.index [:project_id, :user_id], unique: true
-      t.index [:user_id, :project_id], unique: true
     end
   end
 end

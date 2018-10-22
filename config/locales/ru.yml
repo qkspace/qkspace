@@ -11,6 +11,8 @@ ru:
       page:
         title: Заголовок
         source: Содержание
+      project_collaboration:
+        collaborator_email: Email участника
   helpers:
     submit:
       create: Создать

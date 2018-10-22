@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2018_10_23_200833) do
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
     t.index ["project_id"], name: "index_project_collaborations_on_project_id"
-    t.index ["user_id", "project_id"], name: "index_project_collaborations_on_user_id_and_project_id", unique: true
     t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 

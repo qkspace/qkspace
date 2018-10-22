@@ -11,6 +11,8 @@ en:
       page:
         title: Title
         source: Content
+      project_collaboration:
+        collaborator_email: Collaborator email
   helpers:
     submit:
       create: Create
