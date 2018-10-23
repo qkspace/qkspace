@@ -21,7 +21,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.owned_projects.new(project_params)
 
     if @project.save
       redirect_to private_projects_url, notice: t('.notice')
