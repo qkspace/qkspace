@@ -1,18 +1,32 @@
 en:
+  registrations:
+    create:
+      title: Sign up
+    new:
+      title: Sign up
+    edit:
+      title: Account
+    update:
+      title: Account
   devise:
+    confirmations:
+      create:
+        title: Resend confirmation instructions
+      new:
+        title: Resend confirmation instructions
+    passwords:
+      create:
+        title: Forgot your password?
+      new:
+        title: Forgot your password?
+      edit:
+        title: Change your password
+      update:
+        title: Change your password
     sessions:
       new:
         title: Sign in
       create:
         title: Sign in
-    registrations:
-      create:
-        title: Sign up
-      new:
-        title: Sign up
-      edit:
-        title: Account
-      update:
-        title: Account
     failure:
       invalid: Invalid email or password

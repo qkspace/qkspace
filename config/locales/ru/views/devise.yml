@@ -1,18 +1,32 @@
 ru:
+  registrations:
+    create:
+      title: Регистрация
+    new:
+      title: Регистрация
+    edit:
+      title: Аккаунт
+    update:
+      title: Аккаунт
   devise:
+    confirmations:
+      create:
+        title: Выслать повторно письмо с активацией
+      new:
+        title: Выслать повторно письмо с активацией
+    passwords:
+      create:
+        title: Забыли пароль?
+      new:
+        title: Забыли пароль?
+      edit:
+        title: Изменить пароль
+      update:
+        title: Изменить пароль
     sessions:
       new:
         title: Вход
       create:
         title: Вход
-    registrations:
-      create:
-        title: Регистрация
-      new:
-        title: Регистрация
-      edit:
-        title: Аккаунт
-      update:
-        title: Аккаунт
     failure:
       invalid: Неверный email или пароль
