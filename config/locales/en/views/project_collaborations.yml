@@ -1,11 +1,7 @@
 en:
   project_collaborations: &project_collaborations
-    index:
-      title: "%{project_title} - collaborators"
-      create: Add collaborator
-      destroy_hint: Delete
     create:
-      title: "%{project_title} - collaborators"
+      title: Edit Project
       notice: Collaborator was added
     destroy:
       notice: Collaborator was removed

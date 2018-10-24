@@ -8,17 +8,22 @@ ru:
       edit_hint: Редактировать
       destroy_hint: Удалить
       public_hint: Перейти на публичную страницу
-      collaborators_hint: Список участников
+      collaborating: Участник проекта
       stop_collaborating_hint: Выйти из проекта
       cant_edit_collaborated_project: Вы не можете редактировать этот проект
     edit:
       title: Редактирование проекта
+      collaborators: Список участников
+      remove_collaborator_hint: Исключить участника
+      add_collaborator: Добавить участника
     create:
       title: Новый проект
       notice: Проект создан
     update:
       title: Редактирование проекта
       notice: Проект изменён
+      remove_collaborator_hint: Исключить участника
+      add_collaborator: Добавить участника
     destroy:
       notice: Проект был удалён
   private:

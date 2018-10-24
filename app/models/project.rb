@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :pages, -> { ordered }, dependent: :delete_all
-  has_many :collaborations, class_name: "ProjectCollaboration", dependent: :destroy
+  has_many :collaborations, -> { preload(:user) }, class_name: "ProjectCollaboration", dependent: :destroy
   has_many :collaborators, through: :collaborations, source: :user
 
   scope :editable_by, -> (user_id) {

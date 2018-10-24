@@ -1,1 +1,22 @@
-<%= render 'form', project: @project %>
+<%= render 'private/projects/form', project: @project %>
+
+<h2><%= t('.collaborators') %></h2>
+<table>
+  <tbody>
+  <% @project.collaborations.each do |collaboration| %>
+    <% next if collaboration.new_record? %>
+    <tr>
+      <td><%= collaboration.email %></td>
+      <td title="<%= t('.remove_collaborator_hint') %>">
+        <%= link_to fa_icon('times'), private_project_collaborator_path(@project, collaboration), method: :delete, data: {confirm: t('views.are_you_sure')} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= simple_form_for([:private, @project, @collaboration], url: private_project_collaborators_path(@project), html: {class: 'form'}) do |f| %>
+  <%= f.input :collaborator_email %>
+
+  <%= f.button :submit, t('.add_collaborator'), class: 'button outline small' %>
+<% end %>

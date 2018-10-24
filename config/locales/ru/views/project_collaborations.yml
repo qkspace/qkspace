@@ -1,11 +1,7 @@
 ru:
   project_collaborations: &project_collaborations
-    index:
-      title: "%{project_title} - участники"
-      create: Добавить участника
-      destroy_hint: Удалить
     create:
-      title: "%{project_title} - участники"
+      title: Редактирование проекта
       notice: Участник добавлен
     destroy:
       notice: Участник удален

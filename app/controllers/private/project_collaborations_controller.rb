@@ -4,17 +4,13 @@ class Private::ProjectCollaborationsController < PrivateController
   before_action :set_collaborations, only: %i[index create]
   before_action :set_collaboration, only: %i[destroy]
 
-  def index
-    @collaboration = @project.collaborations.new
-  end
-
   def create
     @collaboration = @project.collaborations.new(collaboration_params)
 
     if @collaboration.save
-      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
+      redirect_to edit_private_project_path(@project), notice: t('.notice')
     else
-      render :index
+      render "private/projects/edit"
     end
   end
 
@@ -22,7 +18,7 @@ class Private::ProjectCollaborationsController < PrivateController
     @collaboration.destroy
 
     if current_user.owns?(@project)
-      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
+      redirect_to edit_private_project_path(@project), notice: t('.notice')
     else
       redirect_to private_projects_path, notice: t('.notice')
     end

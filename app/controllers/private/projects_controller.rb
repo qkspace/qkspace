@@ -18,6 +18,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
+    @collaboration = @project.collaborations.build
   end
 
   def create

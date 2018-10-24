@@ -35,7 +35,7 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy index]
+        resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy]
       end
     end
   end
