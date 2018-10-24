@@ -10,6 +10,7 @@ class ProjectCollaboration < ApplicationRecord
   attribute :collaborator_email
 
   before_validation :set_user, on: :create
+  after_validation :move_uniqueness_error, on: :create
 
   private
 
@@ -23,5 +24,11 @@ class ProjectCollaboration < ApplicationRecord
 
   def check_user
     errors.add(:collaborator_email, :taken) if project.owner == user
+  end
+
+  def move_uniqueness_error
+    errors.details[:user_id].each do |e|
+      errors.add(:collaborator_email, e[:error])
+    end
   end
 end
