@@ -3,7 +3,7 @@
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
-  <%= invisible_recaptcha_tags text: t('.sign_up') %>
+  <%= invisible_recaptcha_tags ui: :input, value: t('.sign_up') %>
 <% end %>
 
 <%= render "devise/shared/links" %>
