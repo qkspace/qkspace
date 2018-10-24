@@ -1,7 +1,7 @@
 class Private::ProjectCollaborationsController < PrivateController
-  before_action :set_project, only: %i[index destroy]
   before_action :set_owned_project, only: %i[create]
-  before_action :set_collaborations, only: %i[index create]
+
+  before_action :set_project, only: %i[destroy]
   before_action :set_collaboration, only: %i[destroy]
 
   def create
@@ -28,10 +28,6 @@ class Private::ProjectCollaborationsController < PrivateController
 
   def collaboration_params
     params.require(:project_collaboration).permit(:collaborator_email)
-  end
-
-  def set_collaborations
-    @collaborations = @project.collaborations.preload(:user)
   end
 
   def set_collaboration
