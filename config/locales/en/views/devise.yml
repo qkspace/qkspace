@@ -30,3 +30,8 @@ en:
         title: Sign in
     failure:
       invalid: Invalid email or password
+    shared_links:
+      sign_up: Sign up
+      forgot_your_password: Forgot your password?
+      didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+      sign_in: Log in

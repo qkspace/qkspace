@@ -30,3 +30,8 @@ ru:
         title: Вход
     failure:
       invalid: Неверный email или пароль
+    shared_links:
+      sign_up: Регистрация
+      forgot_your_password: Забыли пароль?
+      didn_t_receive_confirmation_instructions: Не получили подтверждение?
+      sign_in: Войти

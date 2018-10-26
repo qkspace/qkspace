@@ -8,4 +8,6 @@
   <%= f.button :submit, t(".change_my_password") %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p><%= link_to t("devise.shared_links.sign_in"), new_session_path(resource_name) %></p>
+<p><%= link_to t("devise.shared_links.sign_up"), new_registration_path(resource_name) %></p>
+<p><%= link_to t("devise.shared_links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %></p>
