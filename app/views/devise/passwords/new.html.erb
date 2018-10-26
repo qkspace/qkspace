@@ -3,6 +3,6 @@
   <%= f.button :submit, t(".send_me_reset_password_instructions") %>
 <% end %>
 
-<p><%= link_to t("devise.shared_links.sign_in"), new_session_path(resource_name) %></p>
-<p><%= link_to t("devise.shared_links.sign_up"), new_registration_path(resource_name) %></p>
-<p><%= link_to t("devise.shared_links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %></p>
+<p><%= sign_in_link %></p>
+<p><%= sign_up_link %></p>
+<p><%= email_confirmation_link %></p>

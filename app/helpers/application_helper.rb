@@ -40,4 +40,21 @@ module ApplicationHelper
       {locale: next_locale},
       title: t('views.switch_locale', locale: next_locale)
   end
+
+  def sign_up_link
+    link_to t("devise.shared_links.sign_up"), new_registration_path(resource_name)
+  end
+
+  def sign_in_link
+    link_to t("devise.shared_links.sign_in"), new_session_path(resource_name)
+  end
+
+  def forgot_password_link
+    link_to t("devise.shared_links.forgot_your_password"), new_password_path(resource_name)
+  end
+
+  def email_confirmation_link
+    link_to t("devise.shared_links.didn_t_receive_confirmation_instructions"),
+      new_confirmation_path(resource_name)
+  end
 end
