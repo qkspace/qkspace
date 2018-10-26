@@ -1,4 +1,4 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(@user, url: user_session_path) do |f| %>
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :remember_me, as: :boolean %>

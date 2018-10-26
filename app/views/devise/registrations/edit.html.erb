@@ -1,8 +1,8 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(@user, url: user_registration_path, html: { method: :put }) do |f| %>
   <%= f.input :email %>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <% if @user.pending_reconfirmation? %>
     <p>
-      <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+      <%= t('.currently_waiting_confirmation_for_email', email: @user.unconfirmed_email) %>
     </p>
   <% end %>
   <%= f.input :password, hint: t('.leave_blank_if_you_don_t_want_to_change_it') %>
@@ -12,6 +12,8 @@
   <%= f.submit t('.update'), class: 'button' %> <%= or_back_link %>
 <% end %>
 
-<p><%= email_confirmation_link %></p>
+<% if @user.pending_reconfirmation? %>
+  <p><%= email_confirmation_link %></p>
+<% end %>
 
-<p><%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: 'error' %></p>
+<p><%= link_to t('.cancel_my_account'), user_registration_path, data: { confirm: t('.are_you_sure') }, method: :delete, class: 'error' %></p>

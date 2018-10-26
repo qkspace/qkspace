@@ -1,4 +1,4 @@
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+<%= simple_form_for(@user, url: user_confirmation_path, html: { method: :post }) do |f| %>
   <%= f.full_error :confirmation_token %>
 
   <%= f.input :email, required: true, autofocus: true %>
