@@ -1,8 +1,18 @@
 class Private::PagesController < PrivateController
   before_action :set_project
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: %i[show edit update destroy next previous]
 
   def show
+  end
+
+  def next
+    @page = @project.pages.find_by(position: @page.position + 1) || @page
+    redirect_to private_project_page_path(@project, @page)
+  end
+
+  def previous
+    @page = @project.pages.find_by(position: @page.position - 1) || @page
+    redirect_to private_project_page_path(@project, @page)
   end
 
   def new
