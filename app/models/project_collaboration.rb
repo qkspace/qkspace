@@ -27,8 +27,8 @@ class ProjectCollaboration < ApplicationRecord
   end
 
   def move_uniqueness_error
-    errors.details[:user_id].each do |e|
-      errors.add(:collaborator_email, e[:error])
+    errors[:user_id].each do |error|
+      errors.add(:collaborator_email, error)
     end
   end
 end

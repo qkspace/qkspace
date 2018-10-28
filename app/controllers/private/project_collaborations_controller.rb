@@ -12,6 +12,7 @@ class Private::ProjectCollaborationsController < PrivateController
     if @collaboration.save
       redirect_to edit_private_project_path(@project), notice: t('.notice')
     else
+      @collaborations = @project.collaborations.includes(:user)
       render "private/projects/edit"
     end
   end

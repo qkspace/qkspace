@@ -1,6 +1,7 @@
 class Private::ProjectsController < PrivateController
   before_action :set_project, only: %i[show]
   before_action :set_owned_project, only: %i[edit update destroy]
+  before_action :set_collaborations, only: %i[edit update]
 
   def index
     @owned_projects = current_user.owned_projects
@@ -18,7 +19,6 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
-    @collaboration = @project.collaborations.build
   end
 
   def create
@@ -66,5 +66,10 @@ class Private::ProjectsController < PrivateController
 
   def set_owned_project
     @project = current_user.owned_projects.find(params[:id])
+  end
+
+  def set_collaborations
+    @collaborations = @project.collaborations.includes(:user)
+    @collaboration = @project.collaborations.build
   end
 end

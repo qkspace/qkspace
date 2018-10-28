@@ -3,8 +3,7 @@
 <h2><%= t('.collaborators') %></h2>
 <table>
   <tbody>
-  <% @project.collaborations.each do |collaboration| %>
-    <% next if collaboration.new_record? %>
+  <% @collaborations.each do |collaboration| %>
     <tr>
       <td><%= collaboration.email %></td>
       <td title="<%= t('.remove_collaborator_hint') %>">
