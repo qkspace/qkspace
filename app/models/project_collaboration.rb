@@ -17,7 +17,7 @@ class ProjectCollaboration < ApplicationRecord
   def set_user
     return if user.present?
 
-    self.user = User.find_by(email: collaborator_email)
+    self.user = User.confirmed.find_by(email: collaborator_email)
 
     errors.add(:collaborator_email, :not_found) unless user
   end

@@ -30,6 +30,7 @@ en:
         title: Sign in
     failure:
       invalid: Invalid email or password
+      unconfirmed: You have to confirm your email address before continuing.
     shared_links:
       sign_up: Sign up
       forgot_your_password: Forgot your password?

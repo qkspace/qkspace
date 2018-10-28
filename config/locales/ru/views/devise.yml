@@ -30,6 +30,7 @@ ru:
         title: Вход
     failure:
       invalid: Неверный email или пароль
+      unconfirmed: Вы должны подтвердить вашу учетную запись.
     shared_links:
       sign_up: Регистрация
       forgot_your_password: Забыли пароль?

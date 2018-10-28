@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :project_collaborations, dependent: :destroy
   has_many :collaborated_projects, through: :project_collaborations, source: :project
 
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
   def collaborates?(project)
     projects.exists?(project.id)
   end

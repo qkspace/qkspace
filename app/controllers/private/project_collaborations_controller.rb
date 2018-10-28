@@ -1,4 +1,6 @@
 class Private::ProjectCollaborationsController < PrivateController
+  before_action :confirm_user!
+
   before_action :set_owned_project, only: %i[create]
 
   before_action :set_project, only: %i[destroy]
