@@ -1,0 +1,8 @@
+<%= simple_form_for(@user, url: user_password_path, html: { method: :post }) do |f| %>
+  <%= f.input :email, required: true, autofocus: true %>
+  <%= f.button :submit, t(".send_me_reset_password_instructions") %>
+<% end %>
+
+<p><%= sign_in_link %></p>
+<p><%= sign_up_link %></p>
+<p><%= email_confirmation_link %></p>

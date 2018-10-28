@@ -1,9 +1,9 @@
-<%= simple_form_for(resource, as: resource_name,
-                              url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(@user, url: user_registration_path) do |f| %>
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
-  <%= invisible_recaptcha_tags text: t('.sign_up') %>
+  <%= invisible_recaptcha_tags ui: :input, value: t('.sign_up') %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p><%= sign_in_link %></p>
+<p><%= email_confirmation_link %></p>

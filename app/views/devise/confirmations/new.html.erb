@@ -1,0 +1,13 @@
+<%= simple_form_for(@user, url: user_confirmation_path, html: { method: :post }) do |f| %>
+  <%= f.full_error :confirmation_token %>
+
+  <%= f.input :email, required: true, autofocus: true %>
+
+  <%= f.submit t(".resend_confirmation_instructions") %>
+<% end %>
+
+<% unless user_signed_in? %>
+  <p><%= sign_in_link %></p>
+  <p><%= sign_up_link %></p>
+  <p><%= forgot_password_link %></p>
+<% end %>

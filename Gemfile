@@ -39,4 +39,5 @@ end
 
 group :development do
   gem 'listen'
+  gem 'letter_opener'
 end
