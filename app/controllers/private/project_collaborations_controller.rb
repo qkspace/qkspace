@@ -1,5 +1,5 @@
 class Private::ProjectCollaborationsController < PrivateController
-  before_action :confirm_user!
+  before_action :ensure_user_is_confirmed!
 
   before_action :set_owned_project, only: %i[create]
 
