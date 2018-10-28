@@ -1,14 +1,10 @@
 module ApplicationHelper
   def current_user_collaborates_project?
-    return false unless user_signed_in?
-
-    current_user.collaborates?(@project)
+    current_user&.collaborates?(@project)
   end
 
   def current_user_owns_project?
-    return false unless user_signed_in?
-
-    current_user.owns?(@project)
+    current_user&.owns?(@project)
   end
 
   def show_header?
