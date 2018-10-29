@@ -1,19 +1,10 @@
 <%= simple_form_for(@user, url: user_registration_path, html: { method: :put }) do |f| %>
-  <%= f.input :email %>
-  <% if @user.pending_reconfirmation? %>
-    <p>
-      <%= t('.currently_waiting_confirmation_for_email', email: @user.unconfirmed_email) %>
-    </p>
-  <% end %>
+  <%= f.input :email, hint: confirm_email_hint %>
   <%= f.input :password, hint: t('.leave_blank_if_you_don_t_want_to_change_it') %>
   <%= f.input :password_confirmation %>
   <%= f.input :current_password, hint: t('.we_need_your_current_password_to_confirm_your_changes') %>
 
   <%= f.submit t('.update'), class: 'button' %> <%= or_back_link %>
-<% end %>
-
-<% if @user.pending_reconfirmation? %>
-  <p><%= email_confirmation_link %></p>
 <% end %>
 
 <p><%= link_to t('.cancel_my_account'), user_registration_path, data: { confirm: t('.are_you_sure') }, method: :delete, class: 'error' %></p>

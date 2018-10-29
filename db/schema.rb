@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2018_10_23_200833) do
     t.index ["project_id"], name: "index_pages_on_project_id"
   end
 
+  create_table "project_collaborations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
+    t.index ["project_id"], name: "index_project_collaborations_on_project_id"
+    t.index ["user_id"], name: "index_project_collaborations_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false

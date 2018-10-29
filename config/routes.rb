@@ -34,11 +34,16 @@ Rails.application.routes.draw do
             post :move
           end
         end
+
+        resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy]
       end
     end
   end
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", confirmations: "confirmations" }
+  devise_scope :user do
+    delete 'confirmations', to: 'confirmations#destroy', as: :destroy_user_confirmation
+  end
 
   root to: proc { [404, {}, []] }
 end

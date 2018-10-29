@@ -8,12 +8,19 @@ ru:
       title: Аккаунт
     update:
       title: Аккаунт
+  confirmations:
+    create:
+      title: Подтверждение email
+    new:
+      title: Подтверждение email
+    show:
+      title: Подтверждение email
   devise:
-    confirmations:
-      create:
-        title: Выслать повторно письмо с активацией
-      new:
-        title: Выслать повторно письмо с активацией
+    registrations:
+      edit:
+        confirm_email: Пожалуйста, <a href="%{url}">подтвердите</a> этот адрес
+        currently_waiting_confirmation_for_email: Ожидает <a href="%{url}">подтверждения изменения</a> на %{email}. %{cancel_link}.
+        cancel_link_text: Отменить
     passwords:
       create:
         title: Забыли пароль?
@@ -30,6 +37,7 @@ ru:
         title: Вход
     failure:
       invalid: Неверный email или пароль
+      unconfirmed: Вы должны подтвердить вашу учетную запись.
     shared_links:
       sign_up: Регистрация
       forgot_your_password: Забыли пароль?

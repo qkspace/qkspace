@@ -8,12 +8,19 @@ en:
       title: Account
     update:
       title: Account
+  confirmations:
+    create:
+      title: Email confirmation
+    new:
+      title: Email confirmation
+    show:
+      title: Email confirmation
   devise:
-    confirmations:
-      create:
-        title: Resend confirmation instructions
-      new:
-        title: Resend confirmation instructions
+    registrations:
+      edit:
+        confirm_email: Please <a href="%{url}">confirm</a> this address
+        currently_waiting_confirmation_for_email: Awaiting <a href="%{url}">confirmation of change</a> to %{email}. %{cancel_link}.
+        cancel_link_text: Cancel
     passwords:
       create:
         title: Forgot your password?
@@ -30,6 +37,7 @@ en:
         title: Sign in
     failure:
       invalid: Invalid email or password
+      unconfirmed: You have to confirm your email address before continuing.
     shared_links:
       sign_up: Sign up
       forgot_your_password: Forgot your password?

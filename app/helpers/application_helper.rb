@@ -1,12 +1,14 @@
 module ApplicationHelper
-  def current_user_owns_project?
-    return false unless user_signed_in?
+  def current_user_collaborates_project?
+    current_user&.collaborates?(@project)
+  end
 
-    current_user.owns?(@project)
+  def current_user_owns_project?
+    current_user&.owns?(@project)
   end
 
   def show_header?
-    signed_in? && (private_controller? || current_user_owns_project?)
+    signed_in? && (private_controller? || current_user_collaborates_project?)
   end
 
   def title
@@ -16,6 +18,8 @@ module ApplicationHelper
       @project.title
     when "private.pages.show", "public.pages.show"
       @page.title
+    when "private.project_collaborations.index", "private.project_collaborations.create"
+      t "#{key}.title", project_title: @project.title
     else
       t "#{key}.title"
     end
@@ -51,10 +55,5 @@ module ApplicationHelper
 
   def forgot_password_link
     link_to t("devise.shared_links.forgot_your_password"), new_user_password_path
-  end
-
-  def email_confirmation_link
-    link_to t("devise.shared_links.didn_t_receive_confirmation_instructions"),
-      new_user_confirmation_path
   end
 end
