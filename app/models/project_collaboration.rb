@@ -2,6 +2,8 @@ class ProjectCollaboration < ApplicationRecord
   belongs_to :user
   belongs_to :project
 
+  validates :user_id, :project_id, presence: true
+
   validates :user_id, uniqueness: { scope: :project_id }
   validate  :check_user
 
@@ -17,9 +19,13 @@ class ProjectCollaboration < ApplicationRecord
   def set_user
     return if user.present?
 
-    self.user = User.confirmed.find_by(email: collaborator_email)
+    self.user = User.find_by(email: collaborator_email)
 
-    errors.add(:collaborator_email, :not_found) unless user
+    if !user
+      errors.add(:collaborator_email, :not_found)
+    elsif !user.confirmed?
+      errors.add(:collaborator_email, :not_confirmed)
+    end
   end
 
   def check_user

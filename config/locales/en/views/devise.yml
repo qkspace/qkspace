@@ -8,12 +8,17 @@ en:
       title: Account
     update:
       title: Account
+  confirmations:
+    create:
+      title: Email confirmation
+    new:
+      title: Email confirmation
+    show:
+      title: Email confirmation
   devise:
-    confirmations:
-      create:
-        title: Resend confirmation instructions
-      new:
-        title: Resend confirmation instructions
+    registrations:
+      edit:
+        confirm_email: Please <a href="%{url}">confirm</a> this address
     passwords:
       create:
         title: Forgot your password?

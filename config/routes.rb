@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", confirmations: "confirmations" }
 
   root to: proc { [404, {}, []] }
 end

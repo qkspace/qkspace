@@ -1,9 +1,10 @@
 <%= simple_form_for(@user, url: user_confirmation_path, html: { method: :post }) do |f| %>
   <%= f.full_error :confirmation_token %>
 
-  <%= f.input :email, required: true, autofocus: true %>
+  <%= f.hidden_field :email, value: current_user.email %>
+  <%= f.input :email, input_html: {value: current_user.email}, required: true, autofocus: true, disabled: true %>
 
-  <%= f.submit t(".resend_confirmation_instructions") %>
+  <%= f.button :submit, t(".resend_confirmation_instructions"), class: 'button outline small' %> <%= or_back_link %>
 <% end %>
 
 <% unless user_signed_in? %>

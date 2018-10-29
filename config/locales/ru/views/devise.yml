@@ -8,12 +8,17 @@ ru:
       title: Аккаунт
     update:
       title: Аккаунт
+  confirmations:
+    create:
+      title: Подтверждение email
+    new:
+      title: Подтверждение email
+    show:
+      title: Подтверждение email
   devise:
-    confirmations:
-      create:
-        title: Выслать повторно письмо с активацией
-      new:
-        title: Выслать повторно письмо с активацией
+    registrations:
+      edit:
+        confirm_email: Пожалуйста, <a href="%{url}">подтвердите</a> этот адрес
     passwords:
       create:
         title: Забыли пароль?

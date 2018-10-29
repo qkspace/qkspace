@@ -1,6 +1,6 @@
 <%= render 'private/projects/form', project: @project %>
 
-<h2><%= t('.collaborators') %></h2>
+<h3 class="mt-5 mb-1"><%= t('.collaborators') %></h3>
 <table>
   <tbody>
   <% @collaborations.each do |collaboration| %>
@@ -14,8 +14,12 @@
   </tbody>
 </table>
 
-<%= simple_form_for([:private, @project, @collaboration], url: private_project_collaborators_path(@project), html: {class: 'form'}) do |f| %>
-  <%= f.input :collaborator_email %>
+<% if current_user.confirmed? %>
+  <%= simple_form_for([:private, @project, @collaboration], url: private_project_collaborators_path(@project), html: {class: 'form'}) do |f| %>
+    <%= f.input :collaborator_email %>
 
-  <%= f.button :submit, t('.add_collaborator'), class: 'button outline small' %>
+    <%= f.button :submit, t('.add_collaborator'), class: 'button outline small' %>
+  <% end %>
+<% else %>
+  <%= t('.confirm_to_invite_collaborators', url: new_user_confirmation_url).html_safe %>
 <% end %>

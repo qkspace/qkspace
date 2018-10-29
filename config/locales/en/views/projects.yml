@@ -16,6 +16,7 @@ en:
       collaborators: Collaborators
       remove_collaborator_hint: Remove collaborator
       add_collaborator: Add collaborator
+      confirm_to_invite_collaborators: <a href="%{url}">Confirm email</a> to invite collaborators
     create:
       title: New Project
       notice: Project was created

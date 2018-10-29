@@ -2,9 +2,9 @@ ru:
   project_collaborations: &project_collaborations
     create:
       title: Редактирование проекта
-      notice: Участник добавлен
+      notice: Сотрудник добавлен
     destroy:
-      notice: Участник удален
+      notice: Сотрудник удален
   private:
     project_collaborations: *project_collaborations
   public:

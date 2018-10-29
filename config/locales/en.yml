@@ -1,5 +1,9 @@
 en:
   activerecord:
+    errors:
+      models:
+        project_collaboration:
+          not_confirmed: This user must confirm his email first
     models:
       project: Project
       page: Page

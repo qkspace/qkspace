@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2018_10_23_200833) do
   end
 
   create_table "project_collaborations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "project_id"
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true

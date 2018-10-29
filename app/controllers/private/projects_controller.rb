@@ -19,6 +19,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
+    @collaboration = @project.collaborations.build
   end
 
   def create
@@ -32,7 +33,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def update
-    if @project.reload.update(project_params)
+    if @project.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
       render :edit
@@ -70,6 +71,5 @@ class Private::ProjectsController < PrivateController
 
   def set_collaborations
     @collaborations = @project.collaborations.includes(:user)
-    @collaboration = @project.collaborations.build
   end
 end
