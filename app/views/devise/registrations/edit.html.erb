@@ -7,8 +7,4 @@
   <%= f.submit t('.update'), class: 'button' %> <%= or_back_link %>
 <% end %>
 
-<% if @user.pending_reconfirmation? %>
-  <p><%= email_confirmation_link %></p>
-<% end %>
-
 <p><%= link_to t('.cancel_my_account'), user_registration_path, data: { confirm: t('.are_you_sure') }, method: :delete, class: 'error' %></p>

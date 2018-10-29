@@ -36,7 +36,7 @@ class Private::ProjectsController < PrivateController
     if @project.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
-      render :edit
+      edit
     end
   end
 

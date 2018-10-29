@@ -19,6 +19,8 @@ ru:
     registrations:
       edit:
         confirm_email: Пожалуйста, <a href="%{url}">подтвердите</a> этот адрес
+        currently_waiting_confirmation_for_email: Ожидает <a href="%{url}">подтверждения изменения</a> на %{email}. %{cancel_link}.
+        cancel_link_text: Отменить
     passwords:
       create:
         title: Забыли пароль?

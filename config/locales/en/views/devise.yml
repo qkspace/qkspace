@@ -19,6 +19,8 @@ en:
     registrations:
       edit:
         confirm_email: Please <a href="%{url}">confirm</a> this address
+        currently_waiting_confirmation_for_email: Awaiting <a href="%{url}">confirmation of change</a> to %{email}. %{cancel_link}.
+        cancel_link_text: Cancel
     passwords:
       create:
         title: Forgot your password?
