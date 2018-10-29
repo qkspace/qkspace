@@ -1,5 +1,7 @@
 # README
 
+To deploy run `./deploy.sh` on the server.
+
 # License notices
 
 Flag icons is part of https://github.com/lipis/flag-icon-css project:
