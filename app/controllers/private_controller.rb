@@ -9,7 +9,7 @@ class PrivateController < ApplicationController
 
   def ensure_user_is_confirmed!
     unless current_user&.confirmed?
-      redirect_to new_user_confirmation_path, notice: t('devise.failure.unconfirmed')
+      redirect_to new_user_confirmation_path, alert: t('devise.failure.unconfirmed')
     end
   end
 end
