@@ -32,7 +32,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def update
-    if @project.update(project_params)
+    if @project.reload.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
       render :edit
