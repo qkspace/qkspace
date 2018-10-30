@@ -1,18 +1,45 @@
 en:
+  registrations:
+    create:
+      title: Sign up
+    new:
+      title: Sign up
+    edit:
+      title: Account
+    update:
+      title: Account
+  confirmations:
+    create:
+      title: Email confirmation
+    new:
+      title: Email confirmation
+    show:
+      title: Email confirmation
   devise:
+    registrations:
+      edit:
+        confirm_email: Please <a href="%{url}">confirm</a> this address
+        currently_waiting_confirmation_for_email: Awaiting <a href="%{url}">confirmation of change</a> to %{email}. %{cancel_link}.
+        cancel_link_text: Cancel
+    passwords:
+      create:
+        title: Forgot your password?
+      new:
+        title: Forgot your password?
+      edit:
+        title: Change your password
+      update:
+        title: Change your password
     sessions:
       new:
         title: Sign in
       create:
         title: Sign in
-    registrations:
-      create:
-        title: Sign up
-      new:
-        title: Sign up
-      edit:
-        title: Account
-      update:
-        title: Account
     failure:
       invalid: Invalid email or password
+      unconfirmed: You have to confirm your email address before continuing.
+    shared_links:
+      sign_up: Sign up
+      forgot_your_password: Forgot your password?
+      didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+      sign_in: Log in

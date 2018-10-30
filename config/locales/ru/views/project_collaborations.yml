@@ -1,0 +1,11 @@
+ru:
+  project_collaborations: &project_collaborations
+    create:
+      title: Редактирование проекта
+      notice: Сотрудник добавлен
+    destroy:
+      notice: Сотрудник удален
+  private:
+    project_collaborations: *project_collaborations
+  public:
+    project_collaborations: *project_collaborations

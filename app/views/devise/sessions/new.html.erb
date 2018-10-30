@@ -1,8 +1,9 @@
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(@user, url: user_session_path) do |f| %>
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :remember_me, as: :boolean %>
   <%= f.submit t('.sign_in') %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p><%= sign_up_link %></p>
+<p><%= forgot_password_link %></p>

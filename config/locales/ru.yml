@@ -1,5 +1,9 @@
 ru:
   activerecord:
+    errors:
+      models:
+        project_collaboration:
+          not_confirmed: Этот пользователь должен сначала подтвердить свой email
     models:
       project: Проект
       page: Страница
@@ -11,6 +15,8 @@ ru:
       page:
         title: Заголовок
         source: Содержание
+      project_collaboration:
+        collaborator_email: Email сотрудника
   helpers:
     submit:
       create: Создать

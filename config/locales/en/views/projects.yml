@@ -8,11 +8,20 @@ en:
       edit_hint: Edit
       destroy_hint: Delete
       public_hint: Go to public page
+      collaborating: Collaborating
+      stop_collaborating_hint: Stop collaborating
+      cant_edit_collaborated_project: Can't edit collaborated project
     edit:
       title: Edit Project
+      collaborators: Collaborators
+      remove_collaborator_hint: Remove collaborator
+      add_collaborator: Add collaborator
+      confirm_to_invite_collaborators: <a href="%{url}">Confirm email</a> to invite collaborators
     create:
       title: New Project
       notice: Project was created
+      remove_collaborator_hint: Remove collaborator
+      add_collaborator: Add collaborator
     update:
       title: Edit Project
       notice: Project was saved
