@@ -1,11 +1,7 @@
 $(document).on('turbolinks:load', function () {
-  $(document).keydown(function(e) {
-    if (e.keyCode == 'N'.charCodeAt(0)) {
-      location.href = location.href + "/next";
-    }
-
-    if (e.keyCode == 'P'.charCodeAt(0)) {
-      location.href = location.href + "/previous";
-    }
-  });
+  window.usedHotkeys = {};
+  usedHotkeys['N'.charCodeAt(0)] = 'next_page';
+  usedHotkeys['P'.charCodeAt(0)] = 'previous_page';
+  usedHotkeys['W'.charCodeAt(0)] = 'previous_page';
+  usedHotkeys['S'.charCodeAt(0)] = 'next_page';
 });

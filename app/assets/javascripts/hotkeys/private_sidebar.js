@@ -1,21 +1,9 @@
 $(document).on('turbolinks:load', function () {
-  var new_page = $('#new_page').attr('href');
-
-  $(document).keydown(function(e) {
-    if (e.keyCode == 'C'.charCodeAt(0)) {
-      location.href = new_page;
-    }
-
-    if (e.keyCode == 'N'.charCodeAt(0)) {
-      location.href = location.href + "/next";
-    }
-
-    if (e.keyCode == 'P'.charCodeAt(0)) {
-      location.href = location.href + "/previous";
-    }
-
-    if (e.keyCode == 'E'.charCodeAt(0)) {
-      location.href = location.href + "/edit";
-    }
-  });
+  window.usedHotkeys = {};
+  usedHotkeys['N'.charCodeAt(0)] = 'next_page';
+  usedHotkeys['P'.charCodeAt(0)] = 'previous_page';
+  usedHotkeys['W'.charCodeAt(0)] = 'previous_page';
+  usedHotkeys['S'.charCodeAt(0)] = 'next_page';
+  usedHotkeys['C'.charCodeAt(0)] = 'new_page';
+  usedHotkeys['E'.charCodeAt(0)] = 'edit_page';
 });
