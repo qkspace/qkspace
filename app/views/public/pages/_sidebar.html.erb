@@ -4,4 +4,9 @@
   <%= render @project.pages %>
 </ul>
 
-<%= javascript_include_tag 'hotkeys/public_sidebar' %>
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('public_project_page');
+  });
+</script>

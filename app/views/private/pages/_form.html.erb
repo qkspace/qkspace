@@ -7,4 +7,9 @@
 
 <%= render 'markdown_modal_window' %>
 
-<%= javascript_include_tag 'hotkeys/form' %>
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('form');
+  });
+</script>

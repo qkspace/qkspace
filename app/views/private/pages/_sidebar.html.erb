@@ -14,4 +14,8 @@
   <% end %>
 </div>
 
-<%= javascript_include_tag 'hotkeys/private_sidebar' %>
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('private_project_page');
+  });
+</script>
