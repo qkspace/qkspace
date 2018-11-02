@@ -3,3 +3,10 @@
 <ul class="unstyled">
   <%= render @project.pages %>
 </ul>
+
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('public_project_page');
+  });
+</script>

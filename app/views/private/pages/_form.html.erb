@@ -6,3 +6,10 @@
 <% end %>
 
 <%= render 'markdown_modal_window' %>
+
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('form');
+  });
+</script>

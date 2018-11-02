@@ -5,3 +5,9 @@
 
   <%= f.submit class: 'button outline small' %> <%= or_back_link %>
 <% end %>
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    hotkeys.activate('form');
+  });
+</script>

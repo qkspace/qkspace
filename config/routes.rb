@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     scope module: 'public', as: 'public' do
       root to: 'projects#show'
 
-      resources :pages, param: :slug, path: '', only: [:index, :show]
+      resources :pages, param: :slug, path: '', only: [:index, :show] do
+        member do
+          get :next
+          get :previous
+        end
+      end
     end
   end
 
@@ -32,6 +37,8 @@ Rails.application.routes.draw do
         resources :pages do
           member do
             post :move
+            get  :next
+            get  :previous
           end
         end
 

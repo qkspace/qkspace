@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require kube.min
 //= require highlight.min
+//= require hotkeys
 
 // Toast UI
 //= require toast
