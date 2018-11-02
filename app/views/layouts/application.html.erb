@@ -8,6 +8,9 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= favicon_link_tag 'favicon.png', rel: 'apple-touch-icon', type: 'image/png' %>
   </head>
 
   <% if show_header? %>
