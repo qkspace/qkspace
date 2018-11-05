@@ -168,6 +168,8 @@ GEM
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    simpleidn (0.1.1)
+      unf (~> 0.1.4)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -187,6 +189,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.7.0)
@@ -218,6 +223,7 @@ DEPENDENCIES
   recaptcha
   sass-rails
   simple_form
+  simpleidn
   sqlite3
   tui_editor-rails
   turbolinks

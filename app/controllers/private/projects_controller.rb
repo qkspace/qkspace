@@ -1,7 +1,8 @@
 class Private::ProjectsController < PrivateController
   before_action :set_project, only: %i[show]
-  before_action :set_owned_project, only: %i[edit update destroy]
-  before_action :set_collaborations, only: %i[edit update]
+  before_action :set_owned_project, only: %i[edit update update_domain destroy]
+
+  include Private::EditProjectFormHelper
 
   def index
     @owned_projects = current_user.owned_projects
@@ -19,7 +20,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
-    @collaboration = @project.collaborations.build
+    initialize_edit_project_form
   end
 
   def create
@@ -36,7 +37,18 @@ class Private::ProjectsController < PrivateController
     if @project.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
-      edit
+      initialize_edit_project_form
+      render :edit
+    end
+  end
+
+  def update_domain
+    @project_with_domain_updater = ProjectWithDomainUpdater.new(area_private_domain: area_private_domain, project: @project)
+
+    if @project_with_domain_updater.update(params[:project][:domain])
+      redirect_to private_projects_url, notice: t('.notice')
+    else
+      initialize_edit_project_form
       render :edit
     end
   end
@@ -50,7 +62,7 @@ class Private::ProjectsController < PrivateController
     response =
       SlugChecker.call(
         slug: params[:slug],
-        domain: request.env['qkspace.area'][:private_domain]
+        domain: area_private_domain
       )
 
     render json: { data: response }
@@ -68,9 +80,5 @@ class Private::ProjectsController < PrivateController
 
   def set_owned_project
     @project = current_user.owned_projects.find(params[:id])
-  end
-
-  def set_collaborations
-    @collaborations = @project.collaborations.includes(:user)
   end
 end

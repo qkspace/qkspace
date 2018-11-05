@@ -8,6 +8,22 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def area_private_domain
+    request.env['qkspace.area'][:private_domain]
+  end
+
+  def area_public_name
+    request.env["qkspace.area"][:public_name]
+  end
+
+  def area_public_type
+    request.env["qkspace.area"][:public_type]
+  end
+
+  def area_of_subdomain?
+    area_public_type == :subdomain
+  end
+
   def public_controller?
     false
   end
@@ -17,7 +33,13 @@ class ApplicationController < ActionController::Base
   end
 
   def public_project_page_uri(project)
-    URI::HTTP.build(host: (project.slug + '.' + request.host), port: request.port)
+    host =
+      if project.domain
+        project.domain
+      else
+        project.slug + '.' + request.host
+      end
+    URI::HTTP.build(host: host, port: request.port)
   end
 
   def public_project_url(project)

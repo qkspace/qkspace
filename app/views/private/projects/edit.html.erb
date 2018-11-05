@@ -1,4 +1,5 @@
 <%= render 'private/projects/form', project: @project %>
+<%= render 'private/projects/update_domain_form', project: @project %>
 
 <h3 class="buffer-top-lg buffer-bottom-sm"><%= t('.collaborators') %></h3>
 <table>
@@ -15,7 +16,7 @@
 </table>
 
 <% if current_user.confirmed? %>
-  <%= simple_form_for([:private, @project, @collaboration], url: private_project_collaborators_path(@project), html: {class: 'form'}) do |f| %>
+  <%= simple_form_for(@collaboration, url: private_project_collaborators_path(@project), html: {class: 'form'}) do |f| %>
     <%= f.input :collaborator_email %>
 
     <%= f.button :submit, t('.add_collaborator'), class: 'button outline small' %>

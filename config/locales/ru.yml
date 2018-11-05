@@ -2,6 +2,8 @@ ru:
   activerecord:
     errors:
       models:
+        project:
+          not_confirmed: Правильная CNAME-запись не найдена
         project_collaboration:
           not_confirmed: Этот пользователь должен сначала подтвердить свой email
     models:
@@ -11,6 +13,7 @@ ru:
       project:
         title: Название
         slug: Поддомен
+        domain: Свой домен
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
       page:
         title: Заголовок

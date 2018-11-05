@@ -2,6 +2,8 @@ en:
   activerecord:
     errors:
       models:
+        project:
+          not_confirmed: Correct CNAME not found
         project_collaboration:
           not_confirmed: This user must confirm his email first
     models:
@@ -11,6 +13,7 @@ en:
       project:
         title: Title
         slug: Subdomain
+        domain: Custom domain
         google_analytics_tracker_id: Google Analytics Tracker ID
       page:
         title: Title

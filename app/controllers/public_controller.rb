@@ -10,12 +10,10 @@ class PublicController < ApplicationController
   end
 
   def set_project
-    public_name = request.env["qkspace.area"][:public_name]
-
-    if request.env["qkspace.area"][:public_type] == :subdomain
-      @project = Project.find_by!(slug: public_name)
+    if area_of_subdomain?
+      @project = Project.find_by!(slug: area_public_name)
     else
-      raise "Domains not supported for now"
+      @project = Project.find_by!(domain: area_public_name)
     end
   end
 end

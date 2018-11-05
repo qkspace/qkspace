@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_200833) do
+ActiveRecord::Schema.define(version: 2018_11_05_134656) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2018_10_23_200833) do
     t.string "slug"
     t.integer "user_id"
     t.string "google_analytics_tracker_id"
+    t.string "domain"
+    t.index ["domain"], name: "index_projects_on_domain", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
