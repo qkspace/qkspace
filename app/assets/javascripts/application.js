@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-throttle-debounce
 //= require jquery-ui/widgets/sortable
 //= require sortable
 //= require turbolinks
@@ -31,7 +32,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  $('input#project_slug').keyup(function() {
+  $('input#project_slug').keyup($.debounce(250, function() {
     var hint = $(this).parent().children('.desc');
     var slug = $(this).val();
     var locale = $(this).data("locale");
@@ -63,5 +64,5 @@ $(document).on('turbolinks:load', function() {
     else {
       hint.html("");
     }
-  });
+  }));
 });
