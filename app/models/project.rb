@@ -18,7 +18,7 @@ class Project < ApplicationRecord
 
   validates_associated :pages, on: :create
 
-  validates :domain, uniqueness: true,
+  validates :domain,
     # x.x.x.x.x.x – where each "x" is 1-63 chars
     format: { with: /\A([[:alnum:]\-]{1,63}\.)+[[:alnum:]\-]{1,63}\z/ },
     length: { maximum: 253 },

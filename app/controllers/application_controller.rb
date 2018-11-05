@@ -8,6 +8,22 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def area_private_domain
+    request.env['qkspace.area'][:private_domain]
+  end
+
+  def area_public_name
+    request.env["qkspace.area"][:public_name]
+  end
+
+  def area_public_type
+    request.env["qkspace.area"][:public_type]
+  end
+
+  def area_of_subdomain?
+    area_public_type == :subdomain
+  end
+
   def public_controller?
     false
   end

@@ -43,7 +43,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def update_domain
-    @project_with_domain_updater = ProjectWithDomainUpdater.new(request: request, project: @project)
+    @project_with_domain_updater = ProjectWithDomainUpdater.new(area_private_domain: area_private_domain, project: @project)
 
     if @project_with_domain_updater.update(params[:project][:domain])
       redirect_to private_projects_url, notice: t('.notice')
@@ -62,7 +62,7 @@ class Private::ProjectsController < PrivateController
     response =
       SlugChecker.call(
         slug: params[:slug],
-        domain: request.env['qkspace.area'][:private_domain]
+        domain: area_private_domain
       )
 
     render json: { data: response }

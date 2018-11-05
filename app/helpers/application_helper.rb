@@ -29,10 +29,6 @@ module ApplicationHelper
     t('views.or_back_link', href: link_to(t('views.back'), :back)).html_safe
   end
 
-  def private_domain
-    request.env["qkspace.area"][:private_domain]
-  end
-
   def link_to_switch_locale
     current_locale_index = I18n.available_locales.find_index(I18n.locale)
     next_locale = I18n.available_locales[(current_locale_index + 1) % I18n.available_locales.length]

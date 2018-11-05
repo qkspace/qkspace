@@ -24,7 +24,8 @@ gem 'http_accept_language'
 gem 'tui_editor-rails'
 gem 'data_migrate'
 gem 'simple_form'
-gem "recaptcha"
+gem 'recaptcha'
+gem 'simpleidn'
 
 group :production do
   gem 'pg'

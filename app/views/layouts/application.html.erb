@@ -33,7 +33,7 @@
               <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>
             <% else # current_user_collaborates_project?? %>
               <%= link_to fa_icon('pencil'),
-                private_project_page_url(@project, @page, host: private_domain), title: t('views.back_to_edit') %>
+                private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
             <% end %>
           </div>
         </div>
