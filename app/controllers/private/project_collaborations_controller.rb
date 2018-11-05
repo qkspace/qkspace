@@ -6,13 +6,15 @@ class Private::ProjectCollaborationsController < PrivateController
   before_action :set_project, only: %i[destroy]
   before_action :set_collaboration, only: %i[destroy]
 
+  include Private::EditProjectFormHelper
+
   def create
     @collaboration = @project.collaborations.new(collaboration_params)
 
     if @collaboration.save
       redirect_to edit_private_project_path(@project), notice: t('.notice')
     else
-      @collaborations = @project.collaborations.includes(:user)
+      initialize_edit_project_form
       render "private/projects/edit"
     end
   end

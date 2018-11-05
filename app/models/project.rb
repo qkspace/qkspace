@@ -18,7 +18,12 @@ class Project < ApplicationRecord
 
   validates_associated :pages, on: :create
 
-  validates :domain, uniqueness: true
+  validates :domain, uniqueness: true,
+    # x.x.x.x.x.x – where each "x" is 1-63 chars
+    format: { with: /\A([[:alnum:]\-]{1,63}\.)+[[:alnum:]\-]{1,63}\z/ },
+    length: { maximum: 253 },
+    allow_blank: true
+
   validates :title, :slug, presence: true
   validates :slug, format: { with: /\A[a-z][a-z0-9-]+\z/ }, uniqueness: true,
                    length: { minimum: 4 }, exclusion: { in: SLUG_BLACK_LIST }

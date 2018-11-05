@@ -1,8 +1,8 @@
 class Private::ProjectsController < PrivateController
   before_action :set_project, only: %i[show]
   before_action :set_owned_project, only: %i[edit update update_domain destroy]
-  before_action :set_collaborations, only: %i[edit update_domain update]
-  before_action :set_project_with_domain_updater, only: %i[edit update_domain]
+
+  include Private::EditProjectFormHelper
 
   def index
     @owned_projects = current_user.owned_projects
@@ -20,7 +20,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
-    @collaboration = @project.collaborations.build
+    initialize_edit_project_form
   end
 
   def create
@@ -37,16 +37,18 @@ class Private::ProjectsController < PrivateController
     if @project.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
-      edit
+      initialize_edit_project_form
       render :edit
     end
   end
 
   def update_domain
+    @project_with_domain_updater = ProjectWithDomainUpdater.new(request: request, project: @project)
+
     if @project_with_domain_updater.update(params[:project][:domain])
       redirect_to private_projects_url, notice: t('.notice')
     else
-      edit
+      initialize_edit_project_form
       render :edit
     end
   end
@@ -78,13 +80,5 @@ class Private::ProjectsController < PrivateController
 
   def set_owned_project
     @project = current_user.owned_projects.find(params[:id])
-  end
-
-  def set_collaborations
-    @collaborations = @project.collaborations.includes(:user)
-  end
-
-  def set_project_with_domain_updater
-    @project_with_domain_updater = ProjectWithDomainUpdater.new(request: request, project: @project)
   end
 end
