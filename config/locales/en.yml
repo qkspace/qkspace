@@ -3,7 +3,7 @@ en:
     errors:
       models:
         project:
-          not_confirmed: Correct CNAME not found
+          not_confirmed: Correct CNAME was not found
         project_collaboration:
           not_confirmed: This user must confirm his email first
     models:
