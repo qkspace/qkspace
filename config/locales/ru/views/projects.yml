@@ -25,8 +25,15 @@ ru:
       notice: Проект изменён
       remove_collaborator_hint: Исключить сотрудника
       add_collaborator: Добавить сотрудника
+    update_domain:
+      title: Редактирование проекта
+      notice: Домен был прицеплен
     destroy:
       notice: Проект был удалён
+    update_domain_form:
+      domain_hint: CNAME домена должен указывать на %{url}
+      submit: Прицепить
+      unlink: Отцепить
   private:
     projects: *projects
   public:

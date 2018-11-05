@@ -17,7 +17,13 @@ class ApplicationController < ActionController::Base
   end
 
   def public_project_page_uri(project)
-    URI::HTTP.build(host: (project.slug + '.' + request.host), port: request.port)
+    host =
+      if project.domain
+        project.domain
+      else
+        project.slug + '.' + request.host
+      end
+    URI::HTTP.build(host: host, port: request.port)
   end
 
   def public_project_url(project)
