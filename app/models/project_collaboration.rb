@@ -1,6 +1,6 @@
 class ProjectCollaboration < ApplicationRecord
-  belongs_to :user
-  belongs_to :project
+  belongs_to :user, inverse_of: :project_collaborations
+  belongs_to :project, inverse_of: :collaborations
 
   validates :user_id, uniqueness: { scope: :project_id }
   validate  :check_user

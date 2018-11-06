@@ -33,7 +33,8 @@ Rails.application.routes.draw do
 
       resources :projects do
         get :check_slug, on: :collection
-        put :update_domain, on: :member
+
+        resource :domain, only: [:create, :destroy]
 
         resources :pages do
           member do

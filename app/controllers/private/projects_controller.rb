@@ -42,17 +42,6 @@ class Private::ProjectsController < PrivateController
     end
   end
 
-  def update_domain
-    @project_with_domain_updater = ProjectWithDomainUpdater.new(area_private_domain: area_private_domain, project: @project)
-
-    if @project_with_domain_updater.update(params[:project][:domain])
-      redirect_to private_projects_url, notice: t('.notice')
-    else
-      initialize_edit_project_form
-      render :edit
-    end
-  end
-
   def destroy
     @project.destroy
     redirect_to private_projects_url, notice: t('.notice')

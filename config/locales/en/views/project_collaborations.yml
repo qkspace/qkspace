@@ -1,11 +1,14 @@
 en:
-  project_collaborations: &project_collaborations
-    create:
-      title: Edit Project
-      notice: Collaborator was added
-    destroy:
-      notice: Collaborator was removed
   private:
-    project_collaborations: *project_collaborations
-  public:
-    project_collaborations: *project_collaborations
+    project_collaborations:
+      create:
+        title: Edit project
+        notice: Collaborator was added
+      destroy:
+        notice: Collaborator was removed
+      form:
+        add_collaborator: Add collaborator
+        confirm_to_invite_collaborators: <a href="%{url}">Confirm email</a> to invite collaborators
+      list:
+        collaborators: Collaborators
+        remove_collaborator_hint: Remove collaborator

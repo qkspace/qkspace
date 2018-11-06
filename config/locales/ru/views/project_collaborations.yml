@@ -1,11 +1,14 @@
 ru:
-  project_collaborations: &project_collaborations
-    create:
-      title: Редактирование проекта
-      notice: Сотрудник добавлен
-    destroy:
-      notice: Сотрудник удален
   private:
-    project_collaborations: *project_collaborations
-  public:
-    project_collaborations: *project_collaborations
+    project_collaborations:
+      create:
+        title: Редактирование проекта
+        notice: Сотрудник добавлен
+      destroy:
+        notice: Сотрудник удален
+      form:
+        add_collaborator: Добавить сотрудника
+        confirm_to_invite_collaborators: <a href="%{url}">Подтвердите email</a> для приглашения сотрудников
+      list:
+        collaborators: Сотрудники
+        remove_collaborator_hint: Исключить сотрудника
