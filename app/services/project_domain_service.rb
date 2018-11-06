@@ -1,6 +1,8 @@
 require 'resolv'
 
-class ProjectWithDomainUpdater
+class ProjectDomainService
+  attr_reader :project
+
   def self.get_cname(domain)
     Rails.logger.info("Getting CNAME for #{domain}")
 
@@ -23,14 +25,22 @@ class ProjectWithDomainUpdater
     @project = project
   end
 
+  def destroy
+    @project.update_attribute(:domain, nil)
+  end
+
+  def domain_set?
+    @project.domain_was.present?
+  end
+
   def humanized_domain
     SimpleIDN.to_unicode(@project.domain)
   end
 
   def update(domain)
-    return if @project.new_record?
     if domain.empty?
-      return @project.update_attribute(:domain, nil)
+      @project.errors.add(:domain, :empty)
+      return false
     end
 
     @project.domain = SimpleIDN.to_ascii(domain.downcase)

@@ -15,7 +15,7 @@ class Private::ProjectCollaborationsController < PrivateController
       redirect_to edit_private_project_path(@project), notice: t('.notice')
     else
       initialize_edit_project_form
-      render "private/projects/edit"
+      render 'private/projects/edit'
     end
   end
 

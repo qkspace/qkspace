@@ -1,40 +1,35 @@
 ru:
-  projects: &projects
-    new:
-      title: Новый проект
-    index:
-      title: Все проекты
-      create: Создать проект
-      edit_hint: Редактировать
-      destroy_hint: Удалить
-      public_hint: Перейти на публичную страницу
-      collaborating: Сотрудник проекта
-      stop_collaborating_hint: Выйти из проекта
-      cant_edit_collaborated_project: Вы не можете редактировать этот проект
-    edit:
-      title: Редактирование проекта
-      collaborators: Сотрудники
-      remove_collaborator_hint: Исключить сотрудника
-      add_collaborator: Добавить сотрудника
-      confirm_to_invite_collaborators: <a href="%{url}">Подтвердите email</a> для приглашения сотрудников
-    create:
-      title: Новый проект
-      notice: Проект создан
-    update:
-      title: Редактирование проекта
-      notice: Проект изменён
-      remove_collaborator_hint: Исключить сотрудника
-      add_collaborator: Добавить сотрудника
-    update_domain:
-      title: Редактирование проекта
-      notice: Домен был прицеплен
-    destroy:
-      notice: Проект был удалён
-    update_domain_form:
-      domain_hint: CNAME домена должен указывать на %{url}
-      submit: Прицепить
-      unlink: Отцепить
   private:
-    projects: *projects
-  public:
-    projects: *projects
+    projects:
+      new:
+        title: Новый проект
+      index:
+        title: Все проекты
+        create: Создать проект
+        edit_hint: Редактировать
+        destroy_hint: Удалить
+        public_hint: Перейти на публичную страницу
+        collaborating: Сотрудник проекта
+        stop_collaborating_hint: Выйти из проекта
+        cant_edit_collaborated_project: Вы не можете редактировать этот проект
+      edit:
+        title: Редактирование проекта
+      create:
+        title: Новый проект
+        notice: Проект создан
+      update:
+        title: Редактирование проекта
+        notice: Проект изменён
+      destroy:
+        notice: Проект был удалён
+    domains:
+      create:
+        title: Редактирование проекта
+        notice: Домен был прицеплен
+      destroy:
+        title: Редактирование проекта
+        notice: Домен был отцеплен
+      form:
+        domain_hint: CNAME домена должен указывать на %{url}
+        submit: Прицепить
+        unlink: Отцепить

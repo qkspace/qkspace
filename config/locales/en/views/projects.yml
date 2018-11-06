@@ -1,40 +1,39 @@
 en:
-  projects: &projects
-    new:
-      title: New Project
-    index:
-      title: All Projects
-      create: Create project
-      edit_hint: Edit
-      destroy_hint: Delete
-      public_hint: Go to public page
-      collaborating: Collaborating
-      stop_collaborating_hint: Stop collaborating
-      cant_edit_collaborated_project: Can't edit collaborated project
-    edit:
-      title: Edit Project
-      collaborators: Collaborators
-      remove_collaborator_hint: Remove collaborator
-      add_collaborator: Add collaborator
-      confirm_to_invite_collaborators: <a href="%{url}">Confirm email</a> to invite collaborators
-    create:
-      title: New Project
-      notice: Project was created
-      remove_collaborator_hint: Remove collaborator
-      add_collaborator: Add collaborator
-    update:
-      title: Edit Project
-      notice: Project was saved
-    update_domain:
-      title: Edit Project
-      notice: Domain was connected
-    destroy:
-      notice: Project was deleted
-    update_domain_form:
-      domain_hint: CNAME record for domain must point to %{url}
-      submit: Connect
-      unlink: Disconnect
   private:
-    projects: *projects
-  public:
-    projects: *projects
+    projects:
+      new:
+        title: New project
+      index:
+        title: All projects
+        create: Create project
+        edit_hint: Edit
+        destroy_hint: Delete
+        public_hint: Go to public page
+        collaborating: Collaborating
+        stop_collaborating_hint: Stop collaborating
+        cant_edit_collaborated_project: Can't edit collaborated project
+      edit:
+        title: Edit project
+      create:
+        title: New project
+        notice: Project was created
+        remove_collaborator_hint: Remove collaborator
+        add_collaborator: Add collaborator
+      update:
+        title: Edit project
+        notice: Project was saved
+      destroy:
+        notice: Project was deleted
+    domains:
+      create:
+        title: Edit project
+        notice: Domain was connected
+      destroy:
+        title: Edit project
+        notice: Domain was disconnected
+      form:
+        domain_hint: CNAME record for domain must point to %{url}
+        submit: Connect
+        unlink: Disconnect
+      create:
+        title: Edit project

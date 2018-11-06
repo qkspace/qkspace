@@ -1,0 +1,13 @@
+<h3 class="buffer-top-lg buffer-bottom-sm"><%= t('.collaborators') %></h3>
+<table>
+  <tbody>
+  <% collaborations.each do |collaboration| %>
+    <tr>
+      <td><%= collaboration.email %></td>
+      <td title="<%= t('.remove_collaborator_hint') %>">
+        <%= link_to fa_icon('times'), private_project_collaborator_path(collaboration.project, collaboration), method: :delete, data: {confirm: t('views.are_you_sure')} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
