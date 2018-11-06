@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :reset_session
 
   helper_method :private_controller?, :public_controller?,
-                :public_project_url, :public_project_page_url
+                :public_project_url, :public_project_page_url,
+                :area_private_domain
 
   private
 
@@ -13,11 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def area_public_name
-    request.env["qkspace.area"][:public_name]
+    request.env['qkspace.area'][:public_name]
   end
 
   def area_public_type
-    request.env["qkspace.area"][:public_type]
+    request.env['qkspace.area'][:public_type]
   end
 
   def area_of_subdomain?
