@@ -2,88 +2,13 @@
   font-family: 'Lato', sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
-h3 {
-  margin-bottom: 1em;
-}
-
-.page {
-  width: 90%;
-  margin: 3em auto;
-  color: #0d0d0e;
-}
-
-ol {
-  color: #c0c0c0;
-}
-
-ol p {
-  color: #0d0d0e;
-}
-
-ol.hanging {
-  padding-left: 16px;
-  margin-left: -16px;
-}
-
-ol.hanging li {
-  padding-left: 4px;
-  margin-left: -4px;
-}
-
-.buffer-top {
-  margin-top: 1em;
-}
-
-.buffer-top-lg {
-  margin-top: 2em;
-}
-
-.buffer-bottom {
-  margin-bottom: 1em;
-}
-
-.buffer-bottom-sm {
-  margin-bottom: .25em;
-}
-
-@media (min-width: 1200px) {
-  .page {
-    max-width: 1080px;
-  }
-}
-
-@media (max-width: 768px) {
-  ol.hanging li {
-    padding-left: 0;
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 576px) {
-  .page {
-    margin-left: 24px;
-  }
+table.table {
+  border-collapse: collapse;
+  border-style: hidden;
 }
 
 pre {
   border-radius: 8px;
-}
-
-.sidebar-pages {
-  margin-bottom: 1em;
-  border-bottom: 1px solid #d0d0d0;
-}
-
-details {
-  margin-bottom: 16px;
-}
-
-.form-item .error {
-  font-size: 0.8em;
 }
 
 /* fix toast and cube buttons conflict */

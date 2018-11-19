@@ -1,17 +1,17 @@
 <% if page == @page %>
-  <li class="muted"
+  <div class="text-muted"
     data-role="page_<%= page.id %>"
     data-move-url="<%= move_private_project_page_url(@project, page) %>"
     data-position="<%= page.position %>"
   >
-  <p><%= page.title %></p>
-  </li>
+    <p class="mb-2"><%= page.title %></p>
+  </div>
 <% else %>
-  <li
+  <div
     data-role="page_<%= page.id %>"
     data-move-url="<%= move_private_project_page_url(@project, page) %>"
     data-position="<%= page.position %>"
   >
-  <p><%= link_to page.title, private_project_page_path(@project, page) %></p>
-  </li>
+    <p class="mb-2"><%= link_to page.title, private_project_page_path(@project, page) %></p>
+  </div>
 <% end %>

@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function () {
+  window.usedHotkeys = [];
+
   window.hotkeysConfig = {
     'next_page': {
       ctrl:     false,

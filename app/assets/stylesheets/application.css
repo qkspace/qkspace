@@ -10,12 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require kube.min
  *= require font
  *= require style
  *= require highlight
  *= require font-awesome
  *= require flag-icon.min.css
  *= require toast
- *= require galochka
  */

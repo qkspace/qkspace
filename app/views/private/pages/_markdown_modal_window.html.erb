@@ -1,9 +1,16 @@
-<div id="markdown-modal-window" class="modal-box hide">
-  <div class="modal">
-    <span class="close"></span>
-    <div class="modal-header"><%= t('views.markdown.hint_link', href: t('views.markdown.hint_a')) %></div>
-    <div class="modal-body">
-      <%= render 'md_help' %>
+<div class="modal" id="markdown-modal-window">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('views.markdown.hint_link', href: t('views.markdown.hint_a')) %></h5>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'md_help' %>
+      </div>
     </div>
   </div>
 </div>
+

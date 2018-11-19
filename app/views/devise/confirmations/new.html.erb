@@ -4,11 +4,11 @@
   <%= f.hidden_field :email, value: current_user_email_to_confirm %>
   <%= f.input :email, input_html: {value: current_user_email_to_confirm}, required: true, autofocus: true, disabled: true %>
 
-  <%= f.button :submit, t(".resend_confirmation_instructions"), class: 'button outline small' %> <%= or_back_link %>
+  <%= f.button :submit, t(".resend_confirmation_instructions") %> <%= or_back_link %>
 <% end %>
 
 <% unless user_signed_in? %>
-  <p><%= sign_in_link %></p>
+  <p class="mt-3"><%= sign_in_link %></p>
   <p><%= sign_up_link %></p>
   <p><%= forgot_password_link %></p>
 <% end %>

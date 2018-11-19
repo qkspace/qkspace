@@ -2,7 +2,19 @@
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
-  <%= invisible_recaptcha_tags ui: :input, value: t('.sign_up') %>
+  <%= invisible_recaptcha_tags(ui: :invisible, callback: 'submitInvisibleRecaptchaForm') %>
+  <%= f.button :submit, t('.sign_up') %>
 <% end %>
 
-<p><%= sign_in_link %></p>
+<p class="mt-3"><%= sign_in_link %></p>
+
+<script>
+  $('#new_user').find("input[type='submit']").click(function(e) {
+    grecaptcha.execute();
+    return false;
+  });
+
+  var submitInvisibleRecaptchaForm = function () {
+    $("#new_user").submit();
+  };
+</script>

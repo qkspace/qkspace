@@ -1,16 +1,13 @@
-<%= link_to public_project_page_url(@project, @page), title: t('.public_hint'), class: 'desc' do %>
+<%= link_to public_project_page_url(@project, @page), title: t('.public_hint'), class: 'small text-muted' do %>
   <%= fa_icon('desktop') %> <%= public_project_page_url(@project, @page) %>
 <% end %>
 
-<div class="page-content buffer-top">
+<div class="mt-5">
   <%= @page.html.html_safe %>
 </div>
 
-<%= link_to t('views.pages.edit_page'), edit_private_project_page_path(@project, @page),
-  class: 'button outline' %>
+<%= button_to t('views.pages.edit_page'), edit_private_project_page_path(@project, @page), method: :get, class: 'btn mt-5' %>
 
 <% content_for :sidebar do %>
-  <div class="buffer-top">
-    <%= render partial: 'sidebar' %>
-  </div>
+  <%= render partial: 'sidebar' %>
 <% end %>
