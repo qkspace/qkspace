@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-throttle-debounce
 //= require jquery-ui/widgets/sortable
+//= require bootstrap
 //= require sortable
 //= require turbolinks
 //= require highlight.min
