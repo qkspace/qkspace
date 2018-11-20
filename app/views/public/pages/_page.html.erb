@@ -1,9 +1,9 @@
 <% if page == @page %>
   <div class="text-muted">
-    <p class="mb-2"><%= page.title %></p>
+    <p class="mb-3"><%= page.title %></p>
   </div>
 <% else %>
   <div>
-    <p class="mb-2"><%= link_to page.title, public_page_path(page.slug) %></p>
+    <p class="mb-3"><%= link_to page.title, public_page_path(page.slug) %></p>
   </div>
 <% end %>

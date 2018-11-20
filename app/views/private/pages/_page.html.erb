@@ -4,7 +4,7 @@
     data-move-url="<%= move_private_project_page_url(@project, page) %>"
     data-position="<%= page.position %>"
   >
-    <p class="mb-2"><%= page.title %></p>
+    <p class="mb-3"><%= page.title %></p>
   </div>
 <% else %>
   <div
@@ -12,6 +12,6 @@
     data-move-url="<%= move_private_project_page_url(@project, page) %>"
     data-position="<%= page.position %>"
   >
-    <p class="mb-2"><%= link_to page.title, private_project_page_path(@project, page) %></p>
+    <p class="mb-3"><%= link_to page.title, private_project_page_path(@project, page) %></p>
   </div>
 <% end %>
