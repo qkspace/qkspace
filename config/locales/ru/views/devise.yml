@@ -2,6 +2,7 @@ ru:
   registrations:
     create:
       title: Регистрация
+      wrong_captha: Проверка captcha не прошла
     new:
       title: Регистрация
     edit:

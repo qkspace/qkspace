@@ -1,7 +1,7 @@
 <%= simple_form_for(@user, url: user_password_path, html: { method: :post }) do |f| %>
   <%= f.input :email, required: true, autofocus: true %>
-  <%= f.button :submit, t(".send_me_reset_password_instructions") %>
+  <%= f.button :submit, t(".send_me_reset_password_instructions"), class: 'btn-light' %>
 <% end %>
 
-<p><%= sign_in_link %></p>
+<p class="mt-3"><%= sign_in_link %></p>
 <p><%= sign_up_link %></p>

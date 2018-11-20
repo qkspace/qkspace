@@ -1,7 +1,9 @@
 <%= render 'form', page: @page %>
 
-<% if @page.only_page? %>
-  <%= fa_icon('trash-o', title: t('.cant_delete_last_page'), class: 'muted') %>
-<% else %>
-  <%= link_to fa_icon('trash-o'), private_project_page_path(@project, @page), method: :delete, data: { confirm: t('views.are_you_sure') } %>
-<% end %>
+<div class="mt-2">
+  <% if @page.only_page? %>
+    <%= fa_icon('trash-o', title: t('.cant_delete_last_page'), class: 'text-muted') %>
+  <% else %>
+    <%= link_to fa_icon('trash-o'), private_project_page_path(@project, @page), method: :delete, data: { confirm: t('views.are_you_sure') }, class: 'text-danger' %>
+  <% end %>
+</div>

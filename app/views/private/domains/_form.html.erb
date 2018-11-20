@@ -3,12 +3,12 @@
   <%= simple_form_for(project, url: private_project_domain_url(project), method: :delete) do |f| %>
     <%= f.input :domain, input_html: { value: project_domain_service.humanized_domain }, hint: t('.domain_hint', url: project_domain_service.correct_cname), disabled: true %>
 
-    <%= f.button :submit, class: 'button outline small', value: t('.unlink') %>
+    <%= f.button :submit, value: t('.unlink'), class: 'btn-light' %>
   <% end %>
 <% else %>
   <%= simple_form_for(project, url: private_project_domain_url(project), method: :post) do |f| %>
     <%= f.input :domain, input_html: { value: project_domain_service.humanized_domain }, hint: t('.domain_hint', url: project_domain_service.correct_cname) %>
 
-    <%= f.button :submit, class: 'button outline small', value: t('.submit') %>
+    <%= f.button :submit, value: t('.submit'), class: 'btn-light' %>
   <% end %>
 <% end %>

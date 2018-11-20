@@ -15,61 +15,74 @@
     <meta name="theme-color" content="#ffffff">
 
     <%= yield :head %>
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% if show_header? %>
-    <div class="page">
-      <div class="row gutters">
-        <div class="col col-1"></div>
-        <div class="col col-10">
-          <div class="float-right small">
-            <% if private_controller? %>
-              <%= link_to_unless_current current_user.email, edit_user_registration_path %> |
-              <%= link_to_unless_current t('views.projects'), private_projects_path %> |
-              <%= link_to_switch_locale %> |
-              <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>
-            <% else # current_user_collaborates_project?? %>
-              <%= link_to fa_icon('pencil'),
-                private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
-            <% end %>
-          </div>
+  <div class="container my-3">
+    <% if show_header? %>
+      <div class="row mb-5">
+        <div class="col text-right">
+          <% if private_controller? %>
+            <%= link_to_unless_current current_user.email, edit_user_registration_path %> |
+            <%= link_to_unless_current t('views.projects'), private_projects_path %> |
+            <%= link_to_switch_locale %> |
+            <%= link_to t('views.sidebar.sign_out'), destroy_user_session_path, method: :delete %>
+          <% else # current_user_collaborates_project?? %>
+            <%= link_to fa_icon('pencil'),
+              private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
+          <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <div class="page">
-    <div class="row gutters">
-      <div class="col col-1"></div>
-      <div class="col col-10">
-        <h1 class="buffer-bottom-sm"><%= title %></h1>
-        <% unless notice.blank? %>
-          <div class="message" data-component="message">
-            <%= notice %>
-            <span class="close small"></span>
-          </div>
-        <% end %>
-        <% unless alert.blank? %>
-          <div class="message error" data-component="message">
-            <%= alert %>
-            <span class="close small"></span>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="row gutters">
-      <div class="col col-1"></div>
-      <div class="col col-7">
-        <%= yield %>
-      </div>
-      <div class="col col-3">
-        <div class="small">
-          <%= yield :sidebar %>
+    <% if content_for?(:sidebar) %>
+      <div class="row">
+        <div class="col">
+    <% else %>
+       <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+    <% end %>
+          <h1 class="mb-4"><%= title %></h1>
+          <% unless notice.blank? %>
+            <div class="alert alert-primary alert-dismissible">
+              <%= notice %>
+              <button type="button" class="close" data-dismiss="alert"">
+                &times;
+              </button>
+            </div>
+          <% end %>
+          <% unless alert.blank? %>
+            <div class="alert alert-danger alert-dismissible">
+              <%= alert %>
+              <button type="button" class="close" data-dismiss="alert"">
+                &times;
+              </button>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
+
+
+    <% if content_for?(:sidebar) %>
+      <div class="row">
+        <div class="col-sm-8">
+          <%= yield %>
+        </div>
+        <div class="col-sm-4">
+          <div class="small">
+            <%= yield :sidebar %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </html>

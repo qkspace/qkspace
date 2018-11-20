@@ -2,6 +2,7 @@ en:
   registrations:
     create:
       title: Sign up
+      wrong_captha: Captcha verification failed
     new:
       title: Sign up
     edit:

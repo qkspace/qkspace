@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require jquery-throttle-debounce
 //= require jquery-ui/widgets/sortable
+//= require bootstrap
 //= require sortable
 //= require turbolinks
-//= require kube.min
 //= require highlight.min
 //= require hotkeys
 
@@ -33,9 +33,13 @@ $(document).on('turbolinks:load', function() {
 
 $(document).on('turbolinks:load', function() {
   $('input#project_slug').keyup($.debounce(250, function() {
-    var hint = $(this).parent().children('.desc');
-    var slug = $(this).val();
-    var locale = $(this).data("locale");
+    var input = $(this);
+    var hint = input.parent().children('small.text-muted');
+    var error = input.parent().children('.invalid-feedback');
+    var slug = input.val();
+    var locale = input.data("locale");
+
+    error.hide();
 
     if (slug.length > 0) {
       $.ajax({
@@ -53,10 +57,14 @@ $(document).on('turbolinks:load', function() {
           var span = hint.children('span');
 
           if (data.availability) {
-            span.addClass("success");
+            input.removeClass('is-invalid');
+            input.addClass('is-valid');
+            span.addClass("text-success");
           }
           else {
-            span.addClass("error");
+            input.removeClass('is-valid');
+            input.addClass('is-invalid');
+            span.addClass("text-danger");
           }
         }
       });

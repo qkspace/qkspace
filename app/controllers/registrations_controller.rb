@@ -8,7 +8,8 @@ class RegistrationsController < Devise::RegistrationsController
       self.resource = resource_class.new sign_up_params
       resource.validate # Look for any other validation errors besides Recaptcha
       set_minimum_password_length
-      respond_with resource
+      flash.now[:alert] = t('.wrong_captha')
+      render :new
     end
   end
 end
