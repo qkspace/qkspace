@@ -6,7 +6,7 @@
   <%= @page.html.html_safe %>
 </div>
 
-<%= button_to t('views.pages.edit_page'), edit_private_project_page_path(@project, @page), method: :get, class: 'btn mt-5' %>
+<%= button_to t('views.pages.edit_page'), edit_private_project_page_path(@project, @page), method: :get, class: 'btn btn-light mt-5' %>
 
 <% content_for :sidebar do %>
   <%= render partial: 'sidebar' %>

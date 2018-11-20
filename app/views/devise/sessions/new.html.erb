@@ -2,7 +2,7 @@
   <%= f.input :email, autofocus: true %>
   <%= f.input :password %>
   <%= f.input :remember_me, as: :boolean %>
-  <%= f.button :submit, t('.sign_in') %>
+  <%= f.button :submit, t('.sign_in'), class: 'btn-light' %>
 <% end %>
 
 <p class="mt-3"><%= sign_up_link %></p>

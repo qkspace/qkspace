@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :source, as: :markdown, hint: markdown_hint_link %>
 
-  <%= f.button :submit %> <%= or_back_link %>
+  <%= f.button :submit, class: 'btn-light' %> <%= or_back_link %>
 <% end %>
 
 <%= render 'markdown_modal_window' %>
