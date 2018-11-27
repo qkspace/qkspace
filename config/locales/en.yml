@@ -1,42 +1,9 @@
 en:
-  activerecord:
-    errors:
-      models:
-        project:
-          not_confirmed: Correct CNAME was not found
-        project_collaboration:
-          not_confirmed: This user must confirm his email first
-    models:
-      project: Project
-      page: Page
-    attributes:
-      project:
-        title: Title
-        slug: Subdomain
-        domain: Custom domain
-        google_analytics_tracker_id: Google Analytics Tracker ID
-      page:
-        title: Title
-        source: Content
-      project_collaboration:
-        collaborator_email: Collaborator email
   helpers:
     submit:
       create: Create
       update: Save
-    projects:
-      slug_available: " is available"
-      slug_not_available: " is not available"
   views:
-    markdown:
-      hint_link: Markdown %{href}
-      hint_a: hint
-    pages:
-      edit_page: Edit page
-    sidebar:
-      new_page: Add page
-      edit_project: Edit project
-      sign_out: sign out
     are_you_sure: Are you sure?
     back: back
     or_back_link: or %{href}

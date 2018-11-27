@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :reset_session
 
-  helper_method :private_controller?, :public_controller?,
-                :public_project_url, :public_project_page_url,
+  helper_method :current_user, :signed_in?,
+                :private_controller?, :public_controller?,
                 :area_private_domain
+
+  include PublicUrlHelper
+  include Passwordless::ControllerHelpers
 
   private
 
@@ -25,6 +28,10 @@ class ApplicationController < ActionController::Base
     area_public_type == :subdomain
   end
 
+  def current_user
+    @current_user ||= authenticate_by_cookie(User)
+  end
+
   def public_controller?
     false
   end
@@ -33,24 +40,15 @@ class ApplicationController < ActionController::Base
     !public_controller?
   end
 
-  def public_project_page_uri(project)
-    host =
-      if project.domain
-        project.domain
-      else
-        project.slug + '.' + request.host
-      end
-    URI::HTTP.build(host: host, port: request.port)
+  def require_user!
+    return if current_user
+
+    save_passwordless_redirect_location!(User)
+    redirect_to sign_in_path
   end
 
-  def public_project_url(project)
-    public_project_page_uri(project).to_s
-  end
-
-  def public_project_page_url(project, page)
-    uri = public_project_page_uri(project)
-    uri.path = "/" << page.slug
-    uri.to_s
+  def signed_in?
+    !! current_user
   end
 
   def set_locale

@@ -3,16 +3,16 @@
 <div class="mt-5">
   <h4 class="mb-3"><%= @project.title %></h4>
 
-  <div class="sidebar-pages" data-role="activerecord_sortable">
+  <div data-role="activerecord_sortable">
     <%= render @project.pages %>
   </div>
 
   <p class="mt-4 mb-2">
-    <%= link_to fa_icon('pencil', text: t('views.pages.edit_page')),
+    <%= link_to t('views.pages.edit_page'),
      edit_private_project_page_path(@project, @page) %>
   </p>
   <p>
-    <%= link_to fa_icon('plus', text: t('views.sidebar.new_page')), new_private_project_page_path(@project), id: 'new_page' %>
+    <%= link_to t('views.sidebar.new_page'), new_private_project_page_path(@project), id: 'new_page' %>
   </p>
 </div>
 

@@ -1,0 +1,27 @@
+ru:
+  # M
+  activerecord:
+    errors:
+      models:
+        project_collaboration:
+          not_confirmed: Этот пользователь должен сначала подтвердить свой email
+    models:
+      project: Проект
+    attributes:
+      project_collaboration:
+        collaborator_email: Email сотрудника
+
+  # VC
+  private:
+    project_collaborations:
+      create:
+        title: Редактирование проекта
+        notice: Сотрудник добавлен
+      destroy:
+        notice: Сотрудник удален
+      index:
+        add_editor: Добавить редактора
+        collaborators: Сотрудники
+        editors: Редакторы
+        remove_collaborator_hint: Исключить сотрудника
+        title: Сотрудники

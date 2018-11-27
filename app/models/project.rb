@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
-  has_many :pages, -> { ordered }, dependent: :delete_all
+  has_many :pages, -> { ordered }, dependent: :delete_all, inverse_of: :project
   has_many :collaborations, class_name: "ProjectCollaboration", dependent: :destroy
   has_many :collaborators, through: :collaborations, source: :user
 

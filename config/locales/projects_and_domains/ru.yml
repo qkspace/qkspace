@@ -1,0 +1,64 @@
+ru:
+  # M
+  activerecord:
+    errors:
+      models:
+        project:
+          not_confirmed: Правильная CNAME-запись не найдена
+    models:
+      project: Проект
+    attributes:
+      project:
+        title: Название
+        slug: Поддомен
+        domain: Свой домен
+        google_analytics_tracker_id: Идентификатор счетчика Google Analytics
+        private: Могут смотреть только сотрудники
+
+  # VC
+  helpers:
+    projects:
+      slug_available: " свободен"
+      slug_not_available: " недоступен"
+  private:
+    domains:
+      create:
+        title: Редактирование проекта
+        notice: Домен был прицеплен
+      destroy:
+        title: Редактирование проекта
+        notice: Домен был отцеплен
+      edit:
+        title: Прицепить домен
+      form:
+        domain_hint: CNAME домена должен указывать на %{url}
+        submit: Прицепить
+        unlink: Отцепить
+    projects:
+      new:
+        title: Новый проект
+      index:
+        title: Все проекты
+        create: Создать проект
+        edit_hint: Редактировать
+        destroy_hint: Удалить
+        public_hint: Перейти на публичную страницу
+        private_hint: Проект частный — смотреть могут только сотрудники
+        collaborating: Сотрудник проекта
+        stop_collaborating_hint: Выйти из проекта
+        cant_edit_collaborated_project: Вы не можете редактировать этот проект
+      edit:
+        title: Редактирование проекта
+      create:
+        title: Новый проект
+        notice: Проект создан
+      update:
+        title: Редактирование проекта
+        notice: Проект изменён
+      destroy:
+        notice: Проект был удалён
+    shared:
+      project_configuration_sidebar:
+        main_data: Основные данные
+        domain: Домен
+        collaborators: Сотрудники

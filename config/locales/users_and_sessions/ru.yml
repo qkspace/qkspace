@@ -1,0 +1,37 @@
+ru:
+  # VC
+  users:
+    registration: Регистрация
+    new:
+      title: Регистрация
+      submit: Зарегистрироваться
+    create:
+      title: Регистрация
+      wrong_captcha: Проверка captcha не прошла
+    edit:
+      title: Изменить личные данные
+      are_you_sure: Вы уверены? Это последнее предупреждение.
+      cancel_my_account: Удалить мой аккаунт
+      submit: Изменить
+    update:
+      title: Изменить личные данные
+      notice: Данные успешно изменены
+    destroy:
+      notice: Аккаунт был удалён
+  sessions:
+    create:
+      title: Вход
+      session_expired: Ваша сессия истекла, пожалуйста, войдите снова
+      email_sent: Мы послали вам ссылку.
+      error: Возникла ошибка при отправке email.
+    new:
+      title: Войти через email
+      submit: Послать волшебную ссылку
+
+  # Mailer
+  user_mailer:
+    invited_to_project:
+      subject: Вас пригласили в проект %{project}
+    magic_link:
+      subject: "Ваша волшебная ссылка ✨'"
+      link: "Вот ваша ссылка: %{link}"

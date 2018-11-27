@@ -1,21 +1,28 @@
 class Private::ProjectCollaborationsController < PrivateController
-  before_action :ensure_user_is_confirmed!
-
-  before_action :set_owned_project, only: %i[create]
-
+  before_action :set_owned_project, only: %i[create index]
   before_action :set_project, only: %i[destroy]
-  before_action :set_collaboration, only: %i[destroy]
 
-  include Private::EditProjectFormHelper
+  before_action :set_collaboration, only: %i[destroy]
 
   def create
     @collaboration = @project.collaborations.new(collaboration_params)
 
-    if @collaboration.save
-      redirect_to edit_private_project_path(@project), notice: t('.notice')
+    if @collaboration.save!
+      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
+
+      private_session = build_passwordless_session(@collaboration.user)
+      private_session.save!
+
+      UserMailer.
+        with(
+          collaboration_id: @collaboration.id,
+          private_link: token_sign_in_url(token: private_session.token)
+        ).
+        invited_to_project.
+        deliver_now
     else
-      initialize_edit_project_form
-      render 'private/projects/edit'
+      set_collaborations
+      render 'index'
     end
   end
 
@@ -23,10 +30,15 @@ class Private::ProjectCollaborationsController < PrivateController
     @collaboration.destroy
 
     if current_user.owns?(@project)
-      redirect_to edit_private_project_path(@project), notice: t('.notice')
+      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
     else
       redirect_to private_projects_path, notice: t('.notice')
     end
+  end
+
+  def index
+    set_collaborations
+    @collaboration = @project.collaborations.build
   end
 
   private
@@ -42,6 +54,10 @@ class Private::ProjectCollaborationsController < PrivateController
       else
         @project.collaborations.find_by!(id: params[:id], user: current_user)
       end
+  end
+
+  def set_collaborations
+    @collaborations = @project.collaborations.includes(:user)
   end
 
   def set_project

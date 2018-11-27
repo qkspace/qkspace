@@ -1,9 +1,0 @@
-<% if current_user.confirmed? %>
-  <%= simple_form_for(collaboration, url: private_project_collaborators_path(collaboration.project)) do |f| %>
-    <%= f.input :collaborator_email %>
-
-    <%= f.button :submit, t('.add_collaborator'), class: 'btn-light' %>
-  <% end %>
-<% else %>
-  <%= t('.confirm_to_invite_collaborators', url: new_user_confirmation_url).html_safe %>
-<% end %>

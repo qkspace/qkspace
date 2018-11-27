@@ -25,7 +25,7 @@ class DomainSpaceMiddleware < Struct.new(:app, :options)
   private
 
   def parse_host(host)
-    own_domains = options[:own_domains]
+    own_domains = ["qkspace.localhost", "qkspace.com"]
 
     return {kind: :private, private_domain: "localhost"} if host == "localhost"
     return {kind: :private, private_domain: host} if own_domains.include?(host)

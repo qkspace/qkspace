@@ -1,22 +1,35 @@
 <table class="table">
   <tbody>
-    <% @owned_projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.title, private_project_url(project) %></td>
-        <td title="<%= t('.edit_hint') %>"><%= link_to fa_icon('pencil'), edit_private_project_path(project) %></td>
-        <td title="<%= t('.destroy_hint') %>"><%= link_to fa_icon('trash-o'), private_project_path(project), method: :delete, data: { confirm: t('views.are_you_sure') }, class: "text-danger" %></td>
-        <td title="<%= t('.public_hint') %>"><%= link_to fa_icon('desktop'), public_project_url(project) %></td>
-      </tr>
-    <% end %>
-    <% @collaborated_projects.each do |project| %>
+    <% (@owned_projects + @collaborated_projects).each_with_index do |project| %>
       <tr>
         <td>
           <%= link_to project.title, private_project_url(project) %>
-          <div class="text-muted small"><%= t('.collaborating') %></div>
+          <% if project.owner != current_user %>
+            <div class="text-muted small"><%= t('.collaborating') %></div>
+          <% end %>
         </td>
-        <td>&nbsp;</td>
-        <td title="<%= t('.stop_collaborating_hint') %>"><%= link_to fa_icon('sign-out'), private_project_collaborator_path(project, current_user), method: :delete, data: { confirm: t('views.are_you_sure') }, class: "text-danger" %></td>
+
         <td title="<%= t('.public_hint') %>"><%= link_to fa_icon('desktop'), public_project_url(project) %></td>
+
+        <% if project.owner == current_user %>
+          <td title="<%= t('.edit_hint') %>"><%= link_to fa_icon('pencil'), edit_private_project_path(project) %></td>
+        <% else %>
+          <td>&nbsp;</td>
+        <% end %>
+
+        <% if project.owner == current_user %>
+          <td title="<%= t('.destroy_hint') %>"><%= link_to fa_icon('trash-o'), private_project_path(project), method: :delete, data: { confirm: t('views.are_you_sure') }, class: "text-danger" %></td>
+        <% else %>
+          <td title="<%= t('.stop_collaborating_hint') %>"><%= link_to fa_icon('sign-out'), private_project_collaborator_path(project, @collaborations[project.id]), method: :delete, data: { confirm: t('views.are_you_sure') }, class: "text-danger" %></td>
+        <% end %>
+
+        <td>
+          <% if project.private? %>
+            <%= fa_icon 'lock', title: t('.private_hint') %>
+          <% else %>
+            &nbsp;
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

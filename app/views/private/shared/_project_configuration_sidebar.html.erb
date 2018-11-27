@@ -1,0 +1,9 @@
+<p class="mb-3">
+  <%= link_to_or_disable_current t('.main_data'), edit_private_project_path(@project) %>
+</p>
+<p class="mb-3">
+  <%= link_to_or_disable_current t('.domain'), edit_private_project_domain_path(@project) %>
+</p>
+<p class="mb-3">
+  <%= link_to_or_disable_current t('.collaborators'), private_project_collaborators_path(@project) %>
+</p>

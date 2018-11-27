@@ -1,0 +1,39 @@
+ru:
+  # M
+  activerecord:
+    models:
+      page: Страница
+    attributes:
+      page:
+        title: Заголовок
+        source: Содержание
+
+  # VC
+  private:
+    pages:
+      new:
+        title: Новая страница
+      show:
+        new_block: Добавить блок
+        public_hint: Публичная ссылка
+      edit:
+        title: Редактирование страницы
+        cant_delete_last_page: Нельзя удалить последнюю страницу проекта
+      create:
+        title: Новая страница
+        notice: Страница создана
+      update:
+        title: Редактирование страницы
+        notice: Страница изменена
+      destroy:
+        notice: Страница удалена
+  views:
+    pages:
+      edit_page: Редактировать страницу
+    sidebar:
+      new_page: Добавить страницу
+      edit_project: Редактировать проект
+      sign_out: выйти
+    markdown:
+      hint_link: "%{href} по оформлению"
+      hint_a: Подсказка

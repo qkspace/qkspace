@@ -1,0 +1,37 @@
+en:
+  # VC
+  users:
+    registration: Registration
+    new:
+      title: Registration
+      submit: Register
+    create:
+      title: Registration
+      wrong_captcha: Captcha test failed
+    edit:
+      title: Edit account
+      are_you_sure: Are you sure? This is final warning.
+      cancel_my_account: Terminate my account
+      submit: Update
+    update:
+      title: Edit account
+      notice: Account was updated
+    destroy:
+      notice: Account was terminated
+  sessions:
+    create:
+      title: Log in
+      session_expired: Your session has expired, please sign in again.
+      email_sent: We've sent you a magic link.
+      error: An error has occured while sending the email.
+    new:
+      title: Log in via e-mail
+      submit: Send magic link
+
+  # Mailer
+  user_mailer:
+    invited_to_project:
+      subject: You've been invited to project %{project}
+    magic_link:
+      subject: "Your magic link ✨'"
+      link: "Here's your link: %{link}"

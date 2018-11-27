@@ -1,0 +1,66 @@
+en:
+  # M
+  activerecord:
+    errors:
+      models:
+        project:
+          not_confirmed: Correct CNAME was not found
+    models:
+      project: Project
+    attributes:
+      project:
+        title: Title
+        slug: Subdomain
+        domain: Custom domain
+        google_analytics_tracker_id: Google Analytics Tracker ID
+        private: Only collaborators can view
+
+  # VC
+  helpers:
+    projects:
+      slug_available: " is available"
+      slug_not_available: " is not available"
+  private:
+    domains:
+      create:
+        title: Edit project
+        notice: Domain was connected
+      destroy:
+        title: Edit project
+        notice: Domain was disconnected
+      edit:
+        title: Connect domain
+      form:
+        domain_hint: CNAME record for domain must point to %{url}
+        submit: Connect
+        unlink: Disconnect
+    projects:
+      new:
+        title: New project
+      index:
+        title: All projects
+        create: Create project
+        edit_hint: Edit
+        destroy_hint: Delete
+        private_hint: Project is private (only collaborators can view)
+        public_hint: Go to public page
+        collaborating: Collaborating
+        stop_collaborating_hint: Stop collaborating
+        cant_edit_collaborated_project: Can't edit collaborated project
+      edit:
+        title: Edit project
+      create:
+        title: New project
+        notice: Project was created
+        remove_collaborator_hint: Remove collaborator
+        add_collaborator: Add collaborator
+      update:
+        title: Edit project
+        notice: Project was saved
+      destroy:
+        notice: Project was deleted
+    shared:
+      project_configuration_sidebar:
+        main_data: Main data
+        domain: Domain
+        collaborators: Collaborators

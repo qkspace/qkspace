@@ -1,0 +1,25 @@
+en:
+  # M
+  activerecord:
+    errors:
+      models:
+        project_collaboration:
+          not_confirmed: This user must confirm his email first
+    attributes:
+      project_collaboration:
+        collaborator_email: Collaborator email
+
+  # VC
+  private:
+    project_collaborations:
+      create:
+        title: Edit project
+        notice: Collaborator was added
+      destroy:
+        notice: Collaborator was removed
+      index:
+        add_editor: Add editor
+        collaborators: Collaborators
+        editors: Editors
+        remove_collaborator_hint: Remove collaborator
+        title: Collaborators
