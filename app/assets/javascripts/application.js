@@ -25,10 +25,10 @@
 
 //= require_self
 
-hljs.initHighlightingOnLoad();
-
 $(document).on('turbolinks:load', function() {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
+  hljs.initHighlighting.called = false;
+  hljs.initHighlighting();
 });
 
 $(document).on('turbolinks:load', function() {
