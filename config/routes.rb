@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
     resource :users, only: %i[create new edit update destroy]
 
+    # If you change this — change robots.txt as well
     get 'sign_in', to: 'sessions#new'
     post 'sign_in', to: 'sessions#create'
     get 'sign_in/:token', to: 'sessions#show', as: :token_sign_in
