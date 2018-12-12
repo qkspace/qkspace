@@ -22,8 +22,8 @@ en:
     create:
       title: Log in
       session_expired: Your session has expired, please sign in again.
-      email_sent: We've sent you a magic link.
-      error: An error has occured while sending the email.
+      email_sent: We've sent you a magic link
+      error: Email was not sent. Please check the address
     new:
       title: Log in via e-mail
       submit: Send magic link
@@ -34,4 +34,3 @@ en:
       subject: You've been invited to project %{project}
     magic_link:
       subject: "Your magic link ✨'"
-      link: "Here's your link: %{link}"

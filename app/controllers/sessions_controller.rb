@@ -18,7 +18,8 @@ class SessionsController < Passwordless::SessionsController
 
       redirect_to({action: :new}, notice: t('.email_sent'))
     else
-      render :new, alert: t('.error')
+      flash.now[:alert] = t('.error')
+      render :new
     end
   end
 
