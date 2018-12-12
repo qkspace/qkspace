@@ -1,0 +1,39 @@
+en:
+  # M
+  activerecord:
+    models:
+      page: Page
+    attributes:
+      page:
+        title: Title
+        source: Content
+
+  # VC
+  private:
+    pages:
+      new:
+        title: New Page
+      show:
+        new_block: Add block
+        public_hint: Public link
+      edit:
+        title: Edit Page
+        cant_delete_last_page: Can't delete last page of project
+      create:
+        title: New Page
+        notice: Page was created
+      update:
+        title: Edit Page
+        notice: Page was saved
+      destroy:
+        notice: Page was deleted
+  views:
+    pages:
+      edit_page: Edit page
+    sidebar:
+      new_page: Add page
+      edit_project: Edit project
+      sign_out: sign out
+    markdown:
+      hint_link: Markdown %{href}
+      hint_a: hint

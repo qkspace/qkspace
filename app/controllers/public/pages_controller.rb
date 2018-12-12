@@ -1,4 +1,5 @@
 class Public::PagesController < PublicController
+  before_action :authorize_project!
   before_action :set_page
 
   def show
@@ -15,6 +16,17 @@ class Public::PagesController < PublicController
   end
 
   private
+
+  def authorize_project!
+    return unless @project.private?
+
+    # if signed_in? && current_user.projects.where(id: @project.id).exists?
+    #   return
+    # end
+
+    # save_passwordless_redirect_location!(User)
+    # redirect_to users.sign_in_url
+  end
 
   def set_page
     @page = @project.pages.find_by!(slug: params[:slug])

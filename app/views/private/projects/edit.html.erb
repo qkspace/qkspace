@@ -1,12 +1,5 @@
-<div>
-  <%= render 'private/projects/form', project: @project %>
-</div>
-<div class="mt-4">
-  <%= render 'private/domains/form', project_domain_service: @project_domain_service %>
-</div>
-<div class="mt-5">
-  <%= render 'private/project_collaborations/list', collaborations: @collaborations %>
-</div>
-<div class="mt-3">
-  <%= render 'private/project_collaborations/form', collaboration: @collaboration %>
-</div>
+<%= render 'private/projects/form', project: @project %>
+
+<% content_for :sidebar do %>
+  <%= render partial: 'private/shared/project_configuration_sidebar' %>
+<% end %>

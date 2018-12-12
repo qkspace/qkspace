@@ -1,0 +1,17 @@
+<%= simple_form_for @user, url: users_path do |f| %>
+  <%= f.input :email, input_html: {value: params.fetch(:email, nil)} %>
+  <%= invisible_recaptcha_tags(ui: :invisible, callback: 'submitInvisibleRecaptchaForm') %>
+  <%= f.button :submit, t('.submit'), class: 'btn-light' %>
+<% end %>
+
+<p class="mt-4"><%= link_to t('passwordless.sessions.new.title'), sign_in_path %></p>
+
+<script>
+  $('#new_user').find("input[type='submit']").click(function(e) {
+    grecaptcha.execute();
+    return false;
+  });
+  var submitInvisibleRecaptchaForm = function () {
+    $("#new_user").submit();
+  };
+</script>

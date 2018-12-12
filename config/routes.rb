@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     scope module: 'public', as: 'public' do
       root to: 'projects#show'
 
-      resources :pages, param: :slug, path: '', only: [:index, :show] do
+      resources :pages, param: :slug, path: '', only: %i[index show] do
         member do
           get :next
           get :previous
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       resources :projects do
         get :check_slug, on: :collection
 
-        resource :domain, only: [:create, :destroy]
+        resource :domain, only: %i[create destroy edit]
 
         resources :pages do
           member do
@@ -44,14 +44,16 @@ Rails.application.routes.draw do
           end
         end
 
-        resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy]
+        resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy index]
       end
     end
-  end
 
-  devise_for :users, controllers: { registrations: "registrations", confirmations: "confirmations" }
-  devise_scope :user do
-    delete 'confirmations', to: 'confirmations#destroy', as: :destroy_user_confirmation
+    resource :users, only: %i[create new edit update destroy]
+
+    get 'sign_in', to: 'sessions#new'
+    post 'sign_in', to: 'sessions#create'
+    get 'sign_in/:token', to: 'sessions#show', as: :token_sign_in
+    match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
   end
 
   root to: proc { [404, {}, []] }

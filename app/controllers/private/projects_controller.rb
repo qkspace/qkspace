@@ -2,11 +2,12 @@ class Private::ProjectsController < PrivateController
   before_action :set_project, only: %i[show]
   before_action :set_owned_project, only: %i[edit update update_domain destroy]
 
-  include Private::EditProjectFormHelper
-
   def index
     @owned_projects = current_user.owned_projects
-    @collaborated_projects = current_user.collaborated_projects
+
+    collaborations = current_user.project_collaborations.includes(:user)
+    @collaborated_projects = collaborations.map(&:project)
+    @collaborations = collaborations.map { |x| [x.project.id, x] }.to_h
   end
 
   def show
@@ -20,7 +21,6 @@ class Private::ProjectsController < PrivateController
   end
 
   def edit
-    initialize_edit_project_form
   end
 
   def create
@@ -37,7 +37,6 @@ class Private::ProjectsController < PrivateController
     if @project.update(project_params)
       redirect_to private_projects_url, notice: t('.notice')
     else
-      initialize_edit_project_form
       render :edit
     end
   end
@@ -49,7 +48,7 @@ class Private::ProjectsController < PrivateController
 
   def check_slug
     response =
-      SlugChecker.call(
+      SlugCheckerService.call(
         slug: params[:slug],
         domain: area_private_domain
       )
@@ -60,7 +59,7 @@ class Private::ProjectsController < PrivateController
   private
 
   def project_params
-    params.require(:project).permit(:title, :slug, :google_analytics_tracker_id)
+    params.require(:project).permit(:title, :slug, :google_analytics_tracker_id, :private)
   end
 
   def set_project

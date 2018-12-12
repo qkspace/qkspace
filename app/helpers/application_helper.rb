@@ -7,6 +7,12 @@ module ApplicationHelper
     current_user&.owns?(@project)
   end
 
+  def link_to_or_disable_current(text, url, *options)
+    link_to_unless_current(text, url, *options) do
+      content_tag :p, text, class: 'text-muted'
+    end
+  end
+
   def show_header?
     signed_in? && (private_controller? || current_user_collaborates_project?)
   end
@@ -39,17 +45,5 @@ module ApplicationHelper
     link_to %{<span class="flag-icon flag-icon-#{country_code}"></span>}.html_safe,
       {locale: next_locale},
       title: t('views.switch_locale', locale: next_locale)
-  end
-
-  def sign_up_link
-    link_to t("devise.shared_links.sign_up"), new_user_registration_path
-  end
-
-  def sign_in_link
-    link_to t("devise.shared_links.sign_in"), new_user_session_path
-  end
-
-  def forgot_password_link
-    link_to t("devise.shared_links.forgot_your_password"), new_user_password_path
   end
 end

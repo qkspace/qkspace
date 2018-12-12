@@ -1,0 +1,7 @@
+<%= simple_form_for(@user, url: users_path, html: { method: :put }) do |f| %>
+  <%= f.input :email %>
+
+  <%= f.button :submit, t('.submit'), class: 'btn-light' %> <%= or_back_link %>
+<% end %>
+
+<p class="mt-5"><%= link_to t('.cancel_my_account'), users_path, data: {confirm: t('.are_you_sure')}, method: :delete, class: 'text-danger' %></p>
