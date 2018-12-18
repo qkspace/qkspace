@@ -15,7 +15,7 @@ ru:
   private:
     project_collaborations:
       create:
-        title: Редактирование проекта
+        title: Сотрудники
         notice: Сотрудник добавлен
       destroy:
         notice: Сотрудник удален

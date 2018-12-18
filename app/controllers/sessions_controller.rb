@@ -24,11 +24,38 @@ class SessionsController < Passwordless::SessionsController
   end
 
   def show
-    super
+    BCrypt::Password.create(params[:token])
+
+    session = find_session
+    if session.expired?
+      flash[:alert] = t('.session_expired')
+      redirect_to sign_in_url
+      return
+    end
+
+    sign_in session
+
+    destination = reset_passwordless_redirect_location!(User)
+    if destination
+      redirect_to destination
+    else
+      redirect_to "/"
+    end
   end
 
   def destroy
     super
+  end
+
+  def sign_out_everywhere
+    now = Time.current
+
+    Passwordless::Session.
+      where(authenticatable: current_user).
+      where('expires_at > ?', now).
+      update_all(expires_at: now)
+
+    destroy
   end
 
   private

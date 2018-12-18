@@ -1,3 +1,5 @@
+<%= content_for(:title) { t('.title') } %>
+
 <table class="table">
   <tbody>
     <% (@owned_projects + @collaborated_projects).each_with_index do |project| %>

@@ -8,13 +8,15 @@ class UsersController < ApplicationController
     captcha_is_valid = verify_recaptcha
 
     if @user.save && captcha_is_valid
-      sign_in @user
+      session = build_passwordless_session(@user)
+      session.save!
+
+      sign_in session
       redirect_to '/'
     else
+      flash.now[:alert] = t('.wrong_captcha') unless captcha_is_valid
       render :new
     end
-
-    flash.now[:alert] = t('.wrong_captcha') unless captcha_is_valid
   end
 
   def new

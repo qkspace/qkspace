@@ -7,7 +7,7 @@ class Private::ProjectCollaborationsController < PrivateController
   def create
     @collaboration = @project.collaborations.new(collaboration_params)
 
-    if @collaboration.save!
+    if @collaboration.save
       redirect_to private_project_collaborators_path(@project), notice: t('.notice')
 
       private_session = build_passwordless_session(@collaboration.user)

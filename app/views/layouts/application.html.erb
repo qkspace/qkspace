@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= title %></title>
+    <title><%= content_for(:title) %></title>
 
     <!-- Favicon staff -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -45,7 +45,7 @@
        <div class="row d-flex justify-content-center">
         <div class="col-md-7">
     <% end %>
-          <h1 class="mb-4"><%= title %></h1>
+          <h1 class="mb-4"><%= content_for(:title) %></h1>
           <% unless notice.blank? %>
             <div class="alert alert-primary alert-dismissible">
               <%= notice %>

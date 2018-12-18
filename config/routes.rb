@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get 'sign_in/:token', to: 'sessions#show'
+    match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
   end
 
   constraints(PrivateConstraint) do
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
 
       resources :projects do
         get :check_slug, on: :collection
+        get :redirect_to_public, on: :member
 
         resource :domain, only: %i[create destroy edit]
 
@@ -55,6 +59,7 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'sessions#create'
     get 'sign_in/:token', to: 'sessions#show', as: :token_sign_in
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
+    delete 'sign_out_everywhere', to: 'sessions#sign_out_everywhere'
   end
 
   root to: proc { [404, {}, []] }

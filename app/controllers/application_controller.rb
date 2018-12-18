@@ -1,14 +1,19 @@
+require_relative 'concerns/session_management_concern'
+
 class ApplicationController < ActionController::Base
   before_action :set_locale
 
   protect_from_forgery with: :reset_session
 
+  include PublicUrlHelper
+
+  include Passwordless::ControllerHelpers
+  # overwrites passwordless helpers
+  include SessionManagementConcern
+
   helper_method :current_user, :signed_in?,
                 :private_controller?, :public_controller?,
                 :area_private_domain
-
-  include PublicUrlHelper
-  include Passwordless::ControllerHelpers
 
   private
 
@@ -28,27 +33,12 @@ class ApplicationController < ActionController::Base
     area_public_type == :subdomain
   end
 
-  def current_user
-    @current_user ||= authenticate_by_cookie(User)
-  end
-
   def public_controller?
     false
   end
 
   def private_controller?
     !public_controller?
-  end
-
-  def require_user!
-    return if current_user
-
-    save_passwordless_redirect_location!(User)
-    redirect_to sign_in_path
-  end
-
-  def signed_in?
-    !! current_user
   end
 
   def set_locale

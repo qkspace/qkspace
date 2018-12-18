@@ -17,20 +17,6 @@ module ApplicationHelper
     signed_in? && (private_controller? || current_user_collaborates_project?)
   end
 
-  def title
-    key = "#{params[:controller].underscore.gsub('/', '.')}.#{params[:action]}"
-    case key
-    when "private.projects.show", "public.projects.show"
-      @project.title
-    when "private.pages.show", "public.pages.show"
-      @page.title
-    when "private.project_collaborations.index", "private.project_collaborations.create"
-      t "#{key}.title", project_title: @project.title
-    else
-      t "#{key}.title"
-    end
-  end
-
   def or_back_link
     t('views.or_back_link', href: link_to(t('views.back'), :back)).html_safe
   end
