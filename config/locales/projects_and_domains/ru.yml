@@ -13,7 +13,7 @@ ru:
         slug: Поддомен
         domain: Свой домен
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
-        private: Могут смотреть только сотрудники
+        private: Могут смотреть только участники
 
   # VC
   helpers:
@@ -43,8 +43,8 @@ ru:
         edit_hint: Редактировать
         destroy_hint: Удалить
         public_hint: Перейти на публичную страницу
-        private_hint: Проект частный — смотреть могут только сотрудники
-        collaborating: Сотрудник проекта
+        private_hint: Проект частный — смотреть могут только участники
+        collaborating: Участник проекта
         stop_collaborating_hint: Выйти из проекта
         cant_edit_collaborated_project: Вы не можете редактировать этот проект
       edit:
@@ -61,4 +61,4 @@ ru:
       project_configuration_sidebar:
         main_data: Основные данные
         domain: Домен
-        collaborators: Сотрудники
+        collaborators: Участники

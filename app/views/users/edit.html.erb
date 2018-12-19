@@ -3,7 +3,7 @@
 <%= simple_form_for(@user, url: users_path, html: { method: :put }) do |f| %>
   <%= f.input :email %>
 
-  <%= f.button :submit, t('views.users..submit'), class: 'btn-light' %> <%= or_back_link %>
+  <%= f.button :submit, t('views.users.submit'), class: 'btn-light' %> <%= or_back_link %>
 <% end %>
 
 <%= button_to t('views.users.sign_out_everywhere'), sign_out_everywhere_url, method: :delete, class: 'btn btn-light mt-3' %>

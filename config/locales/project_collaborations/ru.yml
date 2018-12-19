@@ -9,19 +9,19 @@ ru:
       project: Проект
     attributes:
       project_collaboration:
-        collaborator_email: Email сотрудника
+        collaborator_email: Email участника
 
   # VC
   private:
     project_collaborations:
       create:
-        title: Сотрудники
-        notice: Сотрудник добавлен
+        title: Участники
+        notice: Участник добавлен
       destroy:
-        notice: Сотрудник удален
+        notice: Участник удален
       index:
         add_editor: Добавить редактора
-        collaborators: Сотрудники
+        collaborators: Участники
         editors: Редакторы
-        remove_collaborator_hint: Исключить сотрудника
-        title: Сотрудники
+        remove_collaborator_hint: Исключить участника
+        title: Участники
