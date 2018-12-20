@@ -1,6 +1,6 @@
 <%= content_for(:title) { t('.title') } %>
 
-<%= simple_form_for @session, url: sign_in_path do |f| %>
+<%= simple_form_for :session, url: sign_in_path do |f| %>
   <%= f.input :email, input_html: {value: params.fetch(:email, nil)} %>
   <%= f.button :submit, t('.submit'), class: 'btn-light' %>
 <% end %>

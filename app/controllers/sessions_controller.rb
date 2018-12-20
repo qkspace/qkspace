@@ -1,12 +1,9 @@
 class SessionsController < ApplicationController
   def new
-    @session = Session.new
   end
 
   def create
-    params[:session][:email].downcase!
-
-    user = User.where(email: params[:session][:email])
+    user = User.where(email: params[:session][:email]).first
 
     unless user
       flash.now[:alert] = t('.error')
@@ -14,13 +11,13 @@ class SessionsController < ApplicationController
       return
     end
 
-    @session = create_session_for_current_request!(user)
+    session = create_session_for_current_request!(user)
 
-    link = token_sign_in_url(token: @session.token)
+    link = token_sign_in_url(token: session.token)
 
     UserMailer.
       with(
-        session_id: @session.id,
+        session_id: session.id,
         link: link
       ).
       magic_link.
@@ -30,8 +27,6 @@ class SessionsController < ApplicationController
   end
 
   def show
-    BCrypt::Password.create(params[:token])
-
     session = Session.find_for_token_login!(params[:token])
     sign_in session
 

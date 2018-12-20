@@ -22,7 +22,7 @@ module SessionManagementConcern
     session_id = cookies.encrypted["session_id"]
     return unless session_id
 
-    session = Session.live.find_by(session_id)
+    session = Session.live.find_by(id: session_id)
 
     @current_user = session&.user
   end

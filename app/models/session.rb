@@ -16,8 +16,8 @@ class Session < ApplicationRecord
       where('active')
   }
 
-  def find_for_token_login!(token)
-    live.where(token: params[:token]).first!
+  def self.find_for_token_login!(token)
+    live.where(token: token).first!
   end
 
   def live?
