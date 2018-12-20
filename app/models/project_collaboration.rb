@@ -10,13 +10,13 @@ class ProjectCollaboration < ApplicationRecord
   attribute :collaborator_email
   validates :collaborator_email, format: /\A.+@.+\z/
 
-  before_validation :set_user
+  after_initialize :set_user
   after_validation :move_uniqueness_error
 
   def set_user
     return if user.present?
 
-    self.user = User.find_or_create_by!(email: collaborator_email)
+    self.user = User.find_or_create_by(email: collaborator_email)
   end
 
   private

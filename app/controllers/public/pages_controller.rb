@@ -20,12 +20,12 @@ class Public::PagesController < PublicController
   def authorize_project!
     return unless @project.private?
 
-    # if signed_in? && current_user.projects.where(id: @project.id).exists?
-    #   return
-    # end
-
-    # save_passwordless_redirect_location!(User)
-    # redirect_to users.sign_in_url
+    if signed_in? && current_user.projects.where(id: @project.id).exists?
+      return
+    else
+      @sign_in_link = redirect_to_public_private_project_url(@project, host: area_private_domain)
+      render 'unauthorized'
+    end
   end
 
   def set_page

@@ -10,9 +10,6 @@ ru:
       wrong_captcha: Проверка captcha не прошла
     edit:
       title: Изменить личные данные
-      are_you_sure: Вы уверены? Это последнее предупреждение.
-      cancel_my_account: Удалить мой аккаунт
-      submit: Изменить
     update:
       title: Изменить личные данные
       notice: Данные успешно изменены
@@ -24,9 +21,17 @@ ru:
       session_expired: Ваша сессия истекла, пожалуйста, войдите снова
       email_sent: Мы послали вам ссылку
       error: Email не был отправлен. Пожалуйста, проверьте адрес
+    show:
+      session_expired: Эта сессия истекла
     new:
       title: Войти через email
       submit: Послать волшебную ссылку
+  views:
+    users:
+      are_you_sure: Вы уверены? Это последнее предупреждение.
+      cancel_my_account: Удалить мой аккаунт
+      sign_out_everywhere: Выйти на всех устройствах
+      submit: Изменить
 
   # Mailer
   user_mailer:

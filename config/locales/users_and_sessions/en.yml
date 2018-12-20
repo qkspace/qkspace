@@ -10,9 +10,6 @@ en:
       wrong_captcha: Captcha test failed
     edit:
       title: Edit account
-      are_you_sure: Are you sure? This is final warning.
-      cancel_my_account: Terminate my account
-      submit: Update
     update:
       title: Edit account
       notice: Account was updated
@@ -24,9 +21,17 @@ en:
       session_expired: Your session has expired, please sign in again.
       email_sent: We've sent you a magic link
       error: Email was not sent. Please check the address
+    show:
+      session_expired: This session has expired
     new:
       title: Log in via e-mail
       submit: Send magic link
+  views:
+    users:
+      are_you_sure: Are you sure? This is final warning.
+      cancel_my_account: Terminate my account
+      sign_out_everywhere: Sign out from all devices
+      submit: Update
 
   # Mailer
   user_mailer:

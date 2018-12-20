@@ -1,39 +1,51 @@
-class SessionsController < Passwordless::SessionsController
+class SessionsController < ApplicationController
   def new
-    @session = Passwordless::Session.new
   end
 
   def create
-    @session = build_passwordless_session(find_authenticatable)
+    user = User.where(email: params[:session][:email]).first
 
-    if @session.save
-      link = main_app.token_sign_in_url(token: @session.token)
+    unless user
+      flash.now.alert = t('.error')
+      render :new
+      return
+    end
 
-      UserMailer.with(
-        session_id: @session.id,
+    session = create_session_for_current_request!(user)
+
+    link = token_sign_in_url(token: session.token)
+
+    UserMailer.
+      with(
+        session_id: session.id,
         link: link
       ).
       magic_link.
       deliver_now
 
-      redirect_to({action: :new}, notice: t('.email_sent'))
-    else
-      flash.now[:alert] = t('.error')
-      render :new
-    end
+    redirect_to({action: :new}, notice: t('.email_sent'))
   end
 
   def show
-    super
+    session = Session.find_for_token_login!(params[:token])
+    sign_in session
+
+    destination = reset_redirect_location! || "/"
+    redirect_to destination
   end
 
   def destroy
-    super
+    sign_out
+    redirect_to "/"
   end
 
-  private
+  def sign_out_everywhere
+    now = Time.current
 
-  def authenticatable
-    'user'
+    Session.
+      where(user: current_user).
+      update_all(active: false)
+
+    destroy
   end
 end

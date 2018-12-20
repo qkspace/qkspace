@@ -13,7 +13,7 @@ en:
   private:
     project_collaborations:
       create:
-        title: Edit project
+        title: Collaborators
         notice: Collaborator was added
       destroy:
         notice: Collaborator was removed

@@ -7,19 +7,18 @@ class Private::ProjectCollaborationsController < PrivateController
   def create
     @collaboration = @project.collaborations.new(collaboration_params)
 
-    if @collaboration.save!
-      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
-
-      private_session = build_passwordless_session(@collaboration.user)
-      private_session.save!
+    if @collaboration.save
+      collaborator_session = create_session_for_current_request!(@collaboration.user)
 
       UserMailer.
         with(
           collaboration_id: @collaboration.id,
-          private_link: token_sign_in_url(token: private_session.token)
+          private_link: token_sign_in_url(token: collaborator_session.token)
         ).
         invited_to_project.
         deliver_now
+
+      redirect_to private_project_collaborators_path(@project), notice: t('.notice')
     else
       set_collaborations
       render 'index'

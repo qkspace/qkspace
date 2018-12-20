@@ -1,0 +1,9 @@
+<%= content_for(:title) { "Sign in required" } %>
+
+<p>You are trying to view page of project «<%= @project.title %>»</p>
+
+<p>Project's administator allows only collaborators to view project.</p>
+
+<p>If you ara a project collaborator, please follow this link and sign in with your email:</p>
+
+<p><%= link_to @sign_in_link, @sign_in_link %></p>

@@ -1,5 +1,5 @@
 class Private::ProjectsController < PrivateController
-  before_action :set_project, only: %i[show]
+  before_action :set_project, only: %i[show redirect_to_public]
   before_action :set_owned_project, only: %i[edit update update_domain destroy]
 
   def index
@@ -54,6 +54,12 @@ class Private::ProjectsController < PrivateController
       )
 
     render json: { data: response }
+  end
+
+  def redirect_to_public
+    session = create_session_for_current_request!(current_user)
+
+    redirect_to public_project_token_sign_in_url(@project, session.token)
   end
 
   private
