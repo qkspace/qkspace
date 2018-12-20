@@ -6,9 +6,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :reset_session
 
   include PublicUrlHelper
-
-  include Passwordless::ControllerHelpers
-  # overwrites passwordless helpers
   include SessionManagementConcern
 
   helper_method :current_user, :signed_in?,

@@ -1,13 +1,10 @@
 class User < ApplicationRecord
-  passwordless_with :email
-
   before_validation :downcase_email
 
   has_many :owned_projects, class_name: "Project", dependent: :destroy
   has_many :project_collaborations, dependent: :destroy
   has_many :collaborated_projects, through: :project_collaborations, source: :project
-
-  scope :confirmed, -> { where.not(confirmed_at: nil) }
+  has_many :sessions, inverse_of: :user
 
   validates :email,
     format: /\A.+@.+\z/,

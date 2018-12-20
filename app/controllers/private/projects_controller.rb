@@ -57,8 +57,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def redirect_to_public
-    session = build_passwordless_session(current_user)
-    session.save!
+    session = create_session_for_current_request!(current_user)
 
     redirect_to public_project_token_sign_in_url(@project, session.token)
   end

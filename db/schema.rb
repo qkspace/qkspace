@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_175317) do
+ActiveRecord::Schema.define(version: 2018_12_19_201518) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -23,19 +23,6 @@ ActiveRecord::Schema.define(version: 2018_12_10_175317) do
     t.text "html"
     t.index ["position"], name: "index_pages_on_position"
     t.index ["project_id"], name: "index_pages_on_project_id"
-  end
-
-  create_table "passwordless_sessions", force: :cascade do |t|
-    t.string "authenticatable_type"
-    t.integer "authenticatable_id"
-    t.datetime "timeout_at", null: false
-    t.datetime "expires_at", null: false
-    t.text "user_agent", null: false
-    t.string "remote_addr", null: false
-    t.string "token", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["authenticatable_type", "authenticatable_id"], name: "authenticatable"
   end
 
   create_table "project_collaborations", force: :cascade do |t|
@@ -59,6 +46,20 @@ ActiveRecord::Schema.define(version: 2018_12_10_175317) do
     t.boolean "private", default: false
     t.index ["domain"], name: "index_projects_on_domain", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "timeout_at", null: false
+    t.datetime "expires_at", null: false
+    t.text "user_agent"
+    t.string "remote_addr"
+    t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "active", default: true, null: false
+    t.index ["token"], name: "index_sessions_on_token", unique: true
+    t.index ["user_id"], name: "authenticatable"
   end
 
   create_table "users", force: :cascade do |t|

@@ -31,7 +31,7 @@ describe Private::ProjectsController do
       get :redirect_to_public, params: {id: @project.id}
 
       token = response.location.match("http://test-redirect.qkspace.host/sign_in/(.+)")[1]
-      expect(Passwordless::Session.where(authenticatable: @current_user, token: token)).to exist
+      expect(Session.where(user: @current_user, token: token)).to exist
     end
   end
 end

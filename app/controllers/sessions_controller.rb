@@ -1,66 +1,56 @@
-class SessionsController < Passwordless::SessionsController
+class SessionsController < ApplicationController
   def new
-    @session = Passwordless::Session.new
+    @session = Session.new
   end
 
   def create
-    @session = build_passwordless_session(find_authenticatable)
+    params[:session][:email].downcase!
 
-    if @session.save
-      link = main_app.token_sign_in_url(token: @session.token)
+    user = User.where(email: params[:session][:email])
 
-      UserMailer.with(
+    unless user
+      flash.now[:alert] = t('.error')
+      render :new
+      return
+    end
+
+    @session = create_session_for_current_request!(user)
+
+    link = token_sign_in_url(token: @session.token)
+
+    UserMailer.
+      with(
         session_id: @session.id,
         link: link
       ).
       magic_link.
       deliver_now
 
-      redirect_to({action: :new}, notice: t('.email_sent'))
-    else
-      flash.now[:alert] = t('.error')
-      render :new
-    end
+    redirect_to({action: :new}, notice: t('.email_sent'))
   end
 
   def show
     BCrypt::Password.create(params[:token])
 
-    session = find_session
-    if session.expired?
-      flash[:alert] = t('.session_expired')
-      redirect_to sign_in_url
-      return
-    end
-
+    session = Session.find_for_token_login!(params[:token])
     sign_in session
 
-    destination = reset_passwordless_redirect_location!(User)
-    if destination
-      redirect_to destination
-    else
-      redirect_to "/"
-    end
+    destination = reset_redirect_location! || "/"
+    redirect_to destination
   end
 
   def destroy
-    super
+    sign_out
+    redirect_to "/"
   end
 
   def sign_out_everywhere
     now = Time.current
 
-    Passwordless::Session.
-      where(authenticatable: current_user).
-      where('expires_at > ?', now).
-      update_all(expires_at: now)
+    Session.
+      where(user: current_user).
+      update_all(active: false)
 
     destroy
-  end
-
-  private
-
-  def authenticatable
-    'user'
   end
 end

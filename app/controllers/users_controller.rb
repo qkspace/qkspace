@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     captcha_is_valid = verify_recaptcha
 
     if @user.save && captcha_is_valid
-      session = build_passwordless_session(@user)
-      session.save!
+      session = create_session_for_current_request!(@user)
 
       sign_in session
       redirect_to '/'

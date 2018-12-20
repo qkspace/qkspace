@@ -10,12 +10,12 @@ class UserMailer < ApplicationMailer
   end
 
   def magic_link
-    @session = Passwordless::Session.find(params[:session_id])
+    @session = Session.find(params[:session_id])
 
     @link = params[:link]
 
     mail(
-      to: @session.authenticatable.email,
+      to: @session.user.email,
       subject: I18n.t('user_mailer.magic_link.subject')
     )
   end
