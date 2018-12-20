@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.where(email: params[:session][:email]).first
 
     unless user
-      flash.now[:alert] = t('.error')
+      flash.now.alert = t('.error')
       render :new
       return
     end
