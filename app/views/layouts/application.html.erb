@@ -45,7 +45,10 @@
        <div class="row d-flex justify-content-center">
         <div class="col-md-7">
     <% end %>
-          <h1 class="mb-4"><%= content_for(:title) %></h1>
+          <div class="mb-4">
+            <h1><%= content_for(:title) %></h1>
+            <%= content_for(:after_title) %>
+          </div>
           <% unless notice.blank? %>
             <div class="alert alert-primary alert-dismissible">
               <%= notice %>

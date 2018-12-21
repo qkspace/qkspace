@@ -9,19 +9,30 @@
 @import 'toast';
 @import 'flag-icon.min';
 
-table.table {
-  border-collapse: collapse;
-  border-style: hidden;
+.page-content {
+  blockquote {
+    border-left: 5px solid #eee;
+    color: $secondary;
+    padding-left: 10px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @extend .mt-4;
+    @extend .mb-3;
+
+    &:first-child {
+      @extend .mt-0;
+    }
+  }
 }
 
 pre {
   border-radius: 8px;
 }
 
-blockquote {
-  border-left: 5px solid #eee;
-  color: $secondary;
-  padding-left: 10px;
+table.table {
+  border-collapse: collapse;
+  border-style: hidden;
 }
 
 /* fix toast and cube buttons conflict */

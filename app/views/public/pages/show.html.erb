@@ -1,6 +1,8 @@
 <%= content_for(:title) { @page.title } %>
 
-<%= @page.html.html_safe %>
+<div class="page-content">
+  <%= @page.html.html_safe %>
+</div>
 
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>

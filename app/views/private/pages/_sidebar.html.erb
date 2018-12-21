@@ -1,23 +1,19 @@
-<span class="small text-muted">&nbsp;</span>
+<h4 class="mb-3"><%= @project.title %></h4>
 
-<div class="mt-5">
-  <h4 class="mb-3"><%= @project.title %></h4>
-
-  <div data-role="activerecord_sortable">
-    <%= render @project.pages %>
-  </div>
-
-  <p class="mt-4 mb-2">
-    <%= link_to t('views.pages.edit_page'),
-     edit_private_project_page_path(@project, @page) %>
-  </p>
-  <p>
-    <%= link_to t('views.sidebar.new_page'), new_private_project_page_path(@project), id: 'new_page' %>
-  </p>
-  <p>
-    <%= link_to t('views.sidebar.edit_project'), edit_private_project_url(@project) %>
-  </p>
+<div data-role="activerecord_sortable">
+  <%= render @project.pages %>
 </div>
+
+<p class="mt-4 mb-2">
+  <%= link_to t('views.pages.edit_page'),
+   edit_private_project_page_path(@project, @page) %>
+</p>
+<p>
+  <%= link_to t('views.sidebar.new_page'), new_private_project_page_path(@project), id: 'new_page' %>
+</p>
+<p>
+  <%= link_to t('views.sidebar.edit_project'), edit_private_project_url(@project) %>
+</p>
 
 <script>
   $(document).on('turbolinks:load', function () {
