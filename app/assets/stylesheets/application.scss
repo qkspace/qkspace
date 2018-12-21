@@ -18,6 +18,12 @@ pre {
   border-radius: 8px;
 }
 
+blockquote {
+  border-left: 5px solid #eee;
+  color: $secondary;
+  padding-left: 10px;
+}
+
 /* fix toast and cube buttons conflict */
 .tui-editor-defaultUI .te-mode-switch-section,
 .tui-editor-defaultUI .te-mode-switch {
