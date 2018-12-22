@@ -16,10 +16,6 @@ class Session < ApplicationRecord
       where('active')
   }
 
-  def self.find_for_token_login!(token)
-    live.where(token: token).first!
-  end
-
   def live?
     now = Time.current
 
@@ -36,15 +32,5 @@ class Session < ApplicationRecord
 
     # How long can a user use magic link
     self.timeout_at ||= 1.year.from_now
-
-    self.token ||=
-      loop do
-        token = generate_token
-        break token unless Session.where(token: token).exists?
-      end
-  end
-
-  def generate_token
-    SecureRandom.urlsafe_base64(32)
   end
 end

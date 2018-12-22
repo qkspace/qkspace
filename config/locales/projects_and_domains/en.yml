@@ -14,6 +14,7 @@ en:
         domain: Custom domain
         google_analytics_tracker_id: Google Analytics Tracker ID
         private: Only collaborators can view
+        secret_enabled: Allow everyone else to view with secret link
 
   # VC
   helpers:

@@ -26,6 +26,13 @@
 //= require_self
 
 $(document).on('turbolinks:load', function() {
+  $('#project-private-checkbox').change(function() {
+    let projectPrivate = $(this).prop('checked');
+    $('#project-secret-enabled-checkbox').prop('disabled', !projectPrivate);
+  })
+});
+
+$(document).on('turbolinks:load', function() {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
   hljs.initHighlighting.called = false;
   hljs.initHighlighting();

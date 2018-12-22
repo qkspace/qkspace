@@ -15,6 +15,7 @@ class Project < ApplicationRecord
 
   before_validation :generate_first_page, on: :create
   before_validation :downcase_slug
+  before_validation :set_secret_token
 
   validates_associated :pages, on: :create
 
@@ -39,5 +40,16 @@ class Project < ApplicationRecord
 
   def downcase_slug
     self.slug &&= slug.downcase
+  end
+
+  def set_secret_token
+    unless self.private
+      self.secret_token = ""
+      return
+    end
+
+    if self.private_changed?
+      self.secret_token = SecureRandom.urlsafe_base64(32)
+    end
   end
 end

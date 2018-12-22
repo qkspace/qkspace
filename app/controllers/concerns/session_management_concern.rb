@@ -1,14 +1,28 @@
 module SessionManagementConcern
   private
 
-  def create_session_for_current_request!(user)
-    s = Session.new
+  def create_session_for_current_request!(type, attrs)
+    s = type.new
     s.remote_addr = request.remote_addr
     s.user_agent = request.env['HTTP_USER_AGENT']
-    s.user = user
+    s.attributes = attrs
     s.save!
 
     s
+  end
+
+  def create_user_token_session!(user)
+    create_session_for_current_request!(Session::UserToken, user: user)
+  end
+
+  def authenticate_by_session_id
+    session_id = cookies.encrypted["session_id"]
+    return unless session_id
+
+    Session.
+      live.
+      find_by(id: session_id)&.
+      user
   end
 
   def current_user
@@ -19,12 +33,7 @@ module SessionManagementConcern
 
     @_current_user_set = true
 
-    session_id = cookies.encrypted["session_id"]
-    return unless session_id
-
-    session = Session.live.find_by(id: session_id)
-
-    @current_user = session&.user
+    @current_user = authenticate_by_session_id
   end
 
   def reset_redirect_location!
@@ -43,7 +52,7 @@ module SessionManagementConcern
   end
 
   def sign_in(session)
-    cookies.encrypted.permanent["session_id"] = { value: session.id }
+    cookies.encrypted.permanent["session_id"] = {value: session.id}
     session
   end
 
@@ -52,7 +61,7 @@ module SessionManagementConcern
   end
 
   def sign_out
-    cookies.encrypted.permanent["session_id"] = { value: nil }
+    cookies.encrypted.permanent["session_id"] = {value: nil}
     cookies.delete("session_id")
     true
   end

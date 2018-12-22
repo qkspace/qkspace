@@ -14,6 +14,7 @@ ru:
         domain: Свой домен
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
         private: Могут смотреть только участники
+        secret_enabled: Разрешить всем другим смотреть по секретной ссылке
 
   # VC
   helpers:
