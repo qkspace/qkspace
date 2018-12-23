@@ -30,7 +30,7 @@
             <%= link_to_unless_current t('views.projects'), private_projects_path %> |
             <%= link_to_switch_locale %> |
             <%= link_to t('views.sidebar.sign_out'), sign_out_path, method: :delete %>
-          <% else # current_user_collaborates_project?? %>
+          <% else # current_user_edits_project? %>
             <%= link_to fa_icon('pencil'),
               private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
           <% end %>

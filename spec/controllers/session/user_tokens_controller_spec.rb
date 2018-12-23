@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SessionsController do
+describe Session::UserTokensController do
   before do
     @user = create(:user)
   end
@@ -38,7 +38,7 @@ describe SessionsController do
 
   describe '#show' do
     before do
-      @session = Session.create!(user: @user)
+      @session = Session::UserToken.create!(user: @user)
     end
 
     it 'logins via session token (magic link)' do

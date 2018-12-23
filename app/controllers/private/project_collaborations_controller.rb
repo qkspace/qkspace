@@ -8,7 +8,7 @@ class Private::ProjectCollaborationsController < PrivateController
     @collaboration = @project.collaborations.new(collaboration_params)
 
     if @collaboration.save
-      collaborator_session = create_session_for_current_request!(@collaboration.user)
+      collaborator_session = create_user_token_session!(@collaboration.user)
 
       UserMailer.
         with(

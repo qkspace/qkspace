@@ -14,6 +14,10 @@ class User < ApplicationRecord
     projects.exists?(project.id)
   end
 
+  def edits?(project)
+    collaborates?(project)
+  end
+
   def owns?(project)
     owned_projects.exists?(project.id)
   end

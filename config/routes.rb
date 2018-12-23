@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'sign_in/:token', to: 'sessions#show'
+    get 'sign_in/:token', to: 'session/user_tokens#show'
+    get 'sign_in/secret/:token', to: 'session/project_secret_tokens#show'
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
   end
 
@@ -54,10 +55,14 @@ Rails.application.routes.draw do
 
     resource :users, only: %i[create new edit update destroy]
 
-    # If you change this — change robots.txt as well
-    get 'sign_in', to: 'sessions#new'
-    post 'sign_in', to: 'sessions#create'
-    get 'sign_in/:token', to: 'sessions#show', as: :token_sign_in
+    # If you change anything below — change robots.txt as well
+
+    scope module: 'session' do
+      get 'sign_in', to: 'user_tokens#new'
+      post 'sign_in', to: 'user_tokens#create'
+      get 'sign_in/:token', to: 'user_tokens#show', as: :token_sign_in
+    end
+
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
     delete 'sign_out_everywhere', to: 'sessions#sign_out_everywhere'
   end

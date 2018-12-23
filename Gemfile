@@ -7,6 +7,7 @@ end
 
 gem 'activerecord-sortable'
 gem 'bootstrap'
+gem 'clipboard-rails'
 gem 'commonmarker'
 gem 'data_migrate'
 gem 'font-awesome-rails'

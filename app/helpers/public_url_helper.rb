@@ -19,6 +19,12 @@ module PublicUrlHelper
     uri.to_s
   end
 
+  def public_project_secret_sign_in_url(project)
+    uri = public_project_uri(project)
+    uri.path = "/sign_in/secret/#{URI.encode(project.secret_token)}"
+    uri.to_s
+  end
+
   def public_project_page_url(project, page)
     uri = public_project_uri(project)
     uri.path = "/" << page.slug

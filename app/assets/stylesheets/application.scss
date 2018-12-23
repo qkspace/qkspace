@@ -9,9 +9,13 @@
 @import 'toast';
 @import 'flag-icon.min';
 
+.cursor-hand {
+  cursor: pointer;
+}
+
 .page-content {
   blockquote {
-    border-left: 5px solid #eee;
+    border-left: 5px solid $gray-400;
     color: $secondary;
     padding-left: 10px;
 

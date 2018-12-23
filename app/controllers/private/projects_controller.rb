@@ -57,7 +57,7 @@ class Private::ProjectsController < PrivateController
   end
 
   def redirect_to_public
-    session = create_session_for_current_request!(current_user)
+    session = create_user_token_session!(current_user)
 
     redirect_to public_project_token_sign_in_url(@project, session.token)
   end
@@ -65,7 +65,11 @@ class Private::ProjectsController < PrivateController
   private
 
   def project_params
-    params.require(:project).permit(:title, :slug, :google_analytics_tracker_id, :private)
+    params.require(:project).permit(
+      :title, :slug,
+      :google_analytics_tracker_id,
+      :private, :secret_enabled
+    )
   end
 
   def set_project

@@ -54,6 +54,7 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
+    clipboard-rails (1.7.1)
     commonmarker (0.17.13)
       ruby-enum (~> 0.5)
     concurrent-ruby (1.0.5)
@@ -224,6 +225,7 @@ DEPENDENCIES
   activerecord-sortable
   bootstrap
   byebug
+  clipboard-rails
   commonmarker
   data_migrate
   factory_bot_rails

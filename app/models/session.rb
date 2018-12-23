@@ -1,9 +1,8 @@
 class Session < ApplicationRecord
-  belongs_to :user, inverse_of: :sessions
+  belongs_to :user, inverse_of: :sessions, optional: true
 
   validates :timeout_at,
             :expires_at,
-            :token,
     presence: true
 
   before_validation :set_defaults
@@ -15,10 +14,6 @@ class Session < ApplicationRecord
       where('expires_at > ?', now).
       where('active')
   }
-
-  def self.find_for_token_login!(token)
-    live.where(token: token).first!
-  end
 
   def live?
     now = Time.current
@@ -36,15 +31,5 @@ class Session < ApplicationRecord
 
     # How long can a user use magic link
     self.timeout_at ||= 1.year.from_now
-
-    self.token ||=
-      loop do
-        token = generate_token
-        break token unless Session.where(token: token).exists?
-      end
-  end
-
-  def generate_token
-    SecureRandom.urlsafe_base64(32)
   end
 end

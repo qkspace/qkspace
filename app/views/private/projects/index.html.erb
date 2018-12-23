@@ -25,13 +25,21 @@
           <td title="<%= t('.stop_collaborating_hint') %>"><%= link_to fa_icon('sign-out'), private_project_collaborator_path(project, @collaborations[project.id]), method: :delete, data: { confirm: t('views.are_you_sure') }, class: "text-danger" %></td>
         <% end %>
 
-        <td>
-          <% if project.private? %>
-            <%= fa_icon 'lock', title: t('.private_hint') %>
+        <% if project.private? %>
+          <% if project.secret_enabled? %>
+            <td
+              title="<%= t('.secret_link_hint') %>"
+              class="cursor-hand clipboard"
+              data-clipboard-text="<%= public_project_secret_sign_in_url(project) %>"
+            >
+              <%= fa_icon 'link' %>
+            </td>
           <% else %>
-            &nbsp;
+            <td title="<%= t('.private_hint') %>"><%= fa_icon 'lock' %></td>
           <% end %>
-        </td>
+        <% else %>
+          <td>&nbsp;</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
