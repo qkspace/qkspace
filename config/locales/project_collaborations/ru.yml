@@ -5,8 +5,6 @@ ru:
       models:
         project_collaboration:
           not_confirmed: Этот пользователь должен сначала подтвердить свой email
-    models:
-      project: Проект
     attributes:
       project_collaboration:
         collaborator_email: Email участника

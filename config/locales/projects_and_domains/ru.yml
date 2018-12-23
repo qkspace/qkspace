@@ -40,14 +40,15 @@ ru:
         title: Новый проект
       index:
         title: Все проекты
-        create: Создать проект
-        edit_hint: Редактировать
-        destroy_hint: Удалить
-        public_hint: Перейти на публичную страницу
-        private_hint: Проект частный — смотреть могут только участники
-        collaborating: Участник проекта
-        stop_collaborating_hint: Выйти из проекта
         cant_edit_collaborated_project: Вы не можете редактировать этот проект
+        collaborating: Участник проекта
+        create: Создать проект
+        destroy_hint: Удалить
+        edit_hint: Редактировать
+        private_hint: Проект частный — смотреть могут только участники
+        public_hint: Перейти на публичную страницу
+        secret_link_hint: Смотреть могут только участники и те, у кого есть ссылка (нажмите для копирования секретной ссылки)
+        stop_collaborating_hint: Выйти из проекта
       edit:
         title: Редактирование проекта
       create:

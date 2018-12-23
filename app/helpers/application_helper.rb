@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def current_user_collaborates_project?
-    current_user&.collaborates?(@project)
+  def current_user_edits_project?
+    current_user&.edits?(@project)
   end
 
   def current_user_owns_project?
@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def show_header?
-    signed_in? && (private_controller? || current_user_collaborates_project?)
+    signed_in? && (private_controller? || current_user_edits_project?)
   end
 
   def or_back_link

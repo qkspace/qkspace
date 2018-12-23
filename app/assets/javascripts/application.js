@@ -15,6 +15,7 @@
 //= require jquery-throttle-debounce
 //= require jquery-ui/widgets/sortable
 //= require bootstrap
+//= require clipboard
 //= require sortable
 //= require turbolinks
 //= require highlight.min
@@ -24,6 +25,10 @@
 //= require toast
 
 //= require_self
+
+$(document).on('turbolinks:load', function() {
+  new Clipboard('.clipboard');
+});
 
 $(document).on('turbolinks:load', function() {
   $('#project-private-checkbox').change(function() {

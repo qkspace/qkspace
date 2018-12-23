@@ -40,14 +40,15 @@ en:
         title: New project
       index:
         title: All projects
+        cant_edit_collaborated_project: Can't edit collaborated project
+        collaborating: Collaborating
         create: Create project
-        edit_hint: Edit
         destroy_hint: Delete
+        edit_hint: Edit
         private_hint: Project is private (only collaborators can view)
         public_hint: Go to public page
-        collaborating: Collaborating
+        secret_link_hint: Only collaborators and those who has the link can view (click to copy the link)
         stop_collaborating_hint: Stop collaborating
-        cant_edit_collaborated_project: Can't edit collaborated project
       edit:
         title: Edit project
       create:

@@ -1,4 +1,6 @@
 class Session::UserToken < Session
+  validates :token, :user, presence: true
+
   def self.find_for_login!(token)
     live.where(token: token).first!
   end

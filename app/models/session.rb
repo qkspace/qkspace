@@ -1,9 +1,8 @@
 class Session < ApplicationRecord
-  belongs_to :user, inverse_of: :sessions
+  belongs_to :user, inverse_of: :sessions, optional: true
 
   validates :timeout_at,
             :expires_at,
-            :token,
     presence: true
 
   before_validation :set_defaults

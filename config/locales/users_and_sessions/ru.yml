@@ -15,17 +15,18 @@ ru:
       notice: Данные успешно изменены
     destroy:
       notice: Аккаунт был удалён
-  sessions:
-    create:
-      title: Вход
-      session_expired: Ваша сессия истекла, пожалуйста, войдите снова
-      email_sent: Мы послали вам ссылку
-      error: Email не был отправлен. Пожалуйста, проверьте адрес
-    show:
-      session_expired: Эта сессия истекла
-    new:
-      title: Войти через email
-      submit: Послать волшебную ссылку
+  session:
+    user_tokens:
+      create:
+        title: Вход
+        session_expired: Ваша сессия истекла, пожалуйста, войдите снова
+        email_sent: Мы послали вам ссылку
+        error: Email не был отправлен. Пожалуйста, проверьте адрес
+      show:
+        session_expired: Эта сессия истекла
+      new:
+        title: Войти через email
+        submit: Послать волшебную ссылку
   views:
     users:
       are_you_sure: Вы уверены? Это последнее предупреждение.

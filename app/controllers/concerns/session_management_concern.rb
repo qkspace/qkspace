@@ -1,6 +1,16 @@
 module SessionManagementConcern
   private
 
+  def authorize_public_request!
+    return unless @project.private?
+
+    unless signed_in? && current_user.collaborates?(@project)
+      @sign_in_link = redirect_to_public_private_project_url(@project, host: area_private_domain)
+      render 'unauthorized'
+      return
+    end
+  end
+
   def create_session_for_current_request!(type, attrs)
     s = type.new
     s.remote_addr = request.remote_addr
@@ -13,6 +23,10 @@ module SessionManagementConcern
 
   def create_user_token_session!(user)
     create_session_for_current_request!(Session::UserToken, user: user)
+  end
+
+  def create_project_secret_session!(project)
+    create_session_for_current_request!(Session::ProjectSecretToken, project: project)
   end
 
   def authenticate_by_session_id

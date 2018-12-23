@@ -15,17 +15,18 @@ en:
       notice: Account was updated
     destroy:
       notice: Account was terminated
-  sessions:
-    create:
-      title: Log in
-      session_expired: Your session has expired, please sign in again.
-      email_sent: We've sent you a magic link
-      error: Email was not sent. Please check the address
-    show:
-      session_expired: This session has expired
-    new:
-      title: Log in via e-mail
-      submit: Send magic link
+  session:
+    user_tokens:
+      create:
+        title: Log in
+        session_expired: Your session has expired, please sign in again.
+        email_sent: We've sent you a magic link
+        error: Email was not sent. Please check the address
+      show:
+        session_expired: This session has expired
+      new:
+        title: Log in via e-mail
+        submit: Send magic link
   views:
     users:
       are_you_sure: Are you sure? This is final warning.

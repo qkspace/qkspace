@@ -26,8 +26,8 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'sign_in/:token', to: 'sessions#show'
-    get 'sign_in/secret/:token', to: 'sessions#sign_in_with_project_secret'
+    get 'sign_in/:token', to: 'session/user_tokens#show'
+    get 'sign_in/secret/:token', to: 'session/project_secret_tokens#show'
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
   end
 

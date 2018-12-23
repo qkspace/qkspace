@@ -1,5 +1,5 @@
 class Public::PagesController < PublicController
-  before_action :authorize_project!
+  before_action :authorize_public_request!
   before_action :set_page
 
   def show
@@ -16,17 +16,6 @@ class Public::PagesController < PublicController
   end
 
   private
-
-  def authorize_project!
-    return unless @project.private?
-
-    if signed_in? && current_user.projects.where(id: @project.id).exists?
-      return
-    else
-      @sign_in_link = redirect_to_public_private_project_url(@project, host: area_private_domain)
-      render 'unauthorized'
-    end
-  end
 
   def set_page
     @page = @project.pages.find_by!(slug: params[:slug])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_22_214237) do
+ActiveRecord::Schema.define(version: 2018_12_22_235737) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2018_12_22_214237) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
-    t.index ["project_id"], name: "index_project_collaborations_on_project_id"
     t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 
@@ -56,13 +55,13 @@ ActiveRecord::Schema.define(version: 2018_12_22_214237) do
     t.datetime "expires_at", null: false
     t.text "user_agent"
     t.string "remote_addr"
-    t.string "token", null: false
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active", default: true, null: false
     t.string "type"
+    t.integer "project_id"
     t.index ["token"], name: "index_sessions_on_token", unique: true
-    t.index ["user_id"], name: "authenticatable"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
