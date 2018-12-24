@@ -48,7 +48,7 @@ class Project < ApplicationRecord
       return
     end
 
-    if self.private_changed?
+    if self.private_changed? || self.secret_enabled_changed?
       self.secret_token = SecureRandom.urlsafe_base64(32)
     end
   end
