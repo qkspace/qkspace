@@ -3,7 +3,7 @@ require 'github/markup'
 class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
 
-  scope :ordered, -> { order(:position) }
+  scope :ordered, -> { ordered_by_position_asc }
 
   validates :title, :slug, presence: true
   validates :slug, uniqueness: { scope: :project_id }
@@ -17,6 +17,7 @@ class Page < ApplicationRecord
 
   acts_as_sortable do |config|
     config[:relation] = ->(instance) { instance.project.pages }
+    config[:append] = true
   end
 
   def only_page?
