@@ -79,7 +79,8 @@ $(document).on('turbolinks:load', function () {
       var currentAction = hotkeysConfig[usedHotkeys[key]];
 
       if (currentAction.keyCodes.includes(e.keyCode)) {
-        if (!currentAction.ctrl || (e.ctrlKey || e.metaKey)) {
+        let ctrlPressed = e.ctrlKey || e.metaKey;
+        if (currentAction.ctrl == ctrlPressed) {
           currentAction.action();
         }
       }
