@@ -18,3 +18,15 @@
 <% content_for :head do %>
  <%= render 'seo_tags' %>
 <% end %>
+
+<script>
+  $(function() {
+    $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
+      var $el, icon, id;
+      $el = $(el);
+      id = $el.attr('id');
+      icon = '<i class="fa fa-link"></i>';
+      if (id) { $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));}
+    });
+  });
+</script>
