@@ -1,4 +1,4 @@
-require 'commonmarker/my_html_renderer'
+require 'github/markup'
 
 class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
@@ -31,9 +31,7 @@ class Page < ApplicationRecord
   end
 
   def markup
-    node = CommonMarker.render_doc(source, :DEFAULT)
-    myrenderer = MyHtmlRenderer.new
-    self.html = myrenderer.render(node)
+    self.html = GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, source)
   end
 
   def validate_onliness
