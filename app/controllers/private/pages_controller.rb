@@ -3,6 +3,9 @@ class Private::PagesController < PrivateController
   before_action :set_page, only: %i[show edit update destroy next previous]
 
   def show
+    respond_to do |format|
+      format.json { render json: @page }
+    end
   end
 
   def next
@@ -25,18 +28,26 @@ class Private::PagesController < PrivateController
   def create
     @page = @project.pages.new(page_params)
 
-    if @page.save
-      redirect_to private_project_page_path(@project, @page), notice: t('.notice')
-    else
-      render :new
+    respond_to do |format|
+      if @page.save
+        format.html { redirect_to private_project_page_path(@project, @page), notice: t('.notice') }
+        format.json { render json: @page, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
-    if @page.update(page_params)
-      redirect_to private_project_page_path(@project, @page), notice: t('.notice')
-    else
-      render :edit
+    respond_to do |format|
+      if @page.update(page_params)
+        format.html { redirect_to private_project_page_path(@project, @page), notice: t('.notice') }
+        format.json { render json: @page }
+      else
+        format.html { render :edit }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -47,7 +58,12 @@ class Private::PagesController < PrivateController
 
   def destroy
     @page.destroy
-    redirect_to private_project_path(@project), notice: t('.notice')
+
+    respond_to do |format|
+      format.html { redirect_to private_project_path(@project), notice: t('.notice') }
+      format.json { head :no_content }
+    end
+
   end
 
   private
