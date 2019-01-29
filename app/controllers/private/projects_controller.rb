@@ -56,10 +56,10 @@ class Private::ProjectsController < PrivateController
 
   def check_slug
     response =
-     SlugCheckerService.call(
-      slug: params[:slug],
-      domain: area_private_domain
-     )
+      SlugCheckerService.call(
+        slug: params[:slug],
+        domain: area_private_domain
+      )
 
     render json: { data: response }
   end
@@ -74,9 +74,9 @@ class Private::ProjectsController < PrivateController
 
   def project_params
     params.require(:project).permit(
-     :title, :slug,
-     :google_analytics_tracker_id,
-     :private, :secret_enabled
+      :title, :slug,
+      :google_analytics_tracker_id,
+      :private, :secret_enabled
     )
   end
 
