@@ -13,4 +13,13 @@ FactoryBot.define do
 
     association :owner, factory: :user
   end
+
+  factory :page do
+    sequence(:title) { |n| "Page #{n}" }
+    sequence(:slug) { |n| "slug#{n}" }
+    sequence(:position) { |n| n }
+    sequence(:source) { |n| "# Header #{n}!\r\nText" }
+
+    association :project
+  end
 end

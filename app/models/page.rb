@@ -1,4 +1,4 @@
-require 'commonmarker/my_html_renderer'
+require 'commonmarker/headers_renderer'
 
 class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
@@ -32,8 +32,8 @@ class Page < ApplicationRecord
 
   def markup
     node = CommonMarker.render_doc(source, :DEFAULT)
-    myrenderer = MyHtmlRenderer.new
-    self.html = myrenderer.render(node)
+    renderer = HeadersRenderer.new
+    self.html = renderer.render(node)
   end
 
   def validate_onliness
