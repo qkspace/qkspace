@@ -8,8 +8,8 @@ class HeadersRenderer < CommonMarker::HtmlRenderer
 
   def header(node)
     block do
-      out("<h", node.header_level, " id=\"", header_id(header_from_node(node)),
-          "\">", :children, "</h", node.header_level, ">")
+      out('<h', node.header_level, ' id="', header_id(header_from_node(node)),
+          '">', :children, '</h', node.header_level, '>')
     end
   end
 
