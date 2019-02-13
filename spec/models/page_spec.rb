@@ -26,7 +26,7 @@ RSpec.describe Page, type: :model do
       expect(page_with_spoilers.html).to eq("<ol>\n<li>Question1</li>\n</ol>\n<details>\n<summary>Answer</summary>\nthis is me, answer!\n</details>\n")
     end
 
-    it "assigns different IDs to headers with the same text" do
+    it 'assigns different IDs to headers with the same text' do
       expect(page_with_same_headers.html).to eq "<h1 id=\"hello-world\">Hello, world!</h1>\n<h2 id=\"hello-world-2\">Hello, world!</h2>\n"
     end
   end
