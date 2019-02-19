@@ -16,10 +16,10 @@ class HeadersRenderer < CommonMarker::HtmlRenderer
   private
 
   def header_from_node(node)
-    I18n
-     .transliterate(node.first_child.string_content, locale: :ru)
-     .parameterize
-     .presence
+    I18n.
+     transliterate(node.first_child.string_content, locale: :ru).
+     parameterize.
+     presence
   end
 
   def header_id(id)

@@ -5,6 +5,8 @@
 
 @import 'font-awesome';
 
+@import 'header-link';
+
 @import 'highlight';
 @import 'toast';
 @import 'flag-icon.min';
@@ -30,25 +32,6 @@
 
     &:first-child {
       @extend .mt-0;
-    }
-
-    &:hover .header-link {
-      opacity: 1;
-    }
-  }
-
-  .header-link {
-    color: $gray-500;
-    font-size: 80%;
-    left: -0.3em;
-    opacity: 0;
-    padding-top: .2em;
-    position: absolute;
-    transition: opacity 0.2s ease-in-out 0.1s;
-    -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-
-    &:hover {
-      color: $gray-700;
     }
   }
 }
