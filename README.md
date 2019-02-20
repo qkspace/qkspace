@@ -1,6 +1,6 @@
-QKspace (which stands for "quick space") is a minimalistic knowledge base for small teams.
+QKspace (pronounced "quick space") is a minimalistic knowledge base for small teams.
 
-It is perfect for creating a course reference base for a teaching organisation, for making a FAQ list in the IT field, for exchanging knowledge within social work teams, for making a topical list of personal quotes and notes.
+It is perfect for creating a course reference base for an educational organisation, for making a QnA list in the IT, for exchanging knowledge within social work teams, for making a thematic list of personal quotes and notes.
 
 # Usage examples
 
@@ -13,9 +13,9 @@ Lovecraft quotes: http://lovecraft.qkspace.com
 # Features
 
 * Creating projects with a number of pages
-* Markdown user friendly editor
-* Connection of your own domain
-* Project collaboration
+* Markdown user-friendly editor
+* Adding your own domain
+* Collaborative project editing
 * Private and public projects
 
 # How to contribute
@@ -26,13 +26,13 @@ The list of bugs and issues is here: https://github.com/issues
 
 Feel free to send your PRs. If the task isn’t closed, it still needs to be done.
 
-The support concerning general questions is in the [chat](https://t.me/qkspace).
+Use [chat](https://t.me/qkspace) for support and general questions.
 
-# Contact information
+# Contacts
 
-For all questions please contact: support@qkspace.com
+For all questions please contact us at support@qkspace.com
 
-About commercial collaboration please contact: business@qkspace.com
+Regarding commercial collaboration please contact us at business@qkspace.com
 
 # Developers
 
