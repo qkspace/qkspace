@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require highlight.min
 //= require hotkeys
+//= require header-link.js
 
 // Toast UI
 //= require toast

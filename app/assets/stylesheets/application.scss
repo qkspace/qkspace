@@ -5,6 +5,8 @@
 
 @import 'font-awesome';
 
+@import 'header-link';
+
 @import 'highlight';
 @import 'toast';
 @import 'flag-icon.min';
@@ -24,7 +26,7 @@
     }
   }
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, h6 {
     @extend .mt-4;
     @extend .mb-3;
 
