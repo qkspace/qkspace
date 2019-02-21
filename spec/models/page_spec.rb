@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Page, type: :model do
-  context 'markup header' do
+  context 'markup' do
     let(:page_with_russian_headers) { create(:page, source: "# Привет, мир 2!\r\nHello, world!") }
     let(:page_with_english_headers) { create(:page, source: "# Hello, world 2!\r\nHello, world!") }
     let(:page_with_mix_headers) { create(:page, source: "# Hello, world 2!\r\n## Привет, мир 2!\r\nHello, world!") }
@@ -36,7 +36,7 @@ RSpec.describe Page, type: :model do
     end
   end
 
-  context 'markup slug' do
+  context 'generate correct slug' do
     let(:page_with_mix_slug) { create(:page, title: "Hello, мир 2!") }
 
     it 'generates correct slug in ru locale' do
