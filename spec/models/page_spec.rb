@@ -35,4 +35,19 @@ RSpec.describe Page, type: :model do
       expect(page_with_tricky_headers.html).to eq "<h1 id=\"hello-world\">Hello, world!</h1>\n<h2 id=\"hello-world-2\">Hello, world 2!</h2>\n<h2 id=\"hello-world-2-2\">Hello, world!</h2>\n"
     end
   end
+
+  context 'generate correct slug' do
+    let(:page_with_mix_slug) { create(:page, title: "Hello, мир 2!") }
+
+    it 'generates correct slug in ru locale' do
+      I18n.locale = :ru
+      expect(page_with_mix_slug.slug).to eq "hello-mir-2"
+    end
+
+    it 'generates correct slug in en locale' do
+      I18n.locale = :en
+      expect(page_with_mix_slug.slug).to eq "hello-mir-2"
+      expect(I18n.locale).to eq :en # method doesn`t change current locale
+    end
+  end
 end
