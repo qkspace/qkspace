@@ -40,7 +40,10 @@ Regarding commercial collaboration please contact us at business@qkspace.com
 [Eugene Zolotarev](https://github.com/EugZol)  
 [Aleksander Klimenkov](https://github.com/prisioner)  
 [Dmitry Smirnov](https://github.com/vergilsm)  
+[Igor Stroganov](https://github.com/Gargantua88)  
 [Dmitry Malyshev](https://github.com/tenseisan)  
+
+The developers' contributions are listed on the [corresponding page](https://github.com/qkspace/qkspace/graphs/contributors).
 
 # License
 

@@ -42,7 +42,10 @@ QKspace (читается «квик спэйс») это минималисти
 [Евгений Золотарев](https://github.com/EugZol)  
 [Александр Клименков](https://github.com/prisioner)  
 [Дмитрий Смирнов](https://github.com/vergilsm)  
+[Игорь Строганов](https://github.com/Gargantua88)  
 [Дмитрий Малышев](https://github.com/tenseisan)  
+
+Посмотреть вклад участников можно на [соответствующей странице](https://github.com/qkspace/qkspace/graphs/contributors).
 
 # Лицензия
 
