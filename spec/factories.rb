@@ -16,10 +16,17 @@ FactoryBot.define do
 
   factory :page do
     sequence(:title) { |n| "Page #{n}" }
+<<<<<<< HEAD
     sequence(:slug) { |n| "slug#{n}" }
     sequence(:position) { |n| n }
+=======
+>>>>>>> upstream2/master
     sequence(:source) { |n| "# Header #{n}!\r\nText" }
 
     association :project
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> upstream2/master

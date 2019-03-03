@@ -1,4 +1,4 @@
-require 'github/markup'
+require 'commonmarker/headers_renderer'
 
 class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
@@ -27,11 +27,13 @@ class Page < ApplicationRecord
   private
 
   def generate_slug
-    self.slug = I18n.transliterate(title.to_s).parameterize.presence
+    self.slug = I18n.transliterate(title.to_s, locale: :ru).parameterize.presence
   end
 
   def markup
-    self.html = GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, source)
+    node = CommonMarker.render_doc(source, :DEFAULT)
+    renderer = HeadersRenderer.new
+    self.html = renderer.render(node)
   end
 
   def validate_onliness
