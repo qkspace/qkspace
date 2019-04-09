@@ -45,7 +45,10 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
+  const currentSlug = project_slug.value;
+
   $('input#project_slug').keyup($.debounce(250, function() {
+
     var input = $(this);
     var hint = input.parent().children('small.text-muted');
     var error = input.parent().children('.invalid-feedback');
@@ -58,31 +61,29 @@ $(document).on('turbolinks:load', function() {
       $.ajax({
         dataType: 'json',
         cache: false,
-        url: '/projects/check_slug?locale=' + locale + '&slug=' + slug,
+        url: '/projects/check_slug?locale=' + locale + '&slug=' + slug + '&current_slug=' + currentSlug,
         timeout: 5000,
-        success: function(xhr) {
+        success: function (xhr) {
           var data = xhr.data;
           var hint_message = "<span><strong>" + data.slug +
-                             "</strong>." + data.domain + "</span>" + data.message;
+            "</strong>." + data.domain + "</span>" + data.message;
 
           hint.html(hint_message);
 
           var span = hint.children('span');
 
-          if (data.availability) {
+          if (data.availability || slug == currentSlug) {
             input.removeClass('is-invalid');
             input.addClass('is-valid');
             span.addClass("text-success");
-          }
-          else {
+          } else {
             input.removeClass('is-valid');
             input.addClass('is-invalid');
             span.addClass("text-danger");
           }
         }
       });
-    }
-    else {
+    } else {
       hint.html("");
     }
   }));
