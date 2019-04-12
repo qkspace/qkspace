@@ -45,10 +45,9 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  const currentSlug = project_slug.value;
+  var currentSlug = project_slug.value;
 
   $('input#project_slug').keyup($.debounce(250, function() {
-
     var input = $(this);
     var hint = input.parent().children('small.text-muted');
     var error = input.parent().children('.invalid-feedback');
