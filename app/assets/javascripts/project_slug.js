@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', function() {
-
   if ('project_slug' in window) {
     var currentSlug = project_slug.value;
-  };
+  }
 
   $('input#project_slug').keyup($.debounce(250, function() {
     const input = $(this);
