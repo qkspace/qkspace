@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to :edit, notice: t('.notice')
+      redirect_to action: :edit, notice: t('.notice')
     else
       render :edit
     end
