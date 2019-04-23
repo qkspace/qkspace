@@ -50,6 +50,7 @@ class Private::ProjectsController < PrivateController
     response =
       SlugCheckerService.call(
         slug: params[:slug],
+        current_slug: params[:current_slug],
         domain: area_private_domain
       )
 

@@ -21,6 +21,7 @@
 //= require highlight.min
 //= require hotkeys
 //= require header-link.js
+//= require project_slug
 
 // Toast UI
 //= require toast
@@ -42,48 +43,4 @@ $(document).on('turbolinks:load', function() {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
   hljs.initHighlighting.called = false;
   hljs.initHighlighting();
-});
-
-$(document).on('turbolinks:load', function() {
-  $('input#project_slug').keyup($.debounce(250, function() {
-    var input = $(this);
-    var hint = input.parent().children('small.text-muted');
-    var error = input.parent().children('.invalid-feedback');
-    var slug = input.val();
-    var locale = input.data("locale");
-
-    error.hide();
-
-    if (slug.length > 0) {
-      $.ajax({
-        dataType: 'json',
-        cache: false,
-        url: '/projects/check_slug?locale=' + locale + '&slug=' + slug,
-        timeout: 5000,
-        success: function(xhr) {
-          var data = xhr.data;
-          var hint_message = "<span><strong>" + data.slug +
-                             "</strong>." + data.domain + "</span>" + data.message;
-
-          hint.html(hint_message);
-
-          var span = hint.children('span');
-
-          if (data.availability) {
-            input.removeClass('is-invalid');
-            input.addClass('is-valid');
-            span.addClass("text-success");
-          }
-          else {
-            input.removeClass('is-valid');
-            input.addClass('is-invalid');
-            span.addClass("text-danger");
-          }
-        }
-      });
-    }
-    else {
-      hint.html("");
-    }
-  }));
 });
