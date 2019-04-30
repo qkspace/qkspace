@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_22_235737) do
+ActiveRecord::Schema.define(version: 2019_04_25_203913) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "parent_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -31,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_12_22_235737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
+    t.index ["project_id"], name: "index_project_collaborations_on_project_id"
     t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 
@@ -62,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_12_22_235737) do
     t.string "type"
     t.integer "project_id"
     t.index ["token"], name: "index_sessions_on_token", unique: true
+    t.index ["user_id"], name: "authenticatable"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 

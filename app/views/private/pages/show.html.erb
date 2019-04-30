@@ -9,6 +9,13 @@
   <%= @page.html.html_safe %>
 </div>
 
+<div class="page-content mt-4">
+  <h3><%= t('comments.title') %>:</h3>
+  <%= render partial: "comments/form", locals: { commentable: @page } %>
+
+  <%= render @page.comments.where(parent_id: nil) %>
+</div>
+
 <% content_for :sidebar do %>
   <%= render partial: 'sidebar' %>
 <% end %>

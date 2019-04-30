@@ -1,0 +1,33 @@
+<div class="px-4 py-1 my-3">
+  <% if comment.deleted? %>
+    <strong><%= t('comments.user_deleted') %></strong>
+    <div class="small text-muted mb-2">
+      <%= comment.created_at.strftime("%d-%m-%Y %H:%M") %>
+    </div>
+    <p><i><%= t('comments.comment_deleted') %></i></p>
+  <% else %>
+    <strong> <%= comment.user.email %></strong>
+    <div class="small text-muted mb-2">
+      <%= comment.created_at.strftime("%d-%m-%Y %H:%M") %>
+    </div>
+  <% end %>
+
+  <%= simple_format comment.body %>
+
+  <div class="mt-n2">
+    <%= link_to t('comments.answer'), "#commentCollapse_#{comment.id}",
+                data: { toggle: :collapse },
+                aria: { expanded: false, controls: "commentCollapse_#{comment.id}" } %>
+    <%= link_to t('comments.delete'), [:private, @project, comment.commentable, comment],
+                class: "ml-2",
+                method: :delete,
+                data: { confirm: t('comments.delete_confirmation') } if comment.user == current_user %>
+
+    <%= render partial: "comments/form", locals: { commentable: comment.commentable,
+                                                   parent_id: comment.id,
+                                                   id: "commentCollapse_#{comment.id}",
+                                                   class: "collapse" } %>
+  </div>
+
+  <%= render comment.comments %>
+</div>

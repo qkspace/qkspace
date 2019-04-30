@@ -42,6 +42,7 @@ Rails.application.routes.draw do
         resource :domain, only: %i[create destroy edit]
 
         resources :pages do
+          resources :comments, module: :pages
           member do
             post :move
             get  :next
