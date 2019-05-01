@@ -1,4 +1,4 @@
-class CommentsController < PrivateController
+class Private::CommentsController < PrivateController
   before_action :require_user!
   before_action :set_project
 
@@ -7,7 +7,10 @@ class CommentsController < PrivateController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to private_project_page_path(@project, @commentable)
+      respond_to do |format|
+        format.html { redirect_to private_project_page_path(@project, @commentable) }
+        format.js
+      end
     else
       redirect_to private_project_page_path(@project, @commentable), alert: t('comments.warning')
     end

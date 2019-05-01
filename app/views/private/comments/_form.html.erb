@@ -1,6 +1,6 @@
-<%= simple_form_for([:private, @project, commentable, Comment.new],
-                    remote: true, html: { class: local_assigns[:class],
-                                          id: local_assigns[:id] }) do |f| %>
+<%= simple_form_for([:private, @project, commentable, Comment.new], remote: true,
+                    html: { class: local_assigns[:class],
+                            id: local_assigns[:id] }) do |f| %>
   <div class="form-group">
     <%= f.input :body, as: :text, label: false, placeholder: t('comments.add_comment'), input_html: { rows: 3 } %>
   </div>

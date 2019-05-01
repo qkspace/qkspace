@@ -15,6 +15,11 @@
   <% end %>
 <% end %>
 
+<div class="page-content mt-4">
+  <h3><%= t('comments.title') %>:</h3>
+  <%= render partial: "private/comments/comment", collection: @page.comments.where(parent_id: nil) %>
+</div>
+
 <% content_for :head do %>
  <%= render 'seo_tags' %>
 <% end %>

@@ -1,0 +1,15 @@
+<% if @comment.parent_id? %>
+  var comments = document.querySelector("#<%= dom_id(@comment.parent) %>_comments");
+<% else %>
+  var comments = document.querySelector("#comments");
+<% end %>
+
+comments.insertAdjacentHTML('beforeend', "<%= j render partial: 'private/comments/comment',
+                            locals: { comment: @comment }, format: :html %>");
+
+var form = comments.parentElement.querySelector("form");
+form.reset();
+
+<% if @comment.parent_id? %>
+  form.classList.toggle("show");
+<% end %>

@@ -1,4 +1,4 @@
-<div class="px-4 py-1 my-3">
+<div class="px-4 mt-3 mb-5">
   <% if comment.deleted? %>
     <strong><%= t('comments.user_deleted') %></strong>
     <div class="small text-muted mb-2">
@@ -15,19 +15,23 @@
   <%= simple_format comment.body %>
 
   <div class="mt-n2">
-    <%= link_to t('comments.answer'), "#commentCollapse_#{comment.id}",
+    <%= link_to t('comments.answer'), "#commentCollapse_#{dom_id(comment)}",
                 data: { toggle: :collapse },
-                aria: { expanded: false, controls: "commentCollapse_#{comment.id}" } %>
-    <%= link_to t('comments.delete'), [:private, @project, comment.commentable, comment],
-                class: "ml-2",
-                method: :delete,
-                data: { confirm: t('comments.delete_confirmation') } if comment.user == current_user %>
+                aria: { expanded: false, controls: "commentCollapse_#{dom_id(comment)}" } if signed_in? %>
 
-    <%= render partial: "comments/form", locals: { commentable: comment.commentable,
+    <% if signed_in? && comment.user == current_user %>
+      <%= link_to t('comments.delete'), [:private, @project, comment.commentable, comment],
+                  class: "ml-2",
+                  method: :delete,
+                  data: { confirm: t('comments.delete_confirmation') } %>
+    <% end %>
+
+    <%= render partial: "private/comments/form", locals: { commentable: comment.commentable,
                                                    parent_id: comment.id,
-                                                   id: "commentCollapse_#{comment.id}",
+                                                   id: "commentCollapse_#{dom_id(comment)}",
                                                    class: "collapse" } %>
   </div>
-
-  <%= render comment.comments %>
+  <%= tag.div id: "#{dom_id(comment)}_comments" do %>
+    <%= render partial: "private/comments/comment", collection: comment.comments %>
+  <% end %>
 </div>
