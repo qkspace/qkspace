@@ -14,23 +14,24 @@
 
   <%= simple_format comment.body %>
 
-  <div class="mt-n2">
-    <%= link_to t('comments.answer'), "#commentCollapse_#{dom_id(comment)}",
-                data: { toggle: :collapse },
-                aria: { expanded: false, controls: "commentCollapse_#{dom_id(comment)}" } if signed_in? %>
+  <% if signed_in? %>
+    <div class="mt-n2">
+      <%= link_to t('comments.answer'), "#commentCollapse_#{dom_id(comment)}",
+                  data: { toggle: :collapse },
+                  aria: { expanded: false, controls: "commentCollapse_#{dom_id(comment)}" } %>
 
-    <% if signed_in? && comment.user == current_user %>
       <%= link_to t('comments.delete'), [:private, @project, comment.commentable, comment],
                   class: "ml-2",
                   method: :delete,
-                  data: { confirm: t('comments.delete_confirmation') } %>
-    <% end %>
+                  data: { confirm: t('comments.delete_confirmation') } if comment.user == current_user %>
 
-    <%= render partial: "private/comments/form", locals: { commentable: comment.commentable,
-                                                   parent_id: comment.id,
-                                                   id: "commentCollapse_#{dom_id(comment)}",
-                                                   class: "collapse" } %>
-  </div>
+      <%= render partial: "private/comments/form", locals: { commentable: comment.commentable,
+                                                             parent_id: comment.id,
+                                                             id: "commentCollapse_#{dom_id(comment)}",
+                                                             class: "collapse" } %>
+    </div>
+  <% end %>
+
   <%= tag.div id: "#{dom_id(comment)}_comments" do %>
     <%= render partial: "private/comments/comment", collection: comment.comments %>
   <% end %>

@@ -18,7 +18,7 @@ class Private::CommentsController < PrivateController
 
   def destroy
     @comment = @commentable.comments.find(params[:id])
-    @comment.destroy
+    @comment.destroy if @comment.user == current_user
     redirect_to private_project_page_path(@project, @commentable)
   end
 
