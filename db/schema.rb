@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2019_04_25_203913) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.string "commentable_type"
-    t.integer "commentable_id"
+    t.integer "page_id"
     t.integer "parent_id"
     t.text "body"
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["page_id"], name: "index_comments_on_page_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 

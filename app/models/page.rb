@@ -2,7 +2,7 @@ require 'commonmarker/headers_renderer'
 
 class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
-  has_many :comments, as: :commentable
+  has_many :comments
 
   scope :ordered, -> { ordered_by_position_asc }
 

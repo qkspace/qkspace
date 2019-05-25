@@ -12,7 +12,7 @@
 <div class="page-content mt-4">
   <h3><%= t('comments.title') %>:</h3>
   <div id="comments">
-    <%= render partial: "private/comments/form", locals: { commentable: @page } %>
+    <%= render partial: "private/comments/form" %>
     <%= render @page.comments.where(parent_id: nil) %>
   </div>
 </div>
