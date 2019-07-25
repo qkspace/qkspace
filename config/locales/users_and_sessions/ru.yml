@@ -40,3 +40,6 @@ ru:
       subject: Вас пригласили в проект %{project}
     magic_link:
       subject: "Ваша волшебная ссылка ✨'"
+  mistake_mailer:
+    mistake:
+      subject: "Найдена ошибка"
