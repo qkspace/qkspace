@@ -87,5 +87,36 @@
         </div>
       </div>
     <% end %>
-  </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-7">
+        <small>Нашли ошибку? Выделите её и нажмите "1", чтобы отправить нам письмо с ошибкой. Мы её обязательно исправим.</small>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Сообщение об ошибке<h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+          <div class="modal-body">
+
+            <center>
+              <%= text_area_tag(:txt_msg, '',size: "25x10") %>
+            </center>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            <button id="fade_button" type="button" class="btn btn-primary">Отправить</button>
+            <%= link_to content_tag('span', 'Отправить', class: 'btn btn-primary'), send_message_path, class: 'action', id: 'fade_button', :method => "send_message", disabled: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+        </div>
 </html>
