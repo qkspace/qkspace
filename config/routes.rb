@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     end
 
     resource :users, only: %i[create new edit update destroy]
+    post 'send_message' => 'application#send_message', as: :send_message
 
     # If you change anything below — change robots.txt as well
 

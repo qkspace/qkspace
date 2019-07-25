@@ -10,7 +10,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?,
                 :private_controller?, :public_controller?,
-                :area_private_domain
+                :area_private_domain, :send_message
+
+  def send_message
+    # Надо как-то зацепить поле из modal`а появляющего при нажатии на кнопку... Поле - txt_msg
+    MistakeMailer.mailer(txt_msg)
+    redirect_to root_path
+  end
 
   private
 
