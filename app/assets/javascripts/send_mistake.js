@@ -1,6 +1,6 @@
-$(document).keypress(function(event) {
+$(document).keydown(function(event) {
   // На клавиатуре "1"
-  if (event.keyCode == 49) {
+  if (event.keyCode == 13 && event.ctrlKey) {
     $('#myModal').modal({
       backdrop: 'static',
       keyboard: true
@@ -29,6 +29,6 @@ function paste_txt(textarea) {
     document.getElementById("fade_button").disabled = true;
   } else if (txt_quote.length > 0) { 
     document.getElementById("fade_button").disabled = false;
-    document.getElementById(textarea).value += "[q]" + txt_quote + "[/q]\n"; 
+    document.getElementById("mistake_field").value += "[q]" + txt_quote + "[/q]\n"; 
   } 
 }

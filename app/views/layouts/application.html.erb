@@ -90,7 +90,7 @@
 
     <div class="row d-flex justify-content-center">
       <div class="col-md-7">
-        <small>Нашли ошибку? Выделите её и нажмите "1", чтобы отправить нам письмо с ошибкой. Мы её обязательно исправим.</small>
+        <small>Нашли ошибку? Выделите её и нажмите Ctrl+Enter, чтобы отправить нам письмо с ошибкой. Мы её обязательно исправим.</small>
       </div>
     </div>
 
@@ -103,18 +103,23 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
           </div>
-          <div class="modal-body">
-
-            <center>
-              <%= text_area_tag(:txt_msg, '',size: "25x10") %>
-            </center>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            <button id="fade_button" type="button" class="btn btn-primary">Отправить</button>
-            <%= link_to content_tag('span', 'Отправить', class: 'btn btn-primary'), send_message_path, class: 'action', id: 'fade_button', :method => "send_message", disabled: true %>
-          </div>
+          <%= form_tag '/mistake', method: 'post' do %>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <center>
+                    <%= text_area_tag :content, nil, rows: 10, cols: 50, class: "col-md-6 ml-auto", id: "mistake_field" %>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              <div class="actions">
+                <%= submit_tag "Отправить", class: "btn btn-large btn-primary", id: "fade_button" %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
