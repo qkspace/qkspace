@@ -1,5 +1,4 @@
 $(document).keydown(function(event) {
-  // На клавиатуре "1"
   if (event.keyCode == 13 && event.ctrlKey) {
     $('#myModal').modal({
       backdrop: 'static',
@@ -29,6 +28,6 @@ function paste_txt(textarea) {
     document.getElementById("fade_button").disabled = true;
   } else if (txt_quote.length > 0) { 
     document.getElementById("fade_button").disabled = false;
-    document.getElementById("mistake_field").value += "[q]" + txt_quote + "[/q]\n"; 
+    document.getElementById("mistake_field").value += txt_quote; 
   } 
 }
