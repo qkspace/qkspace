@@ -1,6 +1,7 @@
 class MistakeMailer < ApplicationMailer
-  def mistake(txt_msg)
+  def mistake(txt_msg, url)
     @body = txt_msg
+    @page = url
     @admin = 'install.vv@gmail.com'
 
     mail(

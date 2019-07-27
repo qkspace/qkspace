@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
                 :area_private_domain
 
   def send_mistake
-    MistakeMailer.mistake(params[:content]).deliver
+    MistakeMailer.mistake(params[:content], params[:url]).deliver
     redirect_to root_path, notice: "Ваше сообщение с ошибкой успешно отправлено"
   end
 

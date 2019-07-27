@@ -107,6 +107,7 @@
             <div class="modal-body">
               <div class="container-fluid">
                 <div class="row">
+                  <%= hidden_field_tag :url, request.original_url %>
                   <center>
                     <%= text_area_tag :content, nil, rows: 10, cols: 50, class: "col-md-6 ml-auto", id: "mistake_field" %>
                   </center>
