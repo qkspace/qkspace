@@ -22,6 +22,7 @@
 //= require hotkeys
 //= require header-link.js
 //= require project_slug
+//= require invisible_recaptcha
 //= require send_mistake
 
 // Toast UI
