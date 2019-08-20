@@ -4,30 +4,27 @@ $(document).keydown(function(event) {
       backdrop: 'static',
       keyboard: true
     });
-    copy_txt();
-    paste_txt('txt_msg');
+    var textQuote = copyText();
+    pasteText(textQuote);
   };
 });
 
-var txt_quote="";
-
-function copy_txt() { 
-  txt_quote=""; 
+function copyText() { 
   if (window.getSelection) { 
-    txt_quote = window.getSelection().toString(); 
+    return textQuote = window.getSelection().toString(); 
   } else if (document.getSelection) { 
-    txt_quote = document.getSelection(); 
+    return textQuote = document.getSelection(); 
   } else if (document.selection) { 
-    txt_quote = document.selection.createRange().text; 
+    return textQuote = document.selection.createRange().text; 
   } 
 } 
 
-function paste_txt(textarea) { 
-  if (txt_quote=="") { 
+function pasteText(textQuote) { 
+  if (textQuote=="") { 
     alert("Для вставки цитаты в новое сообщение выделите нужный текст и нажмите - Вставить цитату"); 
-    document.getElementById("fade_button").disabled = true;
-  } else if (txt_quote.length > 0) { 
-    document.getElementById("fade_button").disabled = false;
-    document.getElementById("mistake_field").value += txt_quote; 
+    document.getElementById("submit-btn").disabled = true;
+  } else if (textQuote.length > 0) { 
+    document.getElementById("submit-btn").disabled = false;
+    document.getElementById("mistake_field").value += textQuote; 
   } 
 }
