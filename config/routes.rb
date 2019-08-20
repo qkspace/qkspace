@@ -14,7 +14,7 @@ end
 
 
 Rails.application.routes.draw do
-  post '/mistake', to: 'application#send_mistake'
+  post '/mistake', to: 'mistake#create'
 
   constraints(PublicConstraint) do
     scope module: 'public', as: 'public' do

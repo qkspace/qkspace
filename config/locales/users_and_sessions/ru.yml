@@ -42,4 +42,4 @@ ru:
       subject: "Ваша волшебная ссылка ✨'"
   mistake_mailer:
     mistake:
-      subject: "Найдена ошибка"
+      subject: Найдена ошибка в проекте %{project}
