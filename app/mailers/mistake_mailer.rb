@@ -1,14 +1,17 @@
 class MistakeMailer < ApplicationMailer
-  def mistake(text_msg, url, author, title)
-    @body = text_msg
-    @page = url
-    @author = author
+  def mistake
+    @body = params[:text_msg]
+    @page_link = params[:url]
 
-    @title = title
+    author = params[:author]
+    title = params[:title]
+    locale = params[:locale]
 
-    mail(
-      to: @author,
-      subject: I18n.t('mistake_mailer.mistake.subject', project: @title)
-    )
+    I18n.with_locale(locale) do
+      mail(
+        to: author,
+        subject: I18n.t('mistake_mailer.mistake.subject', project: title)
+      )
+    end  
   end
 end
