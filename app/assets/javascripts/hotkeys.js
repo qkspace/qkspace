@@ -86,4 +86,13 @@ $(document).on('turbolinks:load', function () {
       }
     }
   });
+
+  $(document).ready(function () {
+    $("#comment_body").focus(function () {
+      window.usedHotkeys = [];
+    });
+    $("#comment_body").blur(function () {
+      hotkeys.activate('private_project_page');
+    })
+  });
 });

@@ -8,6 +8,7 @@
 
   <div class="form-group mb-4">
     <%= f.hidden_field :parent_id, value: local_assigns[:parent_id] %>
+    <%= f.hidden_field :path, value: local_assigns[:path] %>
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -58,12 +58,4 @@ class Private::ProjectCollaborationsController < PrivateController
   def set_collaborations
     @collaborations = @project.collaborations.includes(:user)
   end
-
-  def set_project
-    @project = current_user.projects.find(params[:project_id])
-  end
-
-  def set_owned_project
-    @project = current_user.owned_projects.find(params[:project_id])
-  end
 end
