@@ -36,6 +36,13 @@ class Project < ApplicationRecord
     pages.build(title: title, source: '')
   end
 
+  def self.writers(project_id)
+    User.joins("LEFT JOIN projects ON users.id = projects.user_id").
+      joins("LEFT JOIN project_collaborations ON users.id = project_collaborations.user_id").
+      where("projects.user_id = :id OR project_collaborations.project_id = :id", id: project_id).
+      group("users.id")
+  end
+
   private
 
   def downcase_slug
