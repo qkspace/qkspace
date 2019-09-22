@@ -11,7 +11,6 @@ class Private::ProjectsController < PrivateController
   end
 
   def show
-    byebug
     page = @project.pages.first
 
     redirect_to private_project_page_path(@project, page)

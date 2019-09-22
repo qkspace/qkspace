@@ -12,10 +12,10 @@ class PrivateController < ApplicationController
   end
 
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def set_owned_project
-    @project = current_user.owned_projects.find(params[:project_id])
+    @project = current_user.owned_projects.find(params[:id])
   end
 end

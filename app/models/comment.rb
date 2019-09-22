@@ -5,16 +5,15 @@ class Comment < ApplicationRecord
 
   ltree :path
 
+  def soft_delete!
+    update!(deleted: true)
+  end
+
   def set_path(project_id)
     if parent_id.nil?
       update!(path: "Project_#{project_id}.Page_#{page_id}.Comment_#{id}")
     else
-      parent_path = page.comments.find_by(id: parent_id).path
-      update!(path: parent_path + ".Comment_#{id}")
+      update!(path: page.comments.find_by(id: parent_id).path + ".Comment_#{id}")
     end
-  end
-
-  def soft_delete!
-    update!(deleted: true)
   end
 end

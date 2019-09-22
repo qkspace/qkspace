@@ -4,8 +4,6 @@ module Private
     before_action :set_page
 
     def create
-      return unless valid_user?
-
       @comment = @page.comments.new(comment_params)
       @comment.user = current_user
 
@@ -32,8 +30,12 @@ module Private
       params.require(:comment).permit(:body, :parent_id)
     end
 
-    def valid_user?
-      current_user.projects.ids.include?(@page.project_id)
+    def set_page
+      @page = @project.pages.find(params[:page_id])
+    end
+
+    def set_project
+      @project = current_user.projects.find(params[:project_id])
     end
   end
 end

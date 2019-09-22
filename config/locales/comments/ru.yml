@@ -1,0 +1,10 @@
+ru:
+  comments:
+    title: Комментарии
+    user_deleted: удалено
+    comment_deleted: удалённый комментарий
+    answer: Ответить
+    delete: Удалить
+    delete_confirmation: Вы уверены, что хотите удалить комментарий?
+    add_comment: Добавьте комментарий
+    warning: Что-то пошло не так
