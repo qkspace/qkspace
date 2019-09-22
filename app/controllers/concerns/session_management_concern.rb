@@ -79,4 +79,9 @@ module SessionManagementConcern
     cookies.delete("session_id")
     true
   end
+
+  def set_locale_for_user
+    locale = session[:locale]
+    current_user&.update(locale: locale)
+  end
 end
