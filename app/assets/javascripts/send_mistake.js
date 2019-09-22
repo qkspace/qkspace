@@ -1,30 +1,42 @@
 $(document).keydown(function(event) {
   if (event.keyCode == 13 && event.ctrlKey) {
-    $('#myModal').modal({
+    $('#sendMistake').modal({
       backdrop: 'static',
       keyboard: true
     });
     var textQuote = copyText();
-    pasteText(textQuote);
+    pasteText(copyText());
   };
 });
 
 function copyText() { 
   if (window.getSelection) { 
-    return textQuote = window.getSelection().toString(); 
+    return window.getSelection().toString(); 
   } else if (document.getSelection) { 
-    return textQuote = document.getSelection(); 
+    return document.getSelection(); 
   } else if (document.selection) { 
-    return textQuote = document.selection.createRange().text; 
+    return document.selection.createRange().text; 
   } 
 } 
 
 function pasteText(textQuote) { 
-  if (textQuote=="") { 
-    alert("Для вставки цитаты в новое сообщение выделите нужный текст и нажмите - Вставить цитату"); 
-    document.getElementById("submit-btn").disabled = true;
+  if (textQuote == "") { 
+    alert("Вы не выделили текст с ошибкой. Выделите его и нажмите Ctrl+Enter."); 
+    document.getElementById("submitButton").disabled = true;
   } else if (textQuote.length > 0) { 
-    document.getElementById("submit-btn").disabled = false;
-    document.getElementById("mistake_field").value += textQuote; 
+    document.getElementById("submitButton").disabled = false;
+    document.getElementById("mistakeField").value += textQuote; 
   } 
 }
+
+$(document).on('turbolinks:load', function() {
+  $('#sendMistakeButton').on('click', function(e) {
+    if (isValid) {
+      grecaptcha.execute();
+    }
+  })
+});
+
+let submitInvisibleRecaptchaForm = function () {
+  $("#invisibleRecaptchaForm").submit();
+};
