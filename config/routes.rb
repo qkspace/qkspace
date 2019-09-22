@@ -14,8 +14,6 @@ end
 
 
 Rails.application.routes.draw do
-  post '/mistake', to: 'mistake#create'
-
   constraints(PublicConstraint) do
     scope module: 'public', as: 'public' do
       root to: 'projects#show'
@@ -31,6 +29,7 @@ Rails.application.routes.draw do
     get 'sign_in/:token', to: 'session/user_tokens#show'
     get 'sign_in/secret/:token', to: 'session/project_secret_tokens#show'
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
+    post 'send_mistake', to: 'mistake#create'
   end
 
   constraints(PrivateConstraint) do
@@ -56,6 +55,7 @@ Rails.application.routes.draw do
     end
 
     resource :users, only: %i[create new edit update destroy]
+
     # If you change anything below — change robots.txt as well
 
     scope module: 'session' do
