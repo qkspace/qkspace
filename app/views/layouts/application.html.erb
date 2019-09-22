@@ -30,10 +30,10 @@
             <%= link_to_unless_current t('views.projects'), private_projects_path %> |
             <%= link_to_switch_locale %> |
             <%= link_to t('views.sidebar.sign_out'), sign_out_path, method: :delete %>
-            <% else # current_user_edits_project? %>
-              <%= link_to fa_icon('pencil'),
-                private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
-            <% end %>
+          <% else # current_user_edits_project? %>
+            <%= link_to fa_icon('pencil'),
+              private_project_page_url(@project, @page, host: area_private_domain), title: t('views.back_to_edit') %>
+          <% end %>
         </div>
       </div>
     <% end %>
@@ -41,89 +41,52 @@
     <% if content_for?(:sidebar) %>
       <div class="row">
         <div class="col">
-        <% else %>
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7">
-            <% end %>
-            <div class="mb-4">
-              <h1><%= content_for(:title) %></h1>
-              <%= content_for(:after_title) %>
-            </div>
-            <% unless notice.blank? %>
-              <div class="alert alert-primary alert-dismissible">
-                <%= notice %>
-                <button type="button" class="close" data-dismiss="alert"">
-                                                   &times;
-                </button>
-              </div>
-            <% end %>
-            <% unless alert.blank? %>
-              <div class="alert alert-danger alert-dismissible">
-                <%= alert %>
-                <button type="button" class="close" data-dismiss="alert"">
-                  &times;
-                </button>
-              </div>
-            <% end %>
-            </div>
+    <% else %>
+       <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+    <% end %>
+          <div class="mb-4">
+            <h1><%= content_for(:title) %></h1>
+            <%= content_for(:after_title) %>
           </div>
-
-
-          <% if content_for?(:sidebar) %>
-            <div class="row">
-              <div class="col-sm-8">
-                <%= yield %>
-              </div>
-              <div class="col-sm-4">
-                <div class="small">
-                  <%= yield :sidebar %>
-                </div>
-              </div>
-            </div>
-          <% else %>
-            <div class="row d-flex justify-content-center">
-              <div class="col-md-7">
-                <%= yield %>
-              </div>
+          <% unless notice.blank? %>
+            <div class="alert alert-primary alert-dismissible">
+              <%= notice %>
+              <button type="button" class="close" data-dismiss="alert"">
+                &times;
+              </button>
             </div>
           <% end %>
-
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7">
-              <small>Нашли ошибку? Выделите её и нажмите Ctrl+Enter, чтобы отправить нам письмо с ошибкой. Мы её обязательно исправим.</small>
+          <% unless alert.blank? %>
+            <div class="alert alert-danger alert-dismissible">
+              <%= alert %>
+              <button type="button" class="close" data-dismiss="alert"">
+                &times;
+              </button>
             </div>
-          </div>
+          <% end %>
+        </div>
+      </div>
 
-          <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" >Сообщение об ошибке<h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                </div>
-                <%= form_tag '/mistake', method: 'post', html: { id: 'invisible-recaptcha-form' } do %>
-                  <div class="modal-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <%= hidden_field_tag :url, request.original_url %>
-                        <center>
-                          <%= text_area_tag :content, nil, rows: 10, cols: 50, class: "col-md-6 ml-auto", id: "mistake_field" %>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <div class="actions">
-                      <%= invisible_recaptcha_tags id: 'submit-btn', class: 'btn btn-large btn-primary', text: 'Отправить' %>
-                      <%#= submit_tag "Отправить", class: 'btn btn-large btn-primary', id: 'fade_button' %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
+
+    <% if content_for?(:sidebar) %>
+      <div class="row">
+        <div class="col-sm-8">
+          <%= yield %>
+        </div>
+        <div class="col-sm-4">
+          <div class="small">
+            <%= yield :sidebar %>
           </div>
         </div>
+      </div>
+    <% else %>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
+    <%= render "mistake_mailer/mistake" %> 
+  </div>
 </html>
