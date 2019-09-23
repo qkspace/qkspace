@@ -29,13 +29,5 @@ module Private
     def comment_params
       params.require(:comment).permit(:body, :parent_id)
     end
-
-    def set_page
-      @page = @project.pages.find(params[:page_id])
-    end
-
-    def set_project
-      @project = current_user.projects.find(params[:project_id])
-    end
   end
 end

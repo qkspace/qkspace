@@ -88,11 +88,14 @@ $(document).on('turbolinks:load', function () {
   });
 
   $(document).ready(function () {
-    $("#comment_body").focus(function () {
+    let $form = $(".form-control.js-comment-body");
+
+    $form .focus(function () {
       window.usedHotkeys = [];
     });
-    $("#comment_body").blur(function () {
+
+    $form .blur(function () {
       hotkeys.activate('private_project_page');
-    })
+    });
   });
 });

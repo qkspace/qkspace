@@ -55,4 +55,8 @@ class Private::PagesController < PrivateController
   def page_params
     params.require(:page).permit(:title, :source)
   end
+
+  def set_page
+    @page = @project.pages.find(params[:id])
+  end
 end

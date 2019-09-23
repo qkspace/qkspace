@@ -17,7 +17,7 @@
 
 <div class="page-content mt-4">
   <h3><%= t('comments.title') %>:</h3>
-  <%= render partial: "private/comments/comment", collection: @page.comments.at_depth(3).order(:created_at) %>
+  <%= render partial: "private/comments/comment", collection: @page.comments.at_depth(3).order(created_at: :desc) %>
 </div>
 
 <% content_for :head do %>

@@ -13,7 +13,7 @@
   <h3><%= t('comments.title') %>:</h3>
   <div id="comments">
     <%= render partial: "private/comments/form" %>
-    <%= render @page.comments.at_depth(3).order(:created_at) %>
+    <%= render @page.comments.at_depth(3).order(created_at: :desc) %>
   </div>
 </div>
 

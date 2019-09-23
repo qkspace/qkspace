@@ -1,15 +1,23 @@
+function insertComment(comment, position) {
+  comment.insertAdjacentHTML(position, "<%= j render partial: "private/comments/comment",
+                            locals: { comment: @comment }, format: :html %>");
+}
+
 <% if @comment.parent_id? %>
-  var comments = document.querySelector("#<%= dom_id(@comment.parent) %>_comments");
+  var comment = document.querySelector("#<%= dom_id(@comment.parent) %>_comments");
+  insertComment(comment, "beforeend")
 <% else %>
-  var comments = document.querySelector("#comments");
+  var comment = document.querySelector("#comments").querySelector('form');
+  insertComment(comment, "afterend")
 <% end %>
 
-comments.insertAdjacentHTML('beforeend', "<%= j render partial: 'private/comments/comment',
-                            locals: { comment: @comment }, format: :html %>");
-
-var form = comments.parentElement.querySelector("form");
+var form = comment.parentElement.querySelector("form");
 form.reset();
 
 <% if @comment.parent_id? %>
   form.classList.toggle("show");
+<% end %>
+
+<% @comment.errors.messages.keys.each do |key| %>
+  $("#comment_<%= key.to_s %>").parents('.form-group').addClass('has-danger');
 <% end %>

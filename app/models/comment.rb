@@ -5,6 +5,8 @@ class Comment < ApplicationRecord
 
   ltree :path
 
+  validates :body, presence: true, allow_blank: false
+
   def soft_delete!
     update!(deleted: true)
   end
