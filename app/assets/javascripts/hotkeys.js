@@ -70,9 +70,7 @@ $(document).on('turbolinks:load', function () {
   };
 
   // Grep for "hotkeys.activate" in app/views/* to find where preset is selected
-  $(document).on('turbolinks:load', function () {
-    hotkeys.activate();
-  });
+  hotkeys.activate();
 
   $(document).keydown(function(e) {
     for (var key in usedHotkeys) {
@@ -87,15 +85,12 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-  $(document).ready(function () {
-    let $form = $(".form-control.js-comment-body");
+  $('form').add('input, textarea').focus(function(){
+    window.savedHotkeys = window.usedHotkeys;
+    window.usedHotkeys = ['post_form', 'abort_form'];
+  });
 
-    $form .focus(function () {
-      window.usedHotkeys = [];
-    });
-
-    $form .blur(function () {
-      hotkeys.activate('private_project_page');
-    });
+   $('form').add('input, textarea').blur(function(){
+    window.usedHotkeys = window.savedHotkeys;
   });
 });

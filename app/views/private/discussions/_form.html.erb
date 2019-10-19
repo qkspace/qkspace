@@ -1,0 +1,12 @@
+<%= simple_form_for([:private, @project, @page, Discussion.new], remote: true, html: {class: local_assigns[:class], id: local_assigns[:id]}) do |f| %>
+  <div class="form-group">
+    <%= f.input :source, as: :text, label: false, placeholder: t('private.discussions.placeholder'),
+          input_html: {rows: 1, class: 'validates-presence'} %>
+  </div>
+
+  <div class="form-group mb-4">
+    <%= f.hidden_field :parent_id, value: local_assigns[:parent_id] %>
+    <%= f.hidden_field :path, value: local_assigns[:path] %>
+    <%= f.button :submit, value: t('.submit'), class: "btn btn-light" %>
+  </div>
+<% end %>

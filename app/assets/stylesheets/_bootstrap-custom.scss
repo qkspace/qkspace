@@ -1,3 +1,5 @@
 $font-family-sans-serif: 'Lato', sans-serif !default;
 
 $primary: #3794de !default;
+
+.btn-light:not([disabled]) { border: 1px solid #ddd !important; }

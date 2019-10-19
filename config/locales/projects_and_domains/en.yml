@@ -15,6 +15,9 @@ en:
         google_analytics_tracker_id: Google Analytics Tracker ID
         private: Only collaborators can view
         secret_enabled: Allow everyone else to view with secret link
+        discussions_enabled: Enable discussions
+        comments_enabled: Enable comments
+        allow_unregistered_comments: Allow comments from unregistered users
 
   # VC
   helpers:
@@ -61,8 +64,11 @@ en:
         notice: Project was saved
       destroy:
         notice: Project was deleted
+      discussion_settings:
+        title: Discussion settings
     shared:
       project_configuration_sidebar:
         main_data: Main data
         domain: Domain
         collaborators: Collaborators
+        discussion_settings: Discussions

@@ -1,16 +1,18 @@
 <%= content_for(:title) { t('.title') } %>
 
-<h4><%= t('.editors') %></h3>
-<table class="table">
-  <% @collaborations.each do |collaboration| %>
-    <tr>
-      <td><%= collaboration.email %></td>
-      <td title="<%= t('.remove_collaborator_hint') %>">
-        <%= link_to fa_icon('times'), private_project_collaborator_path(@project, collaboration), method: :delete, data: {confirm: t('views.are_you_sure')} %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% if @collaborations.any? %>
+  <h4><%= t('.editors') %></h3>
+  <table class="table">
+    <% @collaborations.each do |collaboration| %>
+      <tr>
+        <td><%= collaboration.email %></td>
+        <td title="<%= t('.remove_collaborator_hint') %>">
+          <%= link_to fa_icon('times'), private_project_collaborator_path(@project, collaboration), method: :delete, data: {confirm: t('views.are_you_sure')} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 
 <%= simple_form_for(@collaboration, url: private_project_collaborators_path(@project, @collaboration)) do |f| %>
   <%= f.input :collaborator_email %>

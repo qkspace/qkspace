@@ -1,0 +1,8 @@
+$thread-colors: #2594AF, #7575AF, #50D030;
+
+@for $i from 1 through 50 {
+  .threaded-item-level-#{$i} {
+    margin-left: 5px;
+    border-left: 1px solid nth($thread-colors, ($i - 1) % length($thread-colors) + 1);
+  }
+}

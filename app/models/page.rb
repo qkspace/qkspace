@@ -1,8 +1,10 @@
 require 'commonmarker/headers_renderer'
 
 class Page < ApplicationRecord
+  include MarkdownFieldConcern
+
   belongs_to :project, inverse_of: :pages
-  has_many :comments
+  has_many :discussions, -> { select("*, NLEVEL(path) AS depth") }
 
   scope :ordered, -> { ordered_by_position_asc }
 
@@ -13,8 +15,6 @@ class Page < ApplicationRecord
   after_validation :transfer_slug_error_to_title
 
   before_destroy :validate_onliness
-
-  before_save :markup
 
   acts_as_sortable do |config|
     config[:relation] = ->(instance) { instance.project.pages }
@@ -29,12 +29,6 @@ class Page < ApplicationRecord
 
   def generate_slug
     self.slug = I18n.transliterate(title.to_s, locale: :ru).parameterize.presence
-  end
-
-  def markup
-    node = CommonMarker.render_doc(source, :DEFAULT)
-    renderer = HeadersRenderer.new
-    self.html = renderer.render(node)
   end
 
   def validate_onliness

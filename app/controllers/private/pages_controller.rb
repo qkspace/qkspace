@@ -3,6 +3,19 @@ class Private::PagesController < PrivateController
   before_action :set_page, only: %i[show edit update destroy next previous]
 
   def show
+    if @project.discussions_enabled?
+      select_fields = <<~SQL
+        EXISTS (
+          SELECT 1 FROM threaded_items ti2
+          WHERE threaded_items.path @> ti2.path
+            AND ti2.id != threaded_items.id
+            AND NOT ti2.deleted
+        ) AS has_children
+      SQL
+
+      @discussions =
+        @page.discussions.select(select_fields).order(:path).includes(:user)
+    end
   end
 
   def next

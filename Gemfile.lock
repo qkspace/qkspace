@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/sjke/pg_ltree.git
+  revision: eb1d6c62fd3ebf04c7420909957c08c5ab624538
+  ref: eb1d6c62fd3ebf04c7420909957c08c5ab624538
+  specs:
+    pg_ltree (1.1.7)
+      activerecord (>= 4.0.0, <= 6.0.0.rc1)
+      pg (>= 0.17.0, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,9 +126,6 @@ GEM
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
-    pg_ltree (1.1.7)
-      activerecord (>= 4.0.0, < 5.3)
-      pg (>= 0.17.0, < 2)
     popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.0)
@@ -147,6 +153,8 @@ GEM
     rails-i18n (5.1.1)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
+    rails_select_on_includes (5.2.1)
+      activerecord (>= 5.2.1)
     railties (5.2.3)
       actionpack (= 5.2.3)
       activesupport (= 5.2.3)
@@ -255,10 +263,11 @@ DEPENDENCIES
   letter_opener_web
   listen
   pg
-  pg_ltree (= 1.1.7)
+  pg_ltree!
   puma
   rails (~> 5.2)
   rails-i18n
+  rails_select_on_includes
   recaptcha
   rspec-rails
   sass-rails

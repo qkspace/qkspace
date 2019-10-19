@@ -1,0 +1,19 @@
+<% if discussions.present? %>
+  <% [nil, *discussions, nil].each_cons(3) do |previous_discussion, this_discussion, next_discussion| %>
+    <% if previous_discussion %>
+      <% (previous_discussion['depth'] - this_discussion['depth']).times do %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= render 'private/discussions/discussion', discussion: this_discussion %>
+
+    <% if next_discussion && next_discussion['depth'] > this_discussion['depth'] %>
+      <div class="threaded-item-level-<%= next_discussion['depth'] %>">
+    <% end %>
+  <% end %>
+
+  <% (discussions[-1]['depth'] - 1).times do %>
+    </div>
+  <% end %>
+<% end %>

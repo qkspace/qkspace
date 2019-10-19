@@ -1,0 +1,34 @@
+<% if !discussion.deleted? || discussion['has_children'] %>
+  <div class="mb-4 my-3 pl-3" id="<%= dom_id(discussion) %>">
+    <%= tag.div id: "#{dom_id(discussion)}_itself" do %>
+      <% if discussion.deleted? %>
+        <p><i><%= t('private.discussions.deleted') %></i></p>
+      <% else %>
+        <strong> <%= discussion.user.email %></strong>
+        <div class="small text-muted mb-2">
+          <%= discussion.created_at.strftime("%d-%m-%Y %H:%M") %>
+        </div>
+
+        <%= discussion.html.html_safe %>
+
+        <% if signed_in? %>
+          <div class="mt-n2">
+            <%= link_to t('private.discussions.answer'), "#discussion_form_#{discussion.id}", data: {toggle: :collapse} %>
+
+            <% if current_user == @project.owner || discussion.user == current_user %>
+            <%= link_to t('private.discussions.delete'), [:private, @project, @page, discussion],
+                  class: "ml-2",
+                  method: :delete,
+                  data: {confirm: t('private.discussions.delete_confirmation')} %>
+            <% end %>
+
+            <div class="mt-2 ml-2">
+              <%= render partial: "private/discussions/form",
+                    locals: {parent_id: discussion.id, id: "discussion_form_#{discussion.id}", class: "collapse"} %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

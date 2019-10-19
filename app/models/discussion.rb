@@ -1,0 +1,2 @@
+class Discussion < ThreadedItem
+end

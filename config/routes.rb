@@ -12,6 +12,9 @@ class PrivateConstraint
   end
 end
 
+Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+end
 
 Rails.application.routes.draw do
   constraints(PublicConstraint) do
@@ -39,10 +42,9 @@ Rails.application.routes.draw do
         get :check_slug, on: :collection
         get :redirect_to_public, on: :member
 
-        resource :domain, only: %i[create destroy edit]
-
         resources :pages do
-          resources :comments
+          resources :discussions
+
           member do
             post :move
             get  :next
@@ -50,7 +52,12 @@ Rails.application.routes.draw do
           end
         end
 
+        # sidebar in project settings
+        resource :domain, only: %i[create destroy edit]
         resources :project_collaborations, as: :collaborators, path: :collaborators, only: %i[create destroy index]
+        member do
+          get :discussion_settings
+        end
       end
     end
 

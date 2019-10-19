@@ -9,13 +9,16 @@
   <%= @page.html.html_safe %>
 </div>
 
-<div class="page-content mt-4">
-  <h3><%= t('comments.title') %>:</h3>
-  <div id="comments">
-    <%= render partial: "private/comments/form" %>
-    <%= render @page.comments.at_depth(3).order(created_at: :desc) %>
+<% if @project.discussions_enabled? %>
+  <div class="page-content mt-4">
+    <h4><%= t('private.discussions.title') %> <small><%= t('private.discussions.title_hint') %></small></h4>
+    <div id="discussions">
+      <%= render partial: "private/discussions/form" %>
+
+      <%= render 'private/discussions/tree', discussions: @discussions %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <% content_for :sidebar do %>
   <%= render partial: 'sidebar' %>

@@ -15,6 +15,9 @@ ru:
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
         private: Могут смотреть только соавторы
         secret_enabled: Разрешить всем другим смотреть по секретной ссылке
+        discussions_enabled: Включить обсуждения
+        comments_enabled: Включить комментарии
+        allow_unregistered_comments: Разрешить комментарии от незарегистрированных пользователей
 
   # VC
   helpers:
@@ -59,8 +62,14 @@ ru:
         notice: Проект изменён
       destroy:
         notice: Проект был удалён
+      discussion_settings:
+        title: Настройки обсуждений
+        discussions_enabled_hint: Разрешить соавторам обмениваться видимыми только для них репликами в интерфейсе редактирования страниц
+        comments_enabled_hint: Разрешить оставлять публичные комментарии к страницам
+        allow_unregistered_comments_hint: Разрешить оставлять публичные комментарии даже незарегистрированным в QKspace
     shared:
       project_configuration_sidebar:
         main_data: Основные данные
         domain: Домен
         collaborators: Соавторы
+        discussion_settings: Обсуждения

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-throttle-debounce
 //= require jquery-ui/widgets/sortable
+//= require jquery-ui/effects/effect-highlight
 //= require bootstrap
 //= require clipboard
 //= require sortable
@@ -40,7 +41,33 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
+  $('#project-comments-enabled-checkbox').change(function() {
+    let commentsEnabled = $(this).prop('checked');
+    $('#project-alow-unregistered-comments-checkbox').prop('disabled', !commentsEnabled);
+  })
+});
+
+$(document).on('turbolinks:load', function() {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
   hljs.initHighlighting.called = false;
   hljs.initHighlighting();
+});
+
+$(document).on('input', '.validates-presence', function() {
+  let submit = $(this).parents('form').find('input[type=submit]');
+
+  if ($(this).val() === "") {
+    submit.prop('disabled', true);
+  } else {
+    submit.prop('disabled', false);
+  }
+});
+
+
+$(document).on('turbolinks:load', function() {
+  hash = $(location).attr('hash');
+
+  if (hash != "") {
+    $(hash).effect("highlight");
+  };
 });

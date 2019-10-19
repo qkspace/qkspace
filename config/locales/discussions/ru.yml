@@ -1,0 +1,13 @@
+ru:
+  private:
+    discussions:
+      title: Обсуждения
+      title_hint: (только для соавторов)
+      deleted: Удалённая реплика
+      answer: Ответить
+      delete: Удалить
+      delete_confirmation: Вы уверены, что хотите удалить реплику?
+      placeholder: Напишите свою реплику
+      warning: Что-то пошло не так
+      form:
+        submit: Отправить

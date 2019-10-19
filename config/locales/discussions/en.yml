@@ -1,0 +1,13 @@
+en:
+  private:
+    discussions:
+      title: Discussions
+      title_hint: (collaborators only)
+      deleted: Deleted line
+      answer: Reply
+      delete: Delete
+      delete_confirmation: Are you sure, you want to delete this line?
+      placeholder: Add your line
+      warning: Something went wrong
+      form:
+        submit: Send

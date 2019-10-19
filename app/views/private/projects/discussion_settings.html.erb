@@ -1,0 +1,13 @@
+<%= content_for(:title) { t('.title') } %>
+
+<%= simple_form_for([:private, @project]) do |f| %>
+  <%= f.input :discussions_enabled, wrapper_html: {class: 'mt-4'}, input_html: {id: 'project-discussions-enabled-checkbox'}, hint: t('.discussions_enabled_hint') %>
+  <%= f.input :comments_enabled, input_html: {id: 'project-comments-enabled-checkbox'}, hint: t('.comments_enabled_hint') %>
+  <%= f.input :allow_unregistered_comments, disabled: !@project.comments_enabled, input_html: {id: 'project-alow-unregistered-comments-checkbox'}, hint: t('.allow_unregistered_comments_hint') %>
+
+  <%= f.button :submit, class: 'btn-light' %> <%= or_back_link %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render partial: 'private/shared/project_configuration_sidebar' %>
+<% end %>

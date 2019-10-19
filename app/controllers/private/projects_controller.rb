@@ -1,6 +1,6 @@
 class Private::ProjectsController < PrivateController
   before_action :set_project, only: %i[show redirect_to_public]
-  before_action :set_owned_project, only: %i[edit update update_domain destroy]
+  before_action :set_owned_project, only: %i[edit discussion_settings update update_domain destroy]
 
   def index
     @owned_projects = current_user.owned_projects
@@ -14,6 +14,9 @@ class Private::ProjectsController < PrivateController
     page = @project.pages.first
 
     redirect_to private_project_page_path(@project, page)
+  end
+
+  def discussion_settings
   end
 
   def new
@@ -69,7 +72,8 @@ class Private::ProjectsController < PrivateController
     params.require(:project).permit(
       :title, :slug,
       :google_analytics_tracker_id,
-      :private, :secret_enabled
+      :private, :secret_enabled,
+      :discussions_enabled, :comments_enabled, :allow_unregistered_comments
     )
   end
 
