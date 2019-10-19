@@ -7,19 +7,19 @@ ru:
           not_confirmed: Этот пользователь должен сначала подтвердить свой email
     attributes:
       project_collaboration:
-        collaborator_email: Email участника
+        collaborator_email: Email соавтора
 
   # VC
   private:
     project_collaborations:
       create:
-        title: Участники
-        notice: Участник добавлен
+        title: Соавторы
+        notice: Соавтор добавлен
       destroy:
-        notice: Участник удален
+        notice: Соавтор удален
       index:
         add_editor: Добавить редактора
-        collaborators: Участники
+        collaborators: Соавторы
         editors: Редакторы
-        remove_collaborator_hint: Исключить участника
-        title: Участники
+        remove_collaborator_hint: Исключить соавтора
+        title: Соавторы

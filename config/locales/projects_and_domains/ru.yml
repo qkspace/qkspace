@@ -13,7 +13,7 @@ ru:
         slug: Поддомен
         domain: Свой домен
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
-        private: Могут смотреть только участники
+        private: Могут смотреть только соавторы
         secret_enabled: Разрешить всем другим смотреть по секретной ссылке
 
   # VC
@@ -41,13 +41,13 @@ ru:
       index:
         title: Все проекты
         cant_edit_collaborated_project: Вы не можете редактировать этот проект
-        collaborating: Участник проекта
+        collaborating: Соавтор проекта
         create: Создать проект
         destroy_hint: Удалить
         edit_hint: Редактировать
-        private_hint: Проект частный — смотреть могут только участники
+        private_hint: Проект частный — смотреть могут только соавторы
         public_hint: Перейти на публичную страницу
-        secret_link_hint: Смотреть могут только участники и те, у кого есть ссылка (нажмите для копирования секретной ссылки)
+        secret_link_hint: Смотреть могут только соавторы и те, у кого есть ссылка (нажмите для копирования секретной ссылки)
         stop_collaborating_hint: Выйти из проекта
       edit:
         title: Редактирование проекта
@@ -63,4 +63,4 @@ ru:
       project_configuration_sidebar:
         main_data: Основные данные
         domain: Домен
-        collaborators: Участники
+        collaborators: Соавторы
