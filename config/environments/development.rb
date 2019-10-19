@@ -31,16 +31,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => '91f2795126471a',
-    :password => 'b9c617d57709bf',
-    :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-  }
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
