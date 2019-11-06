@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'sign_in/:token', to: 'session/user_tokens#show'
     get 'sign_in/secret/:token', to: 'session/project_secret_tokens#show'
     match 'sign_out', to: 'sessions#destroy', via: %i[get delete]
+    post 'send_mistake', to: 'mistake#create'
   end
 
   constraints(PrivateConstraint) do

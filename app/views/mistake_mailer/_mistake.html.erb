@@ -1,0 +1,37 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-7">
+    <small><%= I18n.t('layout.description') %></small>
+  </div>
+</div>
+
+<div id="sendMistake" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Сообщение об ошибке<h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+      </div>
+
+      <%= form_tag 'send_mistake', method: 'post', html: { id: 'invisibleRecaptchaForm' } do %>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <%= hidden_field_tag 'mistake[url]', request.original_url %>
+              <center>
+                <%= text_area_tag 'mistake[content]', nil, rows: 10, cols: 50, class: "col-md-6 ml-auto", id: "mistakeField" %>
+              </center>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <div class="actions">
+            <%= invisible_recaptcha_tags id: 'submitButton', class: 'btn btn-large btn-primary', text: 'Отправить' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+ru:
+  # Mailer
+  mistake_mailer:
+    mistake:
+      subject: Найдена ошибка в проекте %{project}
+  # MistakeController
+  mistake_controller:
+    create:
+      success: Ваше сообщение с ошибкой успешно отправлено
+  # layout
+  layout:
+    description: Нашли ошибку? Выделите её и нажмите Ctrl+Enter, чтобы отправить нам письмо с ошибкой. Мы её обязательно исправим.

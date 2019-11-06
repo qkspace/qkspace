@@ -15,6 +15,10 @@
   cursor: pointer;
 }
 
+.grecaptcha-badge {
+  display: none;
+}
+
 .page-content {
   blockquote {
     border-left: 5px solid $gray-400;

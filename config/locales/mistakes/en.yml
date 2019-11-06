@@ -1,0 +1,12 @@
+en:
+  # Mailer
+  mistake_mailer:
+    mistake:
+      subject: The mistake found in the %{project}
+  # MistakeController
+  mistake_controller:
+    create:
+      success: Your error message was sent successfully
+  # layout
+  layout:
+    description: Found a mistake? Select it and press Ctrl + Enter to send us an error message. We will definitely fix it. 
