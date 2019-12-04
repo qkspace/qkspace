@@ -69,6 +69,7 @@ class Private::ProjectsController < PrivateController
     params.require(:project).permit(
       :title, :slug,
       :google_analytics_tracker_id,
+      :yandex_metrika_tracker_id,
       :private, :secret_enabled
     )
   end

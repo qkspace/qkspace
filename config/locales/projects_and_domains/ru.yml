@@ -13,6 +13,7 @@ ru:
         slug: Поддомен
         domain: Свой домен
         google_analytics_tracker_id: Идентификатор счетчика Google Analytics
+        yandex_metrika_tracker_id: Номер счетчика Яндекс.Метрики
         private: Могут смотреть только участники
         secret_enabled: Разрешить всем другим смотреть по секретной ссылке
 
