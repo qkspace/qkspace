@@ -3,6 +3,7 @@
   <%= f.input :slug, hint: '', input_html: { data: { locale: I18n.locale } } %>
 
   <%= f.input :google_analytics_tracker_id, hint: t('views.for_example', text: 'UA-124200793-1'), wrapper_html: {class: 'mt-4'} %>
+  <%= f.input :yandex_metrika_tracker_id, hint: t('views.for_example', text: '53582401'), wrapper_html: {class: 'mt-4'} %>
 
   <%= f.input :private, wrapper_html: {class: 'mt-4'}, input_html: {id: 'project-private-checkbox'} %>
   <%= f.input :secret_enabled, disabled: !project.private, input_html: {id: 'project-secret-enabled-checkbox'} %>

@@ -15,6 +15,13 @@
   <% end %>
 <% end %>
 
+<% if @project.yandex_metrika_tracker_id.present? %>
+  <% content_for :head do %>
+    <%= render 'yandex_metrika_tracker',
+      tracker_id: @project.yandex_metrika_tracker_id %>
+  <% end %>
+<% end %>
+
 <% content_for :head do %>
  <%= render 'seo_tags' %>
 <% end %>
