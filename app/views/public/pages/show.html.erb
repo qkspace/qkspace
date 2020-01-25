@@ -8,20 +8,21 @@
   <%= render 'sidebar' %>
 <% end %>
 
-<% if @project.google_analytics_tracker_id.present? %>
-  <% content_for :head do %>
+<% content_for :head do %>
+  <% if @project.google_analytics_tracker_id.present? %>
     <%= render 'google_analytics_tracker',
       tracker_id: @project.google_analytics_tracker_id %>
   <% end %>
-<% end %>
 
-<% if @project.yandex_metrika_tracker_id.present? %>
-  <% content_for :head do %>
+  <% if @project.google_remarketing_tracker_id.present? %>
+    <%= render 'google_analytics_tracker',
+      tracker_id: @project.google_analytics_tracker_id %>
+  <% end %>
+
+  <% if @project.yandex_metrika_tracker_id.present? %>
     <%= render 'yandex_metrika_tracker',
       tracker_id: @project.yandex_metrika_tracker_id %>
   <% end %>
-<% end %>
 
-<% content_for :head do %>
- <%= render 'seo_tags' %>
+  <%= render 'seo_tags' %>
 <% end %>
