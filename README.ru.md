@@ -1,3 +1,5 @@
+<img src="./public/images/logo.png" width="300" height="240" alt="QKspace Logo">
+
 # Что такое QKspace?
 
 QKspace (читается «квик спэйс») это минималистичная база знаний для небольших команд.
