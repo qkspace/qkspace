@@ -1,4 +1,4 @@
-![QKspace Logo](/public/images/logo.png "QKspace Logo"|width=300px)
+![QKspace Logo](/public/images/logo.png "QKspace Logo")
 
 QKspace (pronounced "quick space") is a minimalistic knowledge base for small teams.
 
