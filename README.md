@@ -1,3 +1,5 @@
+![QKspace Logo](/public/images/logo.png "QKspace Logo")
+
 QKspace (pronounced "quick space") is a minimalistic knowledge base for small teams.
 
 It is perfect for creating a course reference base for an educational organisation, for making a QnA list in the IT, for exchanging knowledge within social work teams, for making a thematic list of personal quotes and notes.
