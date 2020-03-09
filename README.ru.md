@@ -1,3 +1,5 @@
+![QKspace Logo](/public/images/logo.png "QKspace Logo")
+
 # Что такое QKspace?
 
 QKspace (читается «квик спэйс») это минималистичная база знаний для небольших команд.
