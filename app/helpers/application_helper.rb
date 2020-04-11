@@ -32,4 +32,10 @@ module ApplicationHelper
       {locale: next_locale},
       title: t('views.switch_locale', locale: next_locale)
   end
+
+  def main_host_url(path)
+    uri = URI::HTTP.build(host: Rails.application.config.x.host, port: request.port, path: path)
+    uri.scheme = request.scheme
+    uri.to_s
+  end
 end

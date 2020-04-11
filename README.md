@@ -54,3 +54,5 @@ MIT.
 See `LICENSE` for full text.
 
 See `THIRDPARTY-LICENSES` for third-party licenses' texts.
+
+This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
