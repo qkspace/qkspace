@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_122919) do
+ActiveRecord::Schema.define(version: 2020_01_25_145933) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_122919) do
     t.boolean "secret_enabled", default: false, null: false
     t.string "secret_token"
     t.string "yandex_metrika_tracker_id"
+    t.string "google_remarketing_tracker_id"
     t.index ["domain"], name: "index_projects_on_domain", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end

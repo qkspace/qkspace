@@ -1,0 +1,14 @@
+<% if @project.google_analytics_tracker_id.present? %>
+  <%= render 'google_analytics_tracker',
+    tracker_id: @project.google_analytics_tracker_id %>
+<% end %>
+
+<% if @project.google_remarketing_tracker_id.present? %>
+  <%= render 'google_remarketing_tracker',
+    tracker_id: @project.google_remarketing_tracker_id %>
+<% end %>
+
+<% if @project.yandex_metrika_tracker_id.present? %>
+  <%= render 'yandex_metrika_tracker',
+    tracker_id: @project.yandex_metrika_tracker_id %>
+<% end %>

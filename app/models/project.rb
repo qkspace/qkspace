@@ -32,6 +32,9 @@ class Project < ApplicationRecord
   validates :google_analytics_tracker_id,
     format: { with: /\AUA-\d*-\d*\z/, allow_blank: true }
 
+  validates :google_remarketing_tracker_id,
+    format: { with: /\AAW-\d*\z/, allow_blank: true }
+
   def generate_first_page
     pages.build(title: title, source: '')
   end
