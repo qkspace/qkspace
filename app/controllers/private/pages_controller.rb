@@ -1,6 +1,11 @@
 class Private::PagesController < PrivateController
+  include OgImageHelper
+  include ActionView::Helpers::SanitizeHelper
+  include ActionView::Helpers::TextHelper
+
   before_action :set_project
   before_action :set_page, only: %i[show edit update destroy next previous]
+  before_action :og_image, except: %i[show next previous]
 
   def show
   end

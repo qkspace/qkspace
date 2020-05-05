@@ -153,6 +153,7 @@ GEM
       ffi (~> 1.0)
     recaptcha (4.12.0)
       json
+    rmagick (4.1.1)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -252,6 +253,7 @@ DEPENDENCIES
   rails (~> 5.2)
   rails-i18n
   recaptcha
+  rmagick
   rspec-rails
   sass-rails
   simple_form
