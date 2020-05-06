@@ -5,7 +5,7 @@ class Page < ApplicationRecord
 
   scope :ordered, -> { ordered_by_position_asc }
 
-  validates :title, :slug, presence: true
+  validates :title, :slug, presence: true, length: { maximum: 40 }
   validates :slug, uniqueness: { scope: :project_id }
 
   before_validation :generate_slug

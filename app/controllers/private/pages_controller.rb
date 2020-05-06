@@ -5,7 +5,7 @@ class Private::PagesController < PrivateController
 
   before_action :set_project
   before_action :set_page, only: %i[show edit update destroy next previous]
-  before_action :og_image, only: %i[show]
+  after_action  :og_image, only: %i[edit create update]
 
   def show
   end
