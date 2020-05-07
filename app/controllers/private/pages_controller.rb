@@ -1,11 +1,7 @@
 class Private::PagesController < PrivateController
-  include OgImageHelper
-  include ActionView::Helpers::SanitizeHelper
-  include ActionView::Helpers::TextHelper
-
   before_action :set_project
   before_action :set_page, only: %i[show edit update destroy next previous]
-  after_action  :og_image, only: %i[edit create update]
+  before_action :generate_og_image, only: %i[create edit update]
 
   def show
   end
@@ -67,5 +63,9 @@ class Private::PagesController < PrivateController
 
   def set_project
     @project = current_user.projects.find(params[:project_id])
+  end
+
+  def generate_og_image
+    OgImageWorker.perform_async(@project.id, @page.id, @page.title)
   end
 end
