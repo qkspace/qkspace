@@ -38,4 +38,8 @@ module ApplicationHelper
     uri.scheme = request.scheme
     uri.to_s
   end
+
+  def opengraph_image_link
+    main_host_url("/images/opengraph/#{@project.id}/#{@page.id}/og-image.png")
+  end
 end

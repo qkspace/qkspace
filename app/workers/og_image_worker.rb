@@ -6,7 +6,7 @@ class OgImageWorker
     img = Magick::ImageList.new("#{Rails.root}/public/images/qkspace.png")
 
     title = Magick::Draw.new
-    title.font = "#{Rails.root.join}/public/assets/Lato-Regular.woff"
+    title.font = "#{Rails.root}/public/assets/Lato-Regular.woff"
     title.pointsize = 46
     title.fill = 'white'
     title.gravity = Magick::CenterGravity
