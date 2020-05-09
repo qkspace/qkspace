@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_01_25_145933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
+    t.index ["project_id"], name: "index_project_collaborations_on_project_id"
     t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_01_25_145933) do
     t.string "type"
     t.integer "project_id"
     t.index ["token"], name: "index_sessions_on_token", unique: true
+    t.index ["user_id"], name: "authenticatable"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
