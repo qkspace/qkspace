@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function () {
       initialValue: textarea.value,
       initialEditType: 'markdown',
       previewStyle: 'tab',
-      height: '640px'
+      height: '320px'
     });
 
     form.addEventListener('submit', function () {
