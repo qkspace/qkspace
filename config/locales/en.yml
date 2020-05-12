@@ -4,8 +4,6 @@ en:
       create: Create
       update: Save
   views:
-    layouts:
-      lang: en
     are_you_sure: Are you sure?
     back: back
     or_back_link: or %{href}

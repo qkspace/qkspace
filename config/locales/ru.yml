@@ -4,8 +4,6 @@ ru:
       create: Создать
       update: Сохранить
   views:
-    layouts:
-      lang: ru
     are_you_sure: Вы уверены?
     back: вернуться
     or_back_link: или %{href}
