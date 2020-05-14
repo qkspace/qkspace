@@ -19,7 +19,7 @@ describe Session::UserTokensController do
       mail = ActionMailer::Base.deliveries.last
 
       expect(mail.to).to eq [@user.email]
-      expect(mail.body.to_s).to match(/http:\/\/.*\/sign_in\/.*/)
+      expect(mail.parts.first.body.to_s).to match(/http:\/\/.*\/sign_in\/.*/)
     end
 
     it 'shows error for non-existing email' do

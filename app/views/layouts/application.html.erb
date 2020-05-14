@@ -38,36 +38,32 @@
       </div>
     <% end %>
 
-    <% if content_for?(:sidebar) %>
-      <div class="row">
-        <div class="col">
-    <% else %>
-       <div class="row d-flex justify-content-center">
-        <div class="col-md-7">
-    <% end %>
-          <div class="mb-4">
-            <h1><%= content_for(:title) %></h1>
-            <%= content_for(:after_title) %>
-          </div>
-          <% unless notice.blank? %>
-            <div class="alert alert-primary alert-dismissible">
-              <%= notice %>
-              <button type="button" class="close" data-dismiss="alert"">
-                &times;
-              </button>
-            </div>
-          <% end %>
-          <% unless alert.blank? %>
-            <div class="alert alert-danger alert-dismissible">
-              <%= alert %>
-              <button type="button" class="close" data-dismiss="alert"">
-                &times;
-              </button>
-            </div>
-          <% end %>
+    <% row_class, col_class =
+      content_for?(:sidebar) ? ['row', 'col'] : ['row d-flex justify-content-center', 'col-md-7'] %>
+    <div class="<%= row_class %>">
+      <div class="<%= col_class %>">
+        <div class="mb-4">
+          <h1><%= content_for(:title) %></h1>
+          <%= content_for(:after_title) %>
         </div>
+        <% unless notice.blank? %>
+          <div class="alert alert-primary alert-dismissible">
+            <%= notice %>
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+          </div>
+        <% end %>
+        <% unless alert.blank? %>
+          <div class="alert alert-danger alert-dismissible">
+            <%= alert %>
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+          </div>
+        <% end %>
       </div>
-
+    </div>
 
     <% if content_for?(:sidebar) %>
       <div class="row">
