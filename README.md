@@ -100,7 +100,7 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
   - `sudo nano /etc/redis/redis.conf`
   - find for string `supervised` in the file and replace `systemd` instead of `no`.
   - then find string `dir` and instead of `./` insert: `dir /var/lib/redis`
-  - `push ctrl + O`, `enter` and `ctrl + X`
+  - push `ctrl + O`, `enter` and `ctrl + X`
 - create one more file for systemd
   - `sudo nano /etc/systemd/system/redis.service`
   - Add the following to this file
