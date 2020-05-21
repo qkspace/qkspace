@@ -20,6 +20,8 @@ class OgImageWorker
   private
 
   def wrap_text(text, col = 50)
+    # Regular expression to limit the number of chars per line
+    # default 50 chars each line
     text.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/, "\\1\\3\n")
   end
 end
