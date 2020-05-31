@@ -54,4 +54,5 @@ pages_update_2 = Page.where(id: (6..10)).update(
   Nullam justo ex, dignissim ut lectus quis, consectetur consequat nunc. Duis ante tellus, facilisis non facilisis nec, maximus ut lacus. Suspendisse dictum,
   ligula vitae consectetur ullamcorper, tortor elit lobortis diam, et iaculis mi nibh nec eros.</p><br>
   Vivamus porta laoreet sapien eu pulvinar. Curabitur aliquet urna quam, sagittis vestibulum nulla tempus non. Ut quis aliquam est.
-  Integer dui velit, vestibulum nec lorem nec, placerat fermentum dui. Pellentesque risus tellus, venenatis auctor arcu in, fermentum consequat sem.</p>')
+  Integer dui velit, vestibulum nec lorem nec, placerat fermentum dui. Pellentesque risus tellus, venenatis auctor arcu in, fermentum consequat sem.</p>'
+)
