@@ -38,11 +38,11 @@ Regarding commercial collaboration please contact us at business@qkspace.com
 
 # Developers
 
-[Vadim Venediktov](https://github.com/installero)
-[Eugene Zolotarev](https://github.com/EugZol)
-[Aleksander Klimenkov](https://github.com/prisioner)
-[Dmitry Smirnov](https://github.com/vergilsm)
-[Igor Stroganov](https://github.com/Gargantua88)
+[Vadim Venediktov](https://github.com/installero)  
+[Eugene Zolotarev](https://github.com/EugZol)  
+[Aleksander Klimenkov](https://github.com/prisioner)  
+[Dmitry Smirnov](https://github.com/vergilsm)  
+[Igor Stroganov](https://github.com/Gargantua88)  
 [Dmitry Malyshev](https://github.com/tenseisan)
 
 The developers' contributions are listed on the [corresponding page](https://github.com/qkspace/qkspace/graphs/contributors).
@@ -57,45 +57,31 @@ See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
 
-# Install ImageMagick on Ubuntu:
+# installing  
+
+## Install ImageMagick on Ubuntu  
 
 - `sudo apt-get update`
 - `sudo apt-get upgrade`
 - `sudo apt-get install imagemagick`
 
-# Install Redis
-### on development(local) Ubuntu:
+## Install Redis  
+
+### on development(local) Ubuntu  
 
 - `sudo apt-get update`
 - `sudo apt-get upgrade`
 - `sudo apt-get install redis-server`
 
-### Check installation
+### Check installation  
 - `redis-server -v`
 
-### on production(remote) Ubuntu:
+### on production(remote) Ubuntu  
 
 - `sudo apt-get update`
 - `sudo apt-get upgrade`
+- `sudo apt-get install redis-server`
 
-- install the necessary packages:
-  - `sudo apt-get install build-essential tcl`
-- go to the temporary folder
-  - `cd /tmp`
-- download the stable version of Redis
-  - `curl -O http://download.redis.io/redis-stable.tar.gz`
-- Unpack
-  - `tar xzvf redis-stable.tar.gz`
-- go to the unpacked folder
-  - `cd redis-stable`
-- compile binary files, and testing them
-  - `make`
-  - `make test`
-- install binary files
-  - `sudo make install`
-- configure Redis, and copy the default config to new folder
-  - `sudo mkdir /etc/redis`
-  - `sudo cp /tmp/redis-stable/redis.conf /etc/redis`
 - open this config and write the necessary settings
   - `sudo nano /etc/redis/redis.conf`
   - find for string `supervised` in the file and replace `systemd` instead of `no`.
@@ -129,6 +115,6 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 - And add Redis to autoload
   - `sudo systemctl enable redis`
 
-### Check installation
+### Check installation  
 - `sudo systemctl start redis`
 - `sudo systemctl status redis`
