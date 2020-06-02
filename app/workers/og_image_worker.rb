@@ -15,7 +15,7 @@ class OgImageWorker
     dir = "#{Rails.root}/public/images/opengraph/#{project_id}/#{page_id}"
     FileUtils.mkdir_p(dir)
 
-    img.write("#{dir}/og-image.png")
+    img.write("#{dir}/og-image.jpg")
   end
 
   private
