@@ -57,7 +57,7 @@ See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
 
-# installing  
+# Installing  
 
 ## Install ImageMagick on Ubuntu  
 
@@ -82,38 +82,8 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 - `sudo apt-get upgrade`
 - `sudo apt-get install redis-server`
 
-- open this config and write the necessary settings
-  - `sudo nano /etc/redis/redis.conf`
-  - find for string `supervised` in the file and replace `systemd` instead of `no`.
-  - then find string `dir` and instead of `./` insert: `dir /var/lib/redis`
-  - push `ctrl + O`, `enter` and `ctrl + X`
-- create one more file for systemd
-  - `sudo nano /etc/systemd/system/redis.service`
-  - Add the following to this file
-    ```
-    [Unit]
-    Description=Redis In-Memory Data Store
-    After=network.target
-
-    [Service]
-    User=redis
-    Group=redis
-    ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
-    ExecStop=/usr/local/bin/redis-cli shutdown
-    Restart=always
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-  - save and exit
--  Create a system user, group and folder to run Redis
-    - `sudo mkdir /var/lib/redis`
-    - `sudo adduser --system --group --no-create-home redis`
-    - `sudo chown redis:redis /var/lib/redis`
-    - and we disable other users to access this folder:
-      - `sudo chmod 770 /var/lib/redis`
 - And add Redis to autoload
-  - `sudo systemctl enable redis`
+  - `sudo systemctl enable redis-server`
 
 ### Check installation  
 - `sudo systemctl start redis`

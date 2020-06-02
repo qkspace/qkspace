@@ -13,6 +13,6 @@ namespace :og_images do
       puts "Processing #{index} of #{pages.size}" if (index % 25).zero?
     end
 
-    puts "\rProcessing complete. Generated #{pages.size} images."
+    puts "Processing complete. Generated #{pages.size} images."
   end
 end
