@@ -99,8 +99,8 @@ To setup a Sidekiq Systemd service, you need a service configuration file. An ex
   2. The `ExecStart` path. This specifies the path and command to start Sidekiq. Now this could be different depending on your settings and ruby version managers (if you use one).
   For example:  
   `ExecStart=/home/deploy/.rbenv/shims/bundle exec sidekiq -e production`
-- After setting up configuration,   enable the Sidekiq service with:  
-  `systemctl enable` 
+- After setting up configuration, enable the Sidekiq service with:  
+  `sudo systemctl enable` 
   
 - Other commands:  
   ```
