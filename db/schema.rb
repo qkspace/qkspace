@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_145933) do
+ActiveRecord::Schema.define(version: 2020_05_16_200203) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_01_25_145933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
-    t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
