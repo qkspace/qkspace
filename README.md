@@ -86,5 +86,26 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
   - `sudo systemctl enable redis-server`
 
 ### Check installation  
+
 - `sudo systemctl start redis`
 - `sudo systemctl status redis`
+
+## Running Sidekiq in production using Systemd  
+
+To setup a Sidekiq Systemd service, you need a service configuration file. An example file can be found in the [Sidekiq github repo.](https://github.com/mperham/sidekiq/tree/master/examples/systemd)
+- Copy this file to your server and place it in `/lib/systemd/system` There are two lines here that require adjustment to your settings;
+  1. The working directory path, change this to you application path, for example:  
+  `WorkingDirectory=/home/deploy/my_app/current`
+  2. The `ExecStart` path. This specifies the path and command to start Sidekiq. Now this could be different depending on your settings and ruby version managers (if you use one).
+  For example:  
+  `ExecStart=/home/deploy/.rbenv/shims/bundle exec sidekiq -e production`
+- After setting up configuration,   enable the Sidekiq service with:  
+  `systemctl enable` 
+  
+- Other commands:  
+  ```
+  systemctl stop sidekiq  
+  systemctl start sidekiq
+  systemctl restart sidekiq
+  systemctl kill -s TSTP sidekiq # quiet
+  ```
