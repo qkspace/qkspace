@@ -1,7 +1,6 @@
 class Private::PagesController < PrivateController
   before_action :set_project
   before_action :set_page, only: %i[show edit update destroy next previous]
-  before_action :generate_og_image, only: %i[create edit update]
 
   def show
   end
@@ -27,6 +26,8 @@ class Private::PagesController < PrivateController
     @page = @project.pages.new(page_params)
 
     if @page.save
+      generate_og_image
+
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
       render :new
@@ -35,6 +36,8 @@ class Private::PagesController < PrivateController
 
   def update
     if @page.update(page_params)
+      generate_og_image
+
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
       render :edit

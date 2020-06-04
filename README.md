@@ -61,16 +61,13 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 
 ## Install ImageMagick on Ubuntu  
 
-- `sudo apt-get update`
-- `sudo apt-get upgrade`
 - `sudo apt-get install imagemagick`
+- `sudo apt-get install libmagickcore-6.q16-dev`
 
 ## Install Redis  
 
 ### on development(local) Ubuntu  
 
-- `sudo apt-get update`
-- `sudo apt-get upgrade`
 - `sudo apt-get install redis-server`
 
 ### Check installation  
@@ -78,8 +75,6 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 
 ### on production(remote) Ubuntu  
 
-- `sudo apt-get update`
-- `sudo apt-get upgrade`
 - `sudo apt-get install redis-server`
 
 - And add Redis to autoload

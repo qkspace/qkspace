@@ -40,6 +40,6 @@ module ApplicationHelper
   end
 
   def opengraph_image_link
-    main_host_url("/images/opengraph/#{@project.id}/#{@page.id}/og-image.png")
+    main_host_url("/images/opengraph/#{@project.id}/#{@page.id}/og-image.jpg")
   end
 end
