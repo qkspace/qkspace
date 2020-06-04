@@ -104,3 +104,21 @@ To setup a Sidekiq Systemd service, you need a service configuration file. An ex
   systemctl restart sidekiq
   systemctl kill -s TSTP sidekiq # quiet
   ```
+  
+## Change swap size in Ubuntu 18.04  
+### To generate OGImages, recommended to increase size of the swap file  
+In the following example, we’ll extend the swap space available in the /swapfile to 8 GB
+- Turn off all swap processes
+  - `sudo swapoff -a`
+- Resize the swap
+  - `sudo dd if=/dev/zero of=/swapfile bs=1G count=8`  
+      if = input file  
+      of = output file  
+      bs = block size  
+      count = multiplier of blocks  
+- Make the file usable as swap
+  - `sudo mkswap /swapfile`
+- Activate the swap file
+  - `sudo swapon /swapfile`
+- Check the amount of swap available
+  - `grep SwapTotal /proc/meminf`
