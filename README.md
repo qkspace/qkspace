@@ -57,35 +57,36 @@ See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
 
-# Installing  
+# Installation  
 
-## Install ImageMagick on Ubuntu  
+**Install ImageMagick on Ubuntu**  
+```
+sudo apt-get install imagemagick
+sudo apt-get install libmagickcore-6.q16-dev
+```
+**Install Redis**  
 
-- `sudo apt-get install imagemagick`
-- `sudo apt-get install libmagickcore-6.q16-dev`
-
-## Install Redis  
-
-### on development(local) Ubuntu  
+on development(local) Ubuntu  
 
 - `sudo apt-get install redis-server`
 
-### Check installation  
+Check installation  
 - `redis-server -v`
 
-### on production(remote) Ubuntu  
+on production(remote) Ubuntu  
 
 - `sudo apt-get install redis-server`
 
 - And add Redis to autoload
   - `sudo systemctl enable redis-server`
 
-### Check installation  
+Check installation  
+```
+sudo systemctl start redis
+sudo systemctl status redis
+```
 
-- `sudo systemctl start redis`
-- `sudo systemctl status redis`
-
-## Running Sidekiq in production using Systemd  
+**Running Sidekiq in production using Systemd**  
 
 To setup a Sidekiq Systemd service, you need a service configuration file. An example file can be found in the [Sidekiq github repo.](https://github.com/mperham/sidekiq/tree/master/examples/systemd)
 - Copy this file to your server and place it in `/lib/systemd/system` There are two lines here that require adjustment to your settings;
@@ -105,16 +106,17 @@ To setup a Sidekiq Systemd service, you need a service configuration file. An ex
   systemctl kill -s TSTP sidekiq # quiet
   ```
   
-## Change swap size in Ubuntu 18.04  
-### To generate OGImages, recommended to increase size of the swap file  
+**Change swap size in Ubuntu 18.04**  
+
+To generate OGImages, recommended to increase size of the swap file  
 In the following example, we’ll extend the swap space available in the /swapfile to 8 GB
 - Turn off all swap processes
   - `sudo swapoff -a`
 - Resize the swap
   - `sudo dd if=/dev/zero of=/swapfile bs=1G count=8`  
-      if = input file  
+      *if = input file  
       of = output file  
-      bs = block size  
+      bs = block size*  
       count = multiplier of blocks  
 - Make the file usable as swap
   - `sudo mkswap /swapfile`
