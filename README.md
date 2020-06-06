@@ -116,8 +116,8 @@ In the following example, we’ll extend the swap space available in the /swapfi
   - `sudo dd if=/dev/zero of=/swapfile bs=1G count=8`  
       *if = input file  
       of = output file  
-      bs = block size*  
-      count = multiplier of blocks  
+      bs = block size  
+      count = multiplier of blocks*  
 - Make the file usable as swap
   - `sudo mkswap /swapfile`
 - Activate the swap file
