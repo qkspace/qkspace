@@ -8,12 +8,20 @@ class Private::ProjectsController < PrivateController
     collaborations = current_user.project_collaborations.includes(:user)
     @collaborated_projects = collaborations.map(&:project)
     @collaborations = collaborations.map { |x| [x.project.id, x] }.to_h
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @owned_projects }
+    end
   end
 
   def show
     page = @project.pages.first
 
-    redirect_to private_project_page_path(@project, page)
+    respond_to do |format|
+      format.html { redirect_to private_project_page_path(@project, page) }
+      format.json { render json: @project.pages }
+    end
   end
 
   def new
