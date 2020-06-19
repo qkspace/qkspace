@@ -58,7 +58,7 @@ GEM
     commonmarker (0.17.13)
       ruby-enum (~> 0.5)
     concurrent-ruby (1.1.6)
-    connection_pool (2.2.2)
+    connection_pool (2.2.3)
     crass (1.0.6)
     data_migrate (5.2.0)
       rails (>= 4.2)
@@ -118,7 +118,7 @@ GEM
     public_suffix (3.0.3)
     puma (4.3.5)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
@@ -156,7 +156,7 @@ GEM
       ffi (~> 1.0)
     recaptcha (4.12.0)
       json
-    redis (4.1.4)
+    redis (4.2.1)
     rmagick (4.1.1)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
@@ -201,11 +201,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sidekiq (6.0.7)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
+    sidekiq (5.2.1)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     simple_form (5.0.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -269,7 +268,7 @@ DEPENDENCIES
   rspec-rails
   rspec-sidekiq
   sass-rails
-  sidekiq
+  sidekiq (= 5.2.1)
   simple_form
   simpleidn
   spring
