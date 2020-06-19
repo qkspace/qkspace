@@ -43,7 +43,8 @@ Regarding commercial collaboration please contact us at business@qkspace.com
 [Aleksander Klimenkov](https://github.com/prisioner)  
 [Dmitry Smirnov](https://github.com/vergilsm)  
 [Igor Stroganov](https://github.com/Gargantua88)  
-[Dmitry Malyshev](https://github.com/tenseisan)
+[Dmitry Malyshev](https://github.com/tenseisan)  
+[Alexander Vladimirov](https://github.com/Sou1Jkeee)
 
 The developers' contributions are listed on the [corresponding page](https://github.com/qkspace/qkspace/graphs/contributors).
 
