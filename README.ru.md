@@ -52,3 +52,7 @@ QKspace (читается «квик спэйс») это минималисти
 # Лицензия
 
 MIT (см. LICENSE)
+
+# Установка
+
+Инструкция по установке в [README](https://github.com/qkspace/qkspace/blob/master/README.md).

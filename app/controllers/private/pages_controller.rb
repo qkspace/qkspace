@@ -26,6 +26,8 @@ class Private::PagesController < PrivateController
     @page = @project.pages.new(page_params)
 
     if @page.save
+      generate_og_image
+
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
       render :new
@@ -34,6 +36,8 @@ class Private::PagesController < PrivateController
 
   def update
     if @page.update(page_params)
+      generate_og_image
+
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
       render :edit
@@ -62,5 +66,9 @@ class Private::PagesController < PrivateController
 
   def set_project
     @project = current_user.projects.find(params[:project_id])
+  end
+
+  def generate_og_image
+    OgImageWorker.perform_async(@project.id, @page.id, @page.title)
   end
 end
