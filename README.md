@@ -44,6 +44,7 @@ Regarding commercial collaboration please contact us at business@qkspace.com
 [Dmitry Smirnov](https://github.com/vergilsm)  
 [Igor Stroganov](https://github.com/Gargantua88)  
 [Dmitry Malyshev](https://github.com/tenseisan)  
+[Alexander Vladimirov](https://github.com/Sou1Jkeee)
 
 The developers' contributions are listed on the [corresponding page](https://github.com/qkspace/qkspace/graphs/contributors).
 
@@ -56,3 +57,71 @@ See `LICENSE` for full text.
 See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
+
+# Installation  
+
+**Install ImageMagick on Ubuntu**  
+```
+sudo apt-get install imagemagick
+sudo apt-get install libmagickcore-6.q16-dev
+```
+**Install Redis**  
+
+on development(local) Ubuntu  
+
+- `sudo apt-get install redis-server`
+
+Check installation  
+- `redis-server -v`
+
+on production(remote) Ubuntu  
+
+- `sudo apt-get install redis-server`
+
+- And add Redis to autoload
+  - `sudo systemctl enable redis-server`
+
+Check installation  
+```
+sudo systemctl start redis
+sudo systemctl status redis
+```
+
+**Running Sidekiq in production using Systemd**  
+
+To setup a Sidekiq Systemd service, you need a service configuration file. An example file can be found in the [Sidekiq github repo.](https://github.com/mperham/sidekiq/tree/master/examples/systemd)
+- Copy this file to your server and place it in `/lib/systemd/system` There are two lines here that require adjustment to your settings;
+  1. The working directory path, change this to you application path, for example:  
+  `WorkingDirectory=/home/deploy/my_app/current`
+  2. The `ExecStart` path. This specifies the path and command to start Sidekiq. Now this could be different depending on your settings and ruby version managers (if you use one).
+  For example:  
+  `ExecStart=/home/deploy/.rbenv/shims/bundle exec sidekiq -e production`
+- After setting up configuration, enable the Sidekiq service with:  
+  `sudo systemctl enable` 
+  
+- Other commands:  
+  ```
+  systemctl stop sidekiq  
+  systemctl start sidekiq
+  systemctl restart sidekiq
+  systemctl kill -s TSTP sidekiq # quiet
+  ```
+  
+**Change swap size in Ubuntu 18.04**  
+
+To generate OGImages, recommended to increase size of the swap file  
+In the following example, we’ll extend the swap space available in the /swapfile to 8 GB
+- Turn off all swap processes
+  - `sudo swapoff -a`
+- Resize the swap
+  - `sudo dd if=/dev/zero of=/swapfile bs=1G count=8`  
+      *if = input file  
+      of = output file  
+      bs = block size  
+      count = multiplier of blocks*  
+- Make the file usable as swap
+  - `sudo mkswap /swapfile`
+- Activate the swap file
+  - `sudo swapon /swapfile`
+- Check the amount of swap available
+  - `grep SwapTotal /proc/meminf`

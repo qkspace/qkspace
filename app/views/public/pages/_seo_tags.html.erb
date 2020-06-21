@@ -4,6 +4,8 @@
 <meta property="og:title" content="<%= @page.title %>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<%= request.original_url %>" />
-<meta property="og:image" content="<%= main_host_url('/images/og-image-sq.png') %>" />
+<meta property="og:image" content="<%= opengraph_image_link %>" />
 <%= tag :meta, property: 'og:description', content: page_brief(@page) %>
 <meta property="og:site_name" content="<%= @project.title %>" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="<%= opengraph_image_link %>">

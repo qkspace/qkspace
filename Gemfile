@@ -20,9 +20,11 @@ gem 'puma'
 gem 'rails', '~> 5.2'
 gem 'rails-i18n'
 gem 'recaptcha'
+gem 'rmagick'
 gem 'sass-rails'
-gem 'simpleidn'
+gem 'sidekiq', '5.2.1'
 gem 'simple_form'
+gem 'simpleidn'
 gem 'tui_editor-rails'
 gem 'turbolinks'
 gem 'uglifier'
@@ -40,6 +42,10 @@ group :development, :test do
   gem 'sqlite3'
   # gem 'i18n-tasks'
   # gem 'i18n-debug'
+end
+
+group :test do
+  gem 'rspec-sidekiq'
 end
 
 group :development do

@@ -46,9 +46,14 @@ QKspace (читается «квик спэйс») это минималисти
 [Дмитрий Смирнов](https://github.com/vergilsm)  
 [Игорь Строганов](https://github.com/Gargantua88)  
 [Дмитрий Малышев](https://github.com/tenseisan)  
+[Александр Владимиров](https://github.com/Sou1Jkeee)
 
 Посмотреть вклад участников можно на [соответствующей странице](https://github.com/qkspace/qkspace/graphs/contributors).
 
 # Лицензия
 
 MIT (см. LICENSE)
+
+# Установка
+
+Инструкция по установке в [README](https://github.com/qkspace/qkspace/blob/master/README.md).

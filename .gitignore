@@ -6,6 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
+/*.rdb
+/public/images/opengraph
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
