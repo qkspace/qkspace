@@ -58,6 +58,20 @@ See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
 
+# Launching
+
+- Download or clone repo. 
+- Use bundler 
+  - `$ bundle install`
+- Run database migrations
+  - `$ rails db:migrate`
+- Create test data 
+  - `$ rake db:seed`
+- Launch Rails server 
+  - `$ rails s`
+- Visit to
+  - `localhost:3000`
+
 # Installation  
 
 **Install ImageMagick on Ubuntu**  
