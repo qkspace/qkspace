@@ -1,14 +1,14 @@
 User.create(email: 'example@example.com')
 
-Project.create(id: '1', user_id: '1', title: 'test_project', slug: 'bbbb',
+Project.create(id: '1', user_id: '1', title: 'test project', slug: 'bbbb',
   private: '1', secret_enabled: '1')
 
-Page.create(title: 'about_qkspace_page', source: 'QKspace (произносится как «быстрое
- пространство») является минималистической базой знаний для небольших команд.',
- id: '2', project_id: '1')
+Page.create(title: 'About qkspace project', source: 'QKspace (pronounced "quick space")
+  is a minimalistic knowledge base for small teams.',
+  id: '2', project_id: '1')
 
-Page.create(title: 'description_qkspace_page', source: 'Он идеально подходит
-  для создания справочной базы курсов для образовательной организации, для
-  составления списка QnA в ИТ, для обмена знаниями в социальных группах, для
-  cоставления тематического списка личных цитат и заметок.',
+Page.create(title: 'Description qkspace project', source: 'It is perfect for creating
+  a course reference base for an educational organisation, for making a QnA list in the IT,
+  for exchanging knowledge within social work teams, for making a thematic list
+  of personal quotes and notes.',
   id: '3', project_id: '1')

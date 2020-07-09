@@ -60,17 +60,23 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 
 # Launching
 
-- Download or clone repo. 
+Download or clone repo. 
 - Use bundler 
   - `$ bundle install`
 - Run database migrations
   - `$ rails db:migrate`
 - Create test data 
   - `$ rake db:seed`
+- Launch Redis in a new tab
+  - `redis-server`
 - Launch Rails server 
   - `$ rails s`
 - Visit to
   - `localhost:3000`
+- Visit to private page
+  - `http://localhost:3000/projects`
+- Visit to public page
+  - `http://bbbb.qkspace.localhost:3000/test-project`
 
 # Installation  
 
