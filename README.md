@@ -61,18 +61,41 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 # Launching
 
 Download or clone repo. 
-- Use bundler `bundle install`
-- Run database migrations `rails db:migrate`
-- Create test data `rails db:seed`
-- Launch Rails server `rails s`
-- Visit to `localhost:3000`
-- Enter your email address in the input field (example@example.com).
-- Go to the console and copy the link. Follow this link. Example:
-  (`http://localhost:3000/sign_in/uR7S9GVX50Et6EMCMJ7MP2jPeCamf31USWKUSfEabEM`)
-- Visit to private page `http://localhost:3000/projects`
-- If need vizit public page run command `sudo nano /etc/hosts`
-  and add `127.0.0.1 test.qkspace.localhost:3000`
-- Visit to public page`http://test.qkspace.localhost:3000/qkspace-test-project`
+
+Use bundler
+```
+bundle install
+```
+
+Run database migrations
+```
+rails db:migrate
+```
+
+Fill development database with some test data
+```
+rails db:seed
+```
+
+Launch Rails server 
+```
+rails s
+```
+
+Open `http://localhost:3000` in your browser
+
+Enter your email address in the input field (the user email from the seed is example@example.com).
+
+Copy the sign in link from the server console and follow this link. Example:
+(`http://localhost:3000/sign_in/uR7S9GVX50Et6EMCMJ7MP2jPeCamf31USWKUSfEabEM`)
+
+Go to private page `http://localhost:3000/projects`
+
+To visit public pages on subdomains on your local machine you need to update your `/etc/hosts` file, adding the neede subdomain. For example:
+
+`sudo nano /etc/hosts` add `127.0.0.1 test.qkspace.localhost:3000`
+
+Go to public page and check: `http://test.qkspace.localhost:3000/qkspace-test-project`
 
 # Installation  
 
