@@ -64,7 +64,6 @@ Download or clone repo.
 - Use bundler `bundle install`
 - Run database migrations `rails db:migrate`
 - Create test data `rails db:seed`
-- Launch Redis in a new tab `redis-server`
 - Launch Rails server `rails s`
 - Visit to `localhost:3000`
 - Enter your email address in the input field (example@example.com).
