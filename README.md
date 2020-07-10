@@ -61,22 +61,19 @@ This background of [this image](/public/images/og-image-sq.png) is courtesy NASA
 # Launching
 
 Download or clone repo. 
-- Use bundler 
-  - `$ bundle install`
-- Run database migrations
-  - `$ rails db:migrate`
-- Create test data 
-  - `$ rake db:seed`
-- Launch Redis in a new tab
-  - `redis-server`
-- Launch Rails server 
-  - `$ rails s`
-- Visit to
-  - `localhost:3000`
-- Visit to private page
-  - `http://localhost:3000/projects`
-- Visit to public page
-  - `http://bbbb.qkspace.localhost:3000/test-project`
+- Use bundler `bundle install`
+- Run database migrations `rails db:migrate`
+- Create test data `rails db:seed`
+- Launch Redis in a new tab `redis-server`
+- Launch Rails server `rails s`
+- Visit to `localhost:3000`
+- Enter your email address in the input field (example@example.com).
+- Go to the console and copy the link. Follow this link. Example:
+  (`http://localhost:3000/sign_in/uR7S9GVX50Et6EMCMJ7MP2jPeCamf31USWKUSfEabEM`)
+- Visit to private page `http://localhost:3000/projects`
+- If need vizit public page run command `sudo nano /etc/hosts`
+  and add `127.0.0.1 test.qkspace.localhost:3000`
+- Visit to public page`http://test.qkspace.localhost:3000/qkspace-test-project`
 
 # Installation  
 
