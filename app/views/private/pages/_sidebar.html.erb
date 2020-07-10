@@ -11,9 +11,11 @@
 <p>
   <%= link_to t('views.sidebar.new_page'), new_private_project_page_path(@project), id: 'new_page' %>
 </p>
-<p>
-  <%= link_to t('views.sidebar.edit_project'), edit_private_project_url(@project) %>
-</p>
+<% if current_user.owns?(@project) %>
+  <p>
+    <%= link_to t('views.sidebar.edit_project'), edit_private_project_url(@project) %>
+  </p>
+<% end %>
 
 <script>
   $(document).on('turbolinks:load', function () {
