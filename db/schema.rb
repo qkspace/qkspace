@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_145933) do
-
-  create_table "data_migrations", id: false, force: :cascade do |t|
-    t.string "version", null: false
-    t.index ["version"], name: "unique_data_migrations", unique: true
-  end
+ActiveRecord::Schema.define(version: 2020_07_10_202329) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -36,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_01_25_145933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "user_id"], name: "index_project_collaborations_on_project_id_and_user_id", unique: true
-    t.index ["project_id"], name: "index_project_collaborations_on_project_id"
-    t.index ["user_id"], name: "index_project_collaborations_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -70,7 +63,6 @@ ActiveRecord::Schema.define(version: 2020_01_25_145933) do
     t.string "type"
     t.integer "project_id"
     t.index ["token"], name: "index_sessions_on_token", unique: true
-    t.index ["user_id"], name: "authenticatable"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
