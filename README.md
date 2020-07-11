@@ -58,6 +58,45 @@ See `THIRDPARTY-LICENSES` for third-party licenses' texts.
 
 This background of [this image](/public/images/og-image-sq.png) is courtesy NASA/JPL-Caltech.
 
+# Launching
+
+Download or clone repo. 
+
+Use bundler
+```
+bundle install
+```
+
+Run database migrations
+```
+rails db:migrate
+```
+
+Fill development database with some test data
+```
+rails db:seed
+```
+
+Launch Rails server 
+```
+rails s
+```
+
+Open `http://localhost:3000` in your browser
+
+Enter your email address in the input field (the user email from the seed is example@example.com).
+
+Copy the sign in link from the server console and follow this link. Example:
+(`http://localhost:3000/sign_in/uR7S9GVX50Et6EMCMJ7MP2jPeCamf31USWKUSfEabEM`)
+
+Go to private page `http://localhost:3000/projects`
+
+To visit public pages on subdomains on your local machine you need to update your `/etc/hosts` file, adding the needed subdomain. For example:
+
+`sudo nano /etc/hosts` add `127.0.0.1 test.qkspace.localhost:3000`
+
+Go to public page and check: `http://test.qkspace.localhost:3000/qkspace-test-project`
+
 # Installation  
 
 **Install ImageMagick on Ubuntu**  

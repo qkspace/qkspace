@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user = User.create(email: 'example@example.com')
+
+project = Project.create(user_id: user.id, title: 'QKspace Test Project ', slug: 'test',
+  private: '1', secret_enabled: '1')
+
+Page.create(project_id: project.id, title: 'About QKspace', source: 'QKspace (pronounced "quick space")
+  is a minimalistic knowledge base for small teams.')
+
+Page.create(project_id: project.id, title: 'QKspace Project Description', source: 'It is perfect for creating
+  a course reference base for an educational organisation, for making a QnA list in the IT,
+  for exchanging knowledge within social work teams, for making a thematic list
+  of personal quotes and notes.')
