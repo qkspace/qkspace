@@ -91,7 +91,7 @@ Copy the sign in link from the server console and follow this link. Example:
 
 Go to private page `http://localhost:3000/projects`
 
-To visit public pages on subdomains on your local machine you need to update your `/etc/hosts` file, adding the neede subdomain. For example:
+To visit public pages on subdomains on your local machine you need to update your `/etc/hosts` file, adding the needed subdomain. For example:
 
 `sudo nano /etc/hosts` add `127.0.0.1 test.qkspace.localhost:3000`
 
