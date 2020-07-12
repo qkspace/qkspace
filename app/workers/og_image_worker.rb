@@ -12,15 +12,19 @@ class OgImageWorker
     title.gravity = Magick::CenterGravity
     title.annotate(img, 0, 0, 0, 140, wrap_text(page_title))
 
-    dir = if Rails.env.test?
-            "#{Rails.root}/public/images/opengraph/test/#{project_id}/#{page_id}"
-          else
-            "#{Rails.root}/public/images/opengraph/#{project_id}/#{page_id}"
-          end
+    dir = og_image_path(project_id, page_id)
 
     FileUtils.mkdir_p(dir)
 
     img.write("#{dir}/og-image.jpg")
+  end
+
+  def og_image_path(project_id, page_id)
+    if Rails.env.test?
+      "#{Rails.root}/public/images/opengraph/test/#{project_id}/#{page_id}"
+    else
+      "#{Rails.root}/public/images/opengraph/#{project_id}/#{page_id}"
+    end
   end
 
   private

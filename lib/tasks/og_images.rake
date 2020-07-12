@@ -10,10 +10,14 @@ namespace :og_images do
     puts  "Processing #{pages.size} pages"
 
     pages.find_each.with_index do |page, index|
-      image = "#{Rails.root}/public/images/opengraph/#{page.project_id}/#{page.id}/og-image.jpg"
+      worker = OgImageWorker.new
+
+      dir = worker.og_image_path(page.project_id, page.id)
+
+      image = "#{dir}/og-image.jpg"
 
       unless File.exist?(image)
-        OgImageWorker.new.perform(page.project_id, page.id, page.title)
+        worker.perform(page.project_id, page.id, page.title)
 
         generated_count += 1
       end
