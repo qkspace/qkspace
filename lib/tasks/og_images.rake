@@ -10,7 +10,6 @@ namespace :og_images do
     puts  "Processing #{pages.size} pages"
 
     pages.find_each.with_index do |page, index|
-
       image = "#{Rails.root}/public/images/opengraph/#{page.project_id}/#{page.id}/og-image.jpg"
 
       unless File.exist?(image)
