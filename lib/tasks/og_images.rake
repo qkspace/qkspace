@@ -1,5 +1,3 @@
-require "#{Rails.root}/app/workers/og_image_worker.rb"
-
 namespace :og_images do
   desc "Generating OpenGraph Images for existing pages"
   task generate: :environment do
@@ -10,14 +8,12 @@ namespace :og_images do
     puts  "Processing #{pages.size} pages"
 
     pages.find_each.with_index do |page, index|
-      worker = OgImageWorker.new
+      service = OgImageService.new(page.project_id, page.id, page.title)
 
-      dir = worker.og_image_path(page.project_id, page.id)
-
-      image = "#{dir}/og-image.jpg"
+      image = "#{service.og_image_path}/og-image.jpg"
 
       unless File.exist?(image)
-        worker.perform(page.project_id, page.id, page.title)
+        service.generate
 
         generated_count += 1
       end

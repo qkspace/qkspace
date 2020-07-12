@@ -1,9 +1,7 @@
 require 'rails_helper'
-require 'sidekiq/testing'
-Sidekiq::Testing.fake!
 
-RSpec.describe OgImageWorker, type: :worker do
-  describe 'worker creates images' do
+RSpec.describe OgImageService, type: :service do
+  describe 'service creates images' do
     let(:pages) { create_list(:page, 5) }
 
     context 'before generate OGImage' do
@@ -19,7 +17,7 @@ RSpec.describe OgImageWorker, type: :worker do
         pages.each do |page|
           image = "#{Rails.root}/public/images/opengraph/test/#{page.project_id}/#{page.id}/og-image.jpg"
 
-          OgImageWorker.new.perform(page.project_id, page.id, page.title)
+          OgImageService.new(page.project_id, page.id, page.title).generate
 
           expect(File.exist?(image)).to be true
 
