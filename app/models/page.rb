@@ -4,6 +4,8 @@ class Page < ApplicationRecord
   belongs_to :project, inverse_of: :pages
 
   scope :ordered, -> { ordered_by_position_asc }
+  scope :draft, -> { where(draft: true) }
+  scope :published, -> { where(draft: false) }
 
   validates :title, :slug, presence: true
   validates :slug, uniqueness: { scope: :project_id }

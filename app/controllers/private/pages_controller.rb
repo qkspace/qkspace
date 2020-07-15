@@ -24,9 +24,10 @@ class Private::PagesController < PrivateController
 
   def create
     @page = @project.pages.new(page_params)
+    draft? ? save_to_draft : publish
 
     if @page.save
-      generate_og_image
+      generate_og_image unless draft?
 
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
@@ -35,8 +36,9 @@ class Private::PagesController < PrivateController
   end
 
   def update
+    draft? ? save_to_draft : publish
     if @page.update(page_params)
-      generate_og_image
+      generate_og_image unless draft?
 
       redirect_to private_project_page_path(@project, @page), notice: t('.notice')
     else
@@ -70,5 +72,17 @@ class Private::PagesController < PrivateController
 
   def generate_og_image
     OgImageWorker.perform_async(@project.id, @page.id, @page.title)
+  end
+
+  def draft?
+    params[:draft] == 'true'
+  end
+
+  def save_to_draft
+    @page.draft = true
+  end
+
+  def publish
+    @page.draft = false
   end
 end
