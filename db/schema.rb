@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_202329) do
+ActiveRecord::Schema.define(version: 2020_07_11_193831) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_202329) do
     t.integer "position", null: false
     t.text "source"
     t.text "html"
+    t.boolean "draft", default: false
     t.index ["position"], name: "index_pages_on_position"
     t.index ["project_id"], name: "index_pages_on_project_id"
   end

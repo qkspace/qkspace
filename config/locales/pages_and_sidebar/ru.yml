@@ -30,10 +30,12 @@ ru:
   views:
     pages:
       edit_page: Редактировать страницу
+      save_draft: Сохранить черновик
     sidebar:
       new_page: Добавить страницу
       edit_project: Редактировать проект
       sign_out: выйти
+      drafts: Черновики
     markdown:
       hint_link: "%{href} по оформлению"
       hint_a: Подсказка
