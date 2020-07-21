@@ -22,6 +22,7 @@
 //= require hotkeys
 //= require header-link.js
 //= require project_slug
+//= require clipboard.min
 
 // Toast UI
 //= require toast
