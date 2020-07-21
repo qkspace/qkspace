@@ -1,7 +1,7 @@
 window.onload=function(){
   var clipboard = new Clipboard('a.header-link', {
     text: function (trigger) {
-      return trigger.getAttribute('href');
+      return  trigger.href;
     }
   });
   clipboard.on('success', function(e) {
