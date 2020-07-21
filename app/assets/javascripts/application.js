@@ -23,6 +23,7 @@
 //= require header-link.js
 //= require project_slug
 //= require clipboard.min
+//= require header-link-copy
 
 // Toast UI
 //= require toast
