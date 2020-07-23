@@ -23,7 +23,6 @@
 //= require header-link.js
 //= require project_slug
 //= require clipboard.min
-//= require header-link-copy
 
 // Toast UI
 //= require toast
@@ -46,3 +45,5 @@ $(document).on('turbolinks:load', function() {
   hljs.initHighlighting.called = false;
   hljs.initHighlighting();
 });
+
+//require 
