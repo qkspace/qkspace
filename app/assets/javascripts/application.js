@@ -21,17 +21,13 @@
 //= require highlight.min
 //= require hotkeys
 //= require header-link.js
+//= require header-link-copy
 //= require project_slug
-//= require clipboard.min
 
 // Toast UI
 //= require toast
 
 //= require_self
-
-$(document).on('turbolinks:load', function() {
-  new Clipboard('.clipboard');
-});
 
 $(document).on('turbolinks:load', function() {
   $('#project-private-checkbox').change(function() {
