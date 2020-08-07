@@ -4,10 +4,4 @@ $(document).on('turbolinks:load', function() {
       return  trigger.href;
     }
   });
-  clipboard.on('success', function(e) {
-    console.log(e);
-  });
-  clipboard.on('error', function(e) {
-    console.log(e);
-  }); 
 });
