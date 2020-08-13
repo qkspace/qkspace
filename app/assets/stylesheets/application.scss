@@ -58,4 +58,8 @@ table.table {
 .tui-editor-defaultUI .te-markdown-tab-section button {
   height: 32px;
 }
+
+.page-content img {
+  @extend .img-fluid;
+}
 /* end */
