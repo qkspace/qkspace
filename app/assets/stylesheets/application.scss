@@ -36,6 +36,33 @@
   }
 
   word-wrap: break-word;
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
+
+    th {
+      font-weight: bold;
+      padding: 5px;
+      background: $gray-400;
+      border: 1px solid $gray-100;
+    }
+
+    td {
+      padding: 5px 10px;
+      border: 1px solid $gray-200;
+      text-align: left;
+    }
+
+    tbody tr:nth-child(odd){
+      background: white;
+    }
+
+    tbody tr:nth-child(even){
+      background: $gray-100;
+    }
+  }
 }
 
 pre {
