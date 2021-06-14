@@ -31,7 +31,7 @@ class Page < ApplicationRecord
   end
 
   def markup
-    node = CommonMarker.render_doc(source, :DEFAULT)
+    node = CommonMarker.render_doc(source, :DEFAULT, %i[table autolink])
     renderer = HeadersRenderer.new
     self.html = renderer.render(node)
   end
