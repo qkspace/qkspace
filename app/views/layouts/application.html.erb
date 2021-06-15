@@ -21,7 +21,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class="container my-3">
+  <div class="container mt-3 mb-5">
     <% if show_header? %>
       <div class="row mb-5">
         <div class="col text-right">
@@ -38,8 +38,9 @@
       </div>
     <% end %>
 
-    <% row_class, col_class =
-      content_for?(:sidebar) ? ['row', 'col'] : ['row d-flex justify-content-center', 'col-md-7'] %>
+    <% full_width_layout = content_for?(:sidebar) || content_for?(:full_width_layout) %>
+    <% row_class, col_class = full_width_layout ? ['row', 'col'] : ['row d-flex justify-content-center', 'col-md-7'] %>
+
     <div class="<%= row_class %>">
       <div class="<%= col_class %>">
         <div class="mb-4">
@@ -65,24 +66,19 @@
       </div>
     </div>
 
-    <% if content_for?(:sidebar) %>
-      <div class="row">
+    <div class="<%= row_class %>">
+      <% if content_for?(:sidebar) %>
         <div class="col-sm-8">
           <%= yield %>
         </div>
-        <div class="col-sm-4">
-          <div class="small">
-            <%= yield :sidebar %>
-          </div>
+        <div class="col-sm-4 small">
+          <%= yield :sidebar %>
         </div>
-      </div>
-    <% else %>
-      <div class="row d-flex justify-content-center">
-        <% layout_container_class = yield(:layout_container_class) || 'col-md-7' %>
-        <div class="<%= layout_container_class %>">
+      <% else %>
+        <div class="<%= col_class %>">
           <%= yield %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </html>
