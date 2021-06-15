@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def link_to_or_disable_current(text, url, *options)
     link_to_unless_current(text, url, *options) do
-      content_tag :p, text, class: 'text-muted'
+      content_tag :span, text, class: 'text-muted'
     end
   end
 
