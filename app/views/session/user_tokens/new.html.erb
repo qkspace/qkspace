@@ -1,4 +1,4 @@
-<%= content_for(:title) { t('.title') } %>
+<% content_for(:title) { t('.title') } %>
 
 <%= simple_form_for :session, url: sign_in_path do |f| %>
   <%= f.input :email, input_html: {value: params.fetch(:email, nil)} %>
