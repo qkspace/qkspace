@@ -1,6 +1,6 @@
 <h4 class="mb-3"><%= @project.title %></h4>
 
-<%= render @project.pages %>
+<%= render @project.pages.published %>
 
 <script>
   $(document).on('turbolinks:load', function () {

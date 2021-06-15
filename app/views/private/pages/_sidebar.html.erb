@@ -1,7 +1,9 @@
 <h4 class="mb-3"><%= @project.title %></h4>
 
 <div data-role="activerecord_sortable">
-  <%= render @project.pages %>
+  <%= render @project.pages.published %>
+  <p class="mb-3 text-muted"><%= t('views.sidebar.drafts') %></p>
+  <%= render @project.pages.draft %>
 </div>
 
 <p class="mt-4 mb-2">

@@ -2,7 +2,9 @@
   <%= f.input :title %>
   <%= f.input :source, as: :markdown, hint: markdown_hint_link %>
 
-  <%= f.button :submit, class: 'btn-light' %> <%= or_back_link %>
+  <%= f.button :submit, class: 'btn-light' %>
+  <%= f.button :button, t('views.pages.save_draft'), type: 'submit', name: 'draft', value: true, class: 'btn-info' %>
+  <%= or_back_link %>
 <% end %>
 
 <%= render 'markdown_modal_window' %>
