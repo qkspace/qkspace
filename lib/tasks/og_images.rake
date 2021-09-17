@@ -22,7 +22,7 @@ namespace :og_images do
     end
 
     puts "Processing complete."
-    puts "Images count: 109"
+    puts "Images count: #{pages.size}"
     puts "Images generated: #{generated_count}" if generated_count.positive?
   end
 end
