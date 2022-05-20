@@ -39,6 +39,12 @@ class Project < ApplicationRecord
     pages.build(title: title, source: '')
   end
 
+  def editors
+    User.
+      left_outer_joins(:owned_projects, :collaborated_projects).
+      where('projects.id = :project_id OR project_collaborations.project_id = :project_id', project_id: id)
+  end
+
   private
 
   def downcase_slug
