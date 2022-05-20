@@ -7,7 +7,12 @@ en:
       page:
         title: Title
         source: Content
-
+  mistake_report_mailer:
+    notify:
+      possible_correction: Possible correction
+      possible_mistake: Possible mistake
+      public_url: &public_url Public link
+      subject: 'Looks like mistake in %{project} (%{page})'
   # VC
   private:
     pages:
@@ -15,7 +20,7 @@ en:
         title: New Page
       show:
         new_block: Add block
-        public_hint: Public link
+        public_hint: *public_url
       edit:
         title: Edit Page
         cant_delete_last_page: Can't delete last page of project
@@ -27,6 +32,15 @@ en:
         notice: Page was saved
       destroy:
         notice: Page was deleted
+  public:
+    pages:
+      mistake_report_modal:
+        close: Close
+        correction_text: What needs to be fixed?
+        submit: Submit
+        title: Report a mistake
+      show:
+        mistake_report_instructions: To send mistake report, select text and press Ctrl+Enter
   views:
     pages:
       edit_page: Edit page

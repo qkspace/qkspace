@@ -48,7 +48,13 @@ $(document).on('turbolinks:load', function () {
       action:   function() {
         history.back();
       }
-    }
+    },
+
+    'mistake_report': {
+      ctrl: true,
+      keyCodes: [13],
+      action: () => mistakeReport(),
+    },
   };
 
   window.hotkeys = {
@@ -58,7 +64,7 @@ $(document).on('turbolinks:load', function () {
           window.usedHotkeys = ['post_form', 'abort_form'];
           break;
         case 'public_project_page':
-          window.usedHotkeys = ['next_page', 'previous_page'];
+          window.usedHotkeys = ['next_page', 'previous_page', 'mistake_report'];
           break;
         case 'private_project_page':
           window.usedHotkeys = ['next_page', 'previous_page', 'new_page', 'edit_page'];

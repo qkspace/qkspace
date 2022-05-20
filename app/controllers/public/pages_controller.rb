@@ -15,6 +15,20 @@ class Public::PagesController < PublicController
     redirect_to public_page_path(slug: @page.slug)
   end
 
+  def mistake_report
+    mistake_report_form =
+      ::MistakeReportForm.new(params.fetch(:mistake, {}).permit(:text, :correction).merge(page: @page))
+
+    if mistake_report_form.valid?
+      MistakeReportMailer.
+        with(url: public_project_page_url(@page), **mistake_report_form.attributes.symbolize_keys).
+        notify.
+        deliver_now
+    end
+
+    head :ok
+  end
+
   private
 
   def set_page

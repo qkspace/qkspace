@@ -4,6 +4,12 @@
   <%= @page.html.html_safe %>
 </div>
 
+<div class="mt-5 text-muted">
+  <span id="mistake-report-instructions"><%= t('.mistake_report_instructions') %></span>
+</div>
+
+<%= render 'mistake_report_modal' %>
+
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
 <% end %>
