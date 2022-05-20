@@ -1,0 +1,13 @@
+<div>
+  <p><b><%= t('.possible_mistake') %></b>:</p>
+  <p><%= params[:text] %></p>
+</div>
+
+<div>
+  <p><b><%= t('.possible_correction') %></b>:</p>
+  <p><%= params[:correction] %></p>
+</div>
+
+<div>
+  <p><%= link_to t('.public_url'), params[:url] %></p>
+</div>
