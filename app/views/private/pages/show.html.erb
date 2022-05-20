@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="page-content">
-  <%= @page.html.html_safe %>
+  <%= sanitize @page.html %>
 </div>
 
 <% content_for :sidebar do %>
