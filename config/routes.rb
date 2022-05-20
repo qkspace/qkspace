@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         member do
           get :next
           get :previous
+          post :mistake_report
         end
       end
     end
