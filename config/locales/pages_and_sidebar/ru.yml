@@ -7,7 +7,12 @@ ru:
       page:
         title: Заголовок
         source: Содержание
-
+  mistake_report_mailer:
+    notify:
+      possible_correction: Возможное исправление
+      possible_mistake: Возможная ошибка
+      public_url: &public_url Публичная ссылка
+      subject: 'Похоже, что ошибка в %{project} (%{page})'
   # VC
   private:
     pages:
@@ -15,7 +20,7 @@ ru:
         title: Новая страница
       show:
         new_block: Добавить блок
-        public_hint: Публичная ссылка
+        public_hint: *public_url
       edit:
         title: Редактирование страницы
         cant_delete_last_page: Нельзя удалить последнюю страницу проекта
@@ -27,6 +32,15 @@ ru:
         notice: Страница изменена
       destroy:
         notice: Страница удалена
+  public:
+    pages:
+      mistake_report_modal:
+        close: Закрыть
+        correction_text: Что нужно исправить?
+        submit: Отправить
+        title: Сообщить об ошибке
+      show:
+        mistake_report_instructions: Чтоб отправить сообщение о неточности, выделите текст и нажмите Clrl+Enter
   views:
     pages:
       edit_page: Редактировать страницу
