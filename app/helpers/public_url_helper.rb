@@ -25,8 +25,8 @@ module PublicUrlHelper
     uri.to_s
   end
 
-  def public_project_page_url(project, page)
-    uri = public_project_uri(project)
+  def public_project_page_url(page)
+    uri = public_project_uri(page.project)
     uri.path = "/" << page.slug
     uri.to_s
   end
