@@ -23,6 +23,7 @@
 //= require header-link.js
 //= require header-link-copy
 //= require project_slug
+//= require mistake_report
 
 // Toast UI
 //= require toast
